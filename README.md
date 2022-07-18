@@ -6,9 +6,9 @@ SP-Tools includes low latency onset detection, onset-based descriptor analysis, 
 SP-Tools is built around the [FluCoMa Toolkit](http://flucoma.org) and requires v1.0 to be installed for this package to work.
 
 ## Requirements
-Max 8.3 or higher or Live/M4L (Mac/Windows).
-FluCoMa v1.0 or higher.
-All abstractions work in 64-bit and M1/Universal Binary.
+Max 8.3 or higher or Live/M4L (Mac/Windows).  
+FluCoMa v1.0 or higher.  
+All abstractions work in 64-bit and M1/Universal Binary.  
 
 ## Useful Videos
 [SP-Tools Teaser Video](https://www.youtube.com/watch?v=CXLFH496TBI)  
@@ -19,14 +19,14 @@ All abstractions work in 64-bit and M1/Universal Binary.
 ## Glossary
 Depending on your knowledge level with machine learning processes, some of these terms may not make a lot of sense, so here is a short glossary to help you get going.
 
-**class:** a category or label, or "zone" in Sensory Percussion lingo
-**classification:** the process of defining and labelling classes
-**cluster:** a category or label that is determined by a clustering algorithm
-**corpus:** a pre-analyzed folder of samples
-**descriptors:** analyzed characteristics of a sound
-**melbands:** perceptually-spread frequency bands
-**MFCCs:** a list of numbers that describes complex timbral shapes
-**onsets:** an analyzed attack in audio
+**class:** a category or label, or "zone" in Sensory Percussion lingo  
+**classification:** the process of defining and labelling classes  
+**cluster:** a category or label that is determined by a clustering algorithm  
+**corpus:** a pre-analyzed folder of samples  
+**descriptors:** analyzed characteristics of a sound  
+**melbands:** perceptually-spread frequency bands  
+**MFCCs:** a list of numbers that describes complex timbral shapes  
+**onsets:** an analyzed attack in audio  
 
 ## List of Abstractions
 
