@@ -11,10 +11,10 @@ FluCoMa v1.0 or higher.
 All abstractions work in 64-bit and M1/Universal Binary.
 
 ## Useful Videos
-[SP-Tools Teaser Video](https://www.youtube.com/watch?v=CXLFH496TBI)<br>
-[SP-Tools (alpha v0.1) Video Overview](https://www.youtube.com/watch?v=xxiWaFLn0M8)<br>
-[Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)<br>
-[Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)<br>
+[SP-Tools Teaser Video](https://www.youtube.com/watch?v=CXLFH496TBI)  
+[SP-Tools (alpha v0.1) Video Overview](https://www.youtube.com/watch?v=xxiWaFLn0M8)  
+[Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
+[Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
 
 ## Glossary
 Depending on your knowledge level with machine learning processes, some of these terms may not make a lot of sense, so here is a short glossary to help you get going.
