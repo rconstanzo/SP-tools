@@ -46,7 +46,6 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 182.541564999999991, 484.075308266404363, 96.0, 47.0 ],
-					"presentation_linecount" : 3,
 					"text" : "subtract loudnesses and compensate"
 				}
 
@@ -993,7 +992,7 @@
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
 					"patching_rect" : [ 280.541564999999991, 610.363830042225572, 67.0, 22.0 ],
-					"text" : "clip 0.01 6."
+					"text" : "clip 0.01 4."
 				}
 
 			}
