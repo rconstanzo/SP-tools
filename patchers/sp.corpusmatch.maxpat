@@ -720,7 +720,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 249.5, 30.124999145691845, 155.0, 22.0 ],
-					"text" : "patcherargs @roundrobin 0"
+					"text" : "patcherargs @roundrobin 1"
 				}
 
 			}
