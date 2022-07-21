@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 310.0, 113.0, 1492.0, 852.0 ],
+		"rect" : [ 213.0, 106.0, 1492.0, 852.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -941,6 +941,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-9",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -950,6 +951,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 405.0, 440.099999999999966, 111.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -2438,7 +2440,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 310.0, 139.0, 1492.0, 826.0 ],
+						"rect" : [ 0.0, 26.0, 1492.0, 826.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -20643,7 +20645,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1492.0, 826.0 ],
+						"rect" : [ 213.0, 132.0, 1492.0, 826.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,

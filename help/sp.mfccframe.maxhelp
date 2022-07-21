@@ -257,6 +257,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-9",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -266,6 +267,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 400.0, 373.599999999999966, 111.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -10305,6 +10307,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-96",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -10314,6 +10317,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 653.404723999999987, 379.0, 143.0, 68.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -10964,6 +10968,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-9",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -10973,6 +10978,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 162.0, 373.599999999999966, 319.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 

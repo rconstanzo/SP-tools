@@ -102,6 +102,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-2",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -111,6 +112,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 169.0, 333.735728636363547, 100.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -409,6 +411,7 @@
 						"boxes" : [ 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-3",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -418,6 +421,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 260.0, 365.299999999999955, 111.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -425,6 +429,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-1",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -434,6 +439,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 75.0, 365.299999999999955, 111.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -10425,6 +10431,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-96",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -10434,6 +10441,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 661.404723999999987, 325.0, 143.0, 68.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -10934,6 +10942,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-9",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -10943,6 +10952,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 167.0, 327.599999999999966, 319.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
