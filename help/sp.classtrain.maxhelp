@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 400.0, 102.0, 677.0, 855.0 ],
+		"rect" : [ 236.0, 124.0, 721.0, 856.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 400.0, 128.0, 677.0, 829.0 ],
+						"rect" : [ 0.0, 26.0, 721.0, 830.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -424,7 +424,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 677.0, 829.0 ],
+						"rect" : [ 0.0, 26.0, 721.0, 830.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -797,7 +797,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 677.0, 829.0 ],
+						"rect" : [ 236.0, 150.0, 721.0, 830.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -827,6 +827,22 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"fontname" : "Arial",
+									"fontsize" : 13.0,
+									"id" : "obj-4",
+									"linecount" : 8,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 346.5, 662.5, 329.0, 123.0 ],
+									"presentation_linecount" : 6,
+									"text" : "*You can refer to the SP guide on training the classifer in terms of how many hits are required per class. Most are between 50-100 although some of the other ones are fine with less hits (30-40). You definitely want to do more than the example above which is just there for demonstrative purposes.\n\nhttps://help.sunhou.se/start/training_drum",
+									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"bubble" : 1,
 									"fontname" : "Arial",
@@ -1182,6 +1198,20 @@
 									"numoutlets" : 0,
 									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
 									"text" : "sp.classtrain"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"angle" : 270.0,
+									"bgcolor" : [ 0.800000071525574, 0.800000071525574, 0.799999952316284, 1.0 ],
+									"id" : "obj-54",
+									"maxclass" : "panel",
+									"mode" : 0,
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 339.0, 654.0, 344.0, 140.0 ],
+									"proportion" : 0.5
 								}
 
 							}
