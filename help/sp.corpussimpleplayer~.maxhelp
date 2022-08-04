@@ -366,6 +366,20 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-104::obj-87::obj-27::obj-19" : [ "rslider[2]", "rslider", 0 ],
+			"parameterbanks" : 			{
+				"0" : 				{
+					"index" : 0,
+					"name" : "",
+					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+				}
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "Constanzo-PreparedSnare.wav",
 				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/media",
@@ -379,6 +393,10 @@
 			}
 , 			{
 				"name" : "fluid.buf2list.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufcompose~.mxo",
 				"type" : "iLaX"
 			}
 , 			{

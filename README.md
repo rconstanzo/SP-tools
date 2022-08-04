@@ -1,9 +1,9 @@
 # SP-Tools - Machine Learning tools for drums and percussion
-SP-Tools are a set of marchine learning tools that are optimized for low latency and real-time performance. The tools can be used with [Sensory Percussion](http://sunhou.se) sensors, ordinary drum triggers, or any audio input.
+SP-Tools are a set of marchine learning tools that are optimized for low latency and real-time performance. The tools can be used with [Sensory Percussion](http://sunhou.se) sensors, ordinary drum triggers, or any audio input.  
 
-SP-Tools includes low latency onset detection, onset-based descriptor analysis,  classification and clustering, corpus analysis and querying*, and a slew of other abstractions that are optimized for drum and percussion sounds.
+SP-Tools includes low latency onset detection, onset-based descriptor analysis,  classification and clustering, corpus analysis and querying*, neural network predictive regression, and a slew of other abstractions that are optimized for drum and percussion sounds.  
 
-SP-Tools is built around the [FluCoMa Toolkit](http://flucoma.org) and requires v1.0 to be installed for this package to work.
+SP-Tools is built around the [FluCoMa Toolkit](http://flucoma.org) and requires v1.0 to be installed for this package to work.  
 
 ## Requirements
 Max 8.3 or higher or Live/M4L (Mac/Windows).  
@@ -13,8 +13,17 @@ All abstractions work in 64-bit and M1/Universal Binary.
 ## Useful Videos
 [SP-Tools Teaser Video](https://www.youtube.com/watch?v=CXLFH496TBI)  
 [SP-Tools (alpha v0.1) Video Overview](https://www.youtube.com/watch?v=xxiWaFLn0M8)  
+[SP-Tools (alpha v0.2) Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
 [Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
 [Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
+
+## Changelog
+### v.02 - [SP-Tools v0.2 Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
+* added "setups" (corpus scaling and neural network prediction/regression)  
+* added "controllers" (meta-parameters extracted from onset timings and descriptor analysis)  
+* added four new abstractions (`sp.controllers`, `sp.speed`, `sp.setupanalysis`, `sp.setuptrain~`)  
+* added new corpus (corpus_voice.json)  
+* added `@roundrobin` mode to `sp.corpusmatch`  
 
 ## Glossary
 Depending on your knowledge level with machine learning processes, some of these terms may not make a lot of sense, so here is a short glossary to help you get going.
@@ -27,6 +36,7 @@ Depending on your knowledge level with machine learning processes, some of these
 **melbands:** perceptually-spread frequency bands  
 **MFCCs:** a list of numbers that describes complex timbral shapes  
 **onsets:** an analyzed attack in audio  
+**regression:** interpolating or predicting a new point given training data  
 
 ## List of Abstractions
 
@@ -41,6 +51,9 @@ sp.classtrain will create a classifier based on incoming class labels and descri
 
 ### **sp.clustertrain** - *Create clusters based on input analysis*
 sp.clustertrain will create a classifier based on incoming class labels and descriptor analysis. The labels can be the default Sensory Percussion labels or any arbitrary input.
+
+### **sp.controllers** - *Machine Learning tools for drums and percussion*
+sp.controllers works in conjuntion with sp.descriptosr~/sp.descriptorframe to create several meta-parameters based on loudness and centroid (brightness).  
 
 ### **sp.corpusanalysis** - *Analyze all the samples in a folder*
 sp.corpusanalysis works in conjunction with sp.folderloop to analyze all the samples in a folder for a variety of descriptors, timeframes, and metadata to be used in sp.corpusmatch. Keeps track of the location of the samples when analyzed.
@@ -92,3 +105,12 @@ sp.onsetframe~ takes audio input, just like sp.onset~ but instead of outputting 
 
 ### **sp.plotter** - *Display 2d corpus data and labels*
 sp.plotter is a utility for visualizing corpora and trained classes.
+
+### **sp.setupanalysis** - *Analyze onsets for multiple descriptors at multiple timeframes*
+sp.setupanalysis is used in conjunction with sp.onsetframe~ to create analyses for multiple descriptors at 256 and 4410 analysis windows. This is later used to improve matching with sp.corpusmatch.  
+
+### **sp.setuptrain~** - *Create a setup which can be used to improve corpus matching*
+sp.setuptrain creates a setup or overview of of your instrument/sticks/sources. It saves multiple descriptors at multiple time frames and can be used to scale your input to match a corpus, or to improve matching overall.  
+
+### **sp.speed** - *Extract timing and speed parameters from onsets*
+sp.speed works in conjunction with sp.onset~ to create several parameters based on the time between attacks.

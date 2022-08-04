@@ -529,6 +529,7 @@
 			}
  ],
 		"parameters" : 		{
+			"obj-106::obj-87::obj-27::obj-19" : [ "rslider[2]", "rslider", 0 ],
 			"obj-4" : [ "live.dial[4]", "loudness", 0 ],
 			"obj-5" : [ "live.dial[1]", "spectral", 0 ],
 			"parameterbanks" : 			{
@@ -556,6 +557,10 @@
 			}
 , 			{
 				"name" : "fluid.buf2list.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufcompose~.mxo",
 				"type" : "iLaX"
 			}
 , 			{
