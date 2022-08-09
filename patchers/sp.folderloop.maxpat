@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 256.0, 110.0, 978.0, 830.0 ],
+		"rect" : [ 391.0, 108.0, 978.0, 830.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,7 +45,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 785.87371826171875, 22.0, 150.0, 60.0 ],
+					"patching_rect" : [ 785.87371826171875, 22.0, 152.0, 60.0 ],
 					"text" : "Loop through a folder of samples and keep track of how many have been tread through."
 				}
 
@@ -125,7 +125,7 @@
 				"box" : 				{
 					"comment" : "total duration",
 					"id" : "obj-17",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -137,7 +137,7 @@
 				"box" : 				{
 					"comment" : "bang to continue through loop",
 					"id" : "obj-15",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
@@ -173,7 +173,7 @@
 				"box" : 				{
 					"comment" : "bang when file loaded",
 					"id" : "obj-5",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -724,7 +724,7 @@
 					"parameter_enable" : 0,
 					"patching_rect" : [ 45.0, 297.95294189453125, 263.875, 22.0 ],
 					"prefix" : "Macintosh HD:/Users/rodrigo/Sync/Samples/Metal Resonance/",
-					"types" : "WAVE"
+					"types" : [ "WAVE", "AIFF" ]
 				}
 
 			}
@@ -948,11 +948,11 @@
 				"box" : 				{
 					"comment" : "bang to select folder",
 					"id" : "obj-43",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "bang" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 214.0, 22.0, 30.0, 30.0 ]
 				}
 
@@ -1259,6 +1259,8 @@
 
 			}
  ],
+		"dependency_cache" : [  ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "AudioStatus_Menu",
 				"default" : 				{
