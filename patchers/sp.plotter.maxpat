@@ -263,7 +263,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 101.5, 76.5, 161.0, 33.0 ],
-					"text" : "when input is list only pass long to plot processing"
+					"text" : "when input is list only pass along to plot processing"
 				}
 
 			}
@@ -440,7 +440,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "clear" ],
-					"patching_rect" : [ 418.833333333333258, 171.814321800000016, 41.0, 22.0 ],
+					"patching_rect" : [ 461.125, 171.814321800000016, 41.0, 22.0 ],
 					"text" : "t clear"
 				}
 
@@ -449,11 +449,11 @@
 				"box" : 				{
 					"id" : "obj-10",
 					"maxclass" : "newobj",
-					"numinlets" : 10,
-					"numoutlets" : 10,
-					"outlettype" : [ "", "", "", "", "", "", "", "", "", "" ],
+					"numinlets" : 9,
+					"numoutlets" : 9,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "" ],
 					"patching_rect" : [ 80.5, 127.542881200000011, 454.0, 22.0 ],
-					"text" : "routepass pointsizescale xrange yrange pointsize pointcolor setpoint clear reset tete"
+					"text" : "routepass pointsizescale xrange yrange pointsize pointcolor setpoint clear reset"
 				}
 
 			}
@@ -1471,7 +1471,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 380.0, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 416.25, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 6 ]
 				}
 
@@ -1479,7 +1479,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 331.666666666666629, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 361.875, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 5 ]
 				}
 
@@ -1487,7 +1487,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 283.333333333333371, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 307.5, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 4 ]
 				}
 
@@ -1495,7 +1495,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 235.0, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 253.125, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 3 ]
 				}
 
@@ -1503,7 +1503,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 186.666666666666686, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 198.75, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 2 ]
 				}
 
@@ -1511,7 +1511,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 138.333333333333343, 203.314321800000016, 90.0, 203.314321800000016 ],
+					"midpoints" : [ 144.375, 203.314321800000016, 90.0, 203.314321800000016 ],
 					"source" : [ "obj-10", 1 ]
 				}
 
@@ -1533,7 +1533,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 0 ],
-					"source" : [ "obj-10", 9 ]
+					"source" : [ "obj-10", 8 ]
 				}
 
 			}
@@ -1569,7 +1569,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-13", 0 ],
-					"midpoints" : [ 428.333333333333258, 203.671524800000043, 90.0, 203.671524800000043 ],
+					"midpoints" : [ 470.625, 203.671524800000043, 90.0, 203.671524800000043 ],
 					"source" : [ "obj-14", 0 ]
 				}
 
@@ -1814,7 +1814,7 @@
 , 			{
 				"name" : "fluid.plotter.js",
 				"bootpath" : "~/Sync/Files/Max/Packages/FluidCorpusManipulation/jsui",
-				"patcherrelativepath" : "../../Files/Max/Packages/FluidCorpusManipulation/jsui",
+				"patcherrelativepath" : "../../FluidCorpusManipulation/jsui",
 				"type" : "TEXT",
 				"implicit" : 1
 			}
