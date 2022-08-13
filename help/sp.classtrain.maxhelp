@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 721.0, 830.0 ],
+						"rect" : [ 236.0, 150.0, 721.0, 830.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -797,7 +797,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 236.0, 150.0, 721.0, 830.0 ],
+						"rect" : [ 0.0, 26.0, 721.0, 830.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -836,8 +836,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 346.5, 662.5, 329.0, 123.0 ],
-									"presentation_linecount" : 6,
-									"text" : "*You can refer to the SP guide on training the classifer in terms of how many hits are required per class. Most are between 50-100 although some of the other ones are fine with less hits (30-40). You definitely want to do more than the example above which is just there for demonstrative purposes.\n\nhttps://help.sunhou.se/start/training_drum",
+									"text" : "*You can refer to the SP guide on training the classifer in terms of how many hits are required per class. Most are between 70-100 although some of the other ones are fine with less hits (30-50). You definitely want to do more than the example above which is just there for demonstrative purposes.\n\nhttps://sunhou.se/blog/training-sensory-pads/",
 									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
 								}
 
