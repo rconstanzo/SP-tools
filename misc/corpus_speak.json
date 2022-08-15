@@ -1,5 +1,15 @@
 {
 	"meta" : 	{
+		"info" : 		{
+			"artist" : "Rodrigo Constanzo",
+			"title" : "Speak & Math",
+			"description" : "Recordings of a Circuit-Bent Texas Instruments Speak & Math.",
+			"date_created" : "2012",
+			"date_analyzed" : "2022-08-15 / 21:44:20",
+			"url" : "http://ww.rodrigoconstanzo.com",
+			"comment" : ""
+		}
+,
 		"file" : 		{
 			"path" : "Macintosh HD:/Users/rodrigo/Sync/Files/Max/Packages/SP-Tools/media/Speak & Math - Hits/",
 			"num_files" : 27,

@@ -1,5 +1,15 @@
 {
 	"meta" : 	{
+		"info" : 		{
+			"artist" : "Rodrigo Constanzo",
+			"title" : "Wuhan China Cymbal",
+			"description" : "Recordings of a Wuhan China Cymbal with a combination of DPA and Schertler microphones.",
+			"date_created" : "2021",
+			"date_analyzed" : "2022-08-15 / 21:44:20",
+			"url" : "http://ww.rodrigoconstanzo.com",
+			"comment" : "Initially created for video series Metal By The Foot."
+		}
+,
 		"file" : 		{
 			"path" : "Macintosh HD:/Users/rodrigo/Sync/Files/Max/Packages/SP-Tools/media/Wuhan China Samples/",
 			"num_files" : 128,
