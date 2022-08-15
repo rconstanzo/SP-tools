@@ -6,7 +6,12 @@
 			"min_duration" : 1151.337868480725547,
 			"mean_duration" : 2894.956774376415524,
 			"mean_time_centroid" : 108.933743657542522,
-			"max_duration" : 9574.693877551020705
+			"max_duration" : 9574.693877551020705,
+			"median_loudness" : -34.204639434814453,
+			"median_centroid" : 56.849403381347656,
+			"median_flatness" : -46.864566802978516,
+			"median_pitch" : 52.765575408935547,
+			"median_pitch_confidence" : 0.110289417207241
 		}
 ,
 		"setttings" : 		{
