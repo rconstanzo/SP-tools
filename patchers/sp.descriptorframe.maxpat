@@ -996,21 +996,21 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 175.74975755014043, 305.128845327164527, 289.653825581073761, 49.0 ],
-					"text" : "fluid.bufpitch~ @fftsettings 256 64 256 @maxfftsize 4096 @minfreq 172 @numchans 1 @numframes 256 @unit 1 @algorithm 1 @padding 2"
+					"patching_rect" : [ 175.74975755014043, 305.128845327164527, 293.0, 49.0 ],
+					"text" : "fluid.bufpitch~ @fftsettings 256 64 256 @maxfftsize 4096 @minfreq 172 @numchans 1 @numframes 256 @unit 1 @algorithm 1 @padding 2 @warnings 0"
 				}
 
 			}
 , 			{
 				"box" : 				{
 					"id" : "obj-228",
-					"linecount" : 3,
+					"linecount" : 4,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 485.072291225135928, 305.128845327164527, 323.038711466411542, 49.0 ],
-					"text" : "fluid.bufspectralshape~ @fftsettings 256 64 512 @maxfftsize 4096 @numchans 1 @numframes 256 @power 1 @unit 1 @padding 2 @select centroid flatness"
+					"patching_rect" : [ 485.072291225135928, 305.128845327164527, 308.999999999999886, 62.0 ],
+					"text" : "fluid.bufspectralshape~ @fftsettings 256 64 512 @maxfftsize 4096 @numchans 1 @numframes 256 @power 1 @unit 1 @padding 2 @select centroid flatness @warnings 0"
 				}
 
 			}
@@ -1022,8 +1022,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 816.961288533588458, 371.861537945330895, 256.0, 35.0 ],
-					"text" : "fluid.bufscale~ @startchan 0 @numchans 1 @inputlow -100 @inputhigh 0 @clipping 3"
+					"patching_rect" : [ 816.961288533588458, 371.861537945330895, 306.0, 35.0 ],
+					"text" : "fluid.bufscale~ @startchan 0 @numchans 1 @inputlow -100 @inputhigh 0 @clipping 3 @warnings 0"
 				}
 
 			}
@@ -1035,8 +1035,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 816.961288533588458, 305.128845327164527, 310.0, 49.0 ],
-					"text" : "fluid.bufloudness~ @numchans 1 @windowsize 256 @maxwindowsize 4096 @hopsize 64 @kweighting 0 @truepeak 0 @numframes 256 @padding 2"
+					"patching_rect" : [ 816.961288533588458, 305.128845327164527, 319.0, 49.0 ],
+					"text" : "fluid.bufloudness~ @numchans 1 @windowsize 256 @maxwindowsize 4096 @hopsize 64 @kweighting 0 @truepeak 0 @numframes 256 @padding 2 @warnings 0"
 				}
 
 			}

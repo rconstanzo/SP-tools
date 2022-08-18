@@ -14,10 +14,20 @@ All abstractions work in 64-bit and M1/Universal Binary.
 [SP-Tools Teaser Video](https://www.youtube.com/watch?v=CXLFH496TBI)  
 [SP-Tools (alpha v0.1) Video Overview](https://www.youtube.com/watch?v=xxiWaFLn0M8)  
 [SP-Tools (alpha v0.2) Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
+[SP-Tools (alpha v0.3) Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
 [Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
 [Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
 
 ## Changelog
+### v0.3 - [SP-Tools v0.3 Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
+* added ability to filter corpora by descriptors (baked into `sp.corpusmatch` via `filter` messages)  
+* added improved/unified corpus playback with `sp.corpusplayer~`  
+* add realtime analysis abstractions (`sp.realtimeframe~`, `sp.descriptorsrt~`, `sp.melbandsrt~`, `sp.mfccrt~`)  
+* added new stereo corpus (corpus_plumbutter.json)  
+* improved corpus analysis to work with stereo files and files shorter than 100ms as well as adding more comprehensive metadata
+* added `sp.corpuslist` abstraction for visualizing and playing samples in a corpus in list form  
+* removed old playback abstractions (`sp.corpussimpleplayer~`, `sp.corpusloudnessplayer~`, `sp.corpusmelbandplayer~`)
+
 ### v.02 - [SP-Tools v0.2 Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
 * added "setups" (corpus scaling and neural network prediction/regression)  
 * added "controllers" (meta-parameters extracted from onset timings and descriptor analysis)  
@@ -61,17 +71,17 @@ sp.corpusanalysis works in conjunction with sp.folderloop to analyze all the sam
 ### **sp.corpuscreate** - *Creates a corpus based on a folder of samples*
 Analyze all the samples in a folder for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.
 
-### **sp.corpusloudnessplayer~** - *Play back loudness-compensated samples based on corpus analysis*
-sp.corpusloudnessplayer~ takes the output of sp.corpusmatch and either sp.descriptors~ or sp.descriptorframe plays the nearest match as well as compensating for the volume differences between them. Can be configured to have different amounts of polyphony and steal behavior with attributes.
+### **sp.corpuslist** - *Visualize the sample contents of a corpus*
+sp.corpuslist loads and displays the contents of the polybuffer~ at the center of a corpus, allowing the viewing of the selected samples.
 
 ### **sp.corpusmatch** - *Find the nearest match in a pre-analyzed corpus*
 sp.corpusmatch works in conjunction with sp.descriptors~ or sp.descriptorsframe to find the nearest match in a pre-analyzed corpus. sp.corpusmatch also houses the required datasets, coll, and polybuffer~.
 
-### **sp.corpusmelbandplayer~** - *Play back loudness and spectral-compensated samples based on corpus analysis*
-sp.melbaandplayer~ takes the output of sp.corpusmatch and sp.melbandframe and sp.descriptorframe and plays the nearest match as well as compensating for the loudness and spectral differences between them. Can be configured to have different amounts of polyphony and steal behavior with attributes.
+### **sp.corpusplayer~** - *All-in-one corpus playback object*
+sp.corpusplayer~ is an all-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.
 
-### **sp.corpussimplerplayer~** - *Play back samples based on corpus analysis*
-sp.corpussimpleplayer~ takes the output of sp.corpusmatch and plays the nearest match. Can be configured to have different amounts of polyphony and steal behavior with attributes.
+### **sp.crossbank~** - *Cascade of cross~ filters*
+sp.crossbank~ is a cascade of cross~ filters for spectral compensation. Frequencies are pre-set to adjust the spectrum based on the melband analysis/compensation. It should be used inside a poly~ object.
 
 ### **sp.descriptordisplay** - *Displays the descriptors as a radar chart*
 sp.descriptordisplay plots the incoming realtime descriptors, along with the nearest match on a radar chart for visualizing the differences between the incoming audio and its nearest match.
@@ -79,7 +89,10 @@ sp.descriptordisplay plots the incoming realtime descriptors, along with the nea
 ### **sp.descriptorframe** - *Analyzes audio for several audio desriptors based on frame input*
 sp.descriptorframe outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.
 
-### **sp.descriptors~** - *Analyzes audio for several audio desriptors based on audio input*
+### **sp.descriptors~** - *Analyzes audio for several audio desriptors based on audio onsets*
+sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.
+
+### **sp.descriptorsrt~** - *Analyzes audio for several audio desriptors based on audio input*
 sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.
 
 ### **sp.folderloop** - *A utility for looping through all the samples in a folder*
@@ -88,10 +101,16 @@ sp.folderloop is used in conjunction with sp.corpusanalysis to analyze every sam
 ### **sp.melbandframe** - *Analyzes audio for melbands based on frame input*
 sp.melbandframe outputs 40 melbands which can be used for spectral compensation in corpused-based sample playback.
 
-### **sp.melbands~** - *Analyzes audio for melbands based on audio input*
+### **sp.melbands~** - *Analyzes audio for melbands based on audio onsets*
 sp.melbands~ outputs 40 melbands which can be used for spectral compensation in corpused-based sample playback
 
-### **sp.mfcc~** - *Analyzes audio for MFCCs based on audio input*
+### **sp.melbandsrt~** - *Analyzes audio for melbands based on audio input*
+sp.melbands~ outputs 40 melbands which can be used for spectral compensation in corpused-based sample playback
+
+### **sp.mfcc~** - *Analyzes audio for MFCCs based on audio onsets*
+sp.mfcc~ outputs 13 MFCC coefficients (skipping the 0th coefficient) which can be used for classification and clustering. Although abstract they can also be used to control parameters.
+
+### **sp.mfccrt~** - *Analyzes audio for MFCCs based on audio input*
 sp.mfcc~ outputs 13 MFCC coefficients (skipping the 0th coefficient) which can be used for classification and clustering. Although abstract they can also be used to control parameters.
 
 ### **sp.mfccframe** - *Analyzes audio for MFCCs based on frame input*
@@ -103,8 +122,14 @@ sp.onset~ takes audio input and outputs a bang, trigger, and a gate when an onse
 ### **sp.onsetframe~** - *Amplitude-based onset detection and buffer recording*
 sp.onsetframe~ takes audio input, just like sp.onset~ but instead of outputting just a bang/trigger/gate, it outputs the frame to start descriptor analysis. sp.onsetframe~ is useful when you want to analyze multiple descriptors and want them to all refer to the same exact analysis frame.
 
+### **sp.playbackcore~** - *A poly~ for corpus sample playback*
+sp.playbackcore~ is the underlying poly~ that handles the polyphonic sample playback of matched corpus entries. It's not intended to be used on its own, but rather is the core component of sp.corpusplayer~.
+
 ### **sp.plotter** - *Display 2d corpus data and labels*
 sp.plotter is a utility for visualizing corpora and trained classes.
+
+### **sp.realtimeframe~** - *Buffer recording and clock output*
+sp.realtimeframe~ is the counterpart to sp.onsetframe~ where instead of outputting the frame to analyzed based on onset detection, sp.realtimeframe~ spits out a constant stream of frame values to analyze enabling realtime analysis of multiple descriptor types that remain in sync.
 
 ### **sp.setupanalysis** - *Analyze onsets for multiple descriptors at multiple timeframes*
 sp.setupanalysis is used in conjunction with sp.onsetframe~ to create analyses for multiple descriptors at 256 and 4410 analysis windows. This is later used to improve matching with sp.corpusmatch.  

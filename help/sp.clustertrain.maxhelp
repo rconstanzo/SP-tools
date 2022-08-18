@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 728.0, 707.0 ],
+						"rect" : [ 447.0, 129.0, 728.0, 707.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -337,13 +337,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.clustertrain"
 								}
 
@@ -504,7 +504,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 447.0, 129.0, 728.0, 707.0 ],
+						"rect" : [ 0.0, 26.0, 728.0, 707.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -819,13 +819,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.clustertrain"
 								}
 

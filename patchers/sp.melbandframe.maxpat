@@ -641,13 +641,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-2",
-					"linecount" : 3,
+					"linecount" : 4,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 422.5, 286.994510207857445, 301.384885885337781, 49.0 ],
-					"text" : "fluid.bufloudness~ @numchans 1 @windowsize 256 @maxwindowsize 4096 @hopsize 64 @kweighting 0 @truepeak 0 @numframes 256 @padding 2"
+					"patching_rect" : [ 422.5, 286.994510207857445, 292.115114114662219, 62.0 ],
+					"text" : "fluid.bufloudness~ @numchans 1 @windowsize 256 @maxwindowsize 4096 @hopsize 64 @kweighting 0 @truepeak 0 @numframes 256 @padding 2 @warnings 0"
 				}
 
 			}
@@ -738,13 +738,13 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-98",
-					"linecount" : 3,
+					"linecount" : 4,
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 88.0, 286.994510207857445, 331.0, 49.0 ],
-					"text" : "fluid.bufmelbands~ 40 @fftsettings 256 64 512 @maxfftsize 4096 @minfreq 200 @maxfreq 10000 @numbands 40 @numframes 256 @numchans 1 @padding 2"
+					"patching_rect" : [ 88.0, 286.994510207857445, 319.0, 62.0 ],
+					"text" : "fluid.bufmelbands~ 40 @fftsettings 256 64 512 @maxfftsize 4096 @minfreq 200 @maxfreq 10000 @numbands 40 @numframes 256 @numchans 1 @padding 2 @warnings 0"
 				}
 
 			}

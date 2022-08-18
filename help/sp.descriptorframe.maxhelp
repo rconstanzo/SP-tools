@@ -1958,7 +1958,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 27.0, 179.81818181818187, 73.346174418926239, 54.0 ],
+									"patching_rect" : [ 27.0, 179.81818181818187, 75.0, 54.0 ],
 									"text" : "play audio to analyze"
 								}
 
@@ -2602,13 +2602,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.descriptorframe"
 								}
 
@@ -3313,13 +3313,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.descriptorframe"
 								}
 
@@ -3437,7 +3437,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 100.0, 119.0, 840.0, 835.0 ],
+						"rect" : [ 0.0, 26.0, 840.0, 835.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4068,13 +4068,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.descriptorframe"
 								}
 
@@ -4375,7 +4375,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 840.0, 835.0 ],
+						"rect" : [ 100.0, 119.0, 840.0, 835.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -4906,13 +4906,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.descriptorframe"
 								}
 

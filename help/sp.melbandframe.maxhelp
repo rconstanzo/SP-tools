@@ -257,6 +257,7 @@
 , 							{
 								"box" : 								{
 									"candycane" : 13,
+									"ghostbar" : 75,
 									"id" : "obj-9",
 									"ignoreclick" : 1,
 									"maxclass" : "multislider",
@@ -266,6 +267,7 @@
 									"parameter_enable" : 0,
 									"patching_rect" : [ 398.0, 367.599999999999966, 111.0, 100.0 ],
 									"setminmax" : [ -50.0, 50.0 ],
+									"signed" : 1,
 									"size" : 13
 								}
 
@@ -415,13 +417,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.melbandframe"
 								}
 
@@ -4853,13 +4855,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.melbandframe"
 								}
 
@@ -5438,13 +5440,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 									"text" : "sp.melbandframe"
 								}
 

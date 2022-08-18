@@ -241,13 +241,13 @@
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
+					"fontname" : "Lato",
 					"fontsize" : 48.0,
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+					"patching_rect" : [ 10.0, 6.0, 484.0, 64.0 ],
 					"text" : "sp.folderloop"
 				}
 
@@ -399,14 +399,22 @@
 
 			}
  ],
-		"dependency_cache" : [ 			{
-				"name" : "fluid.audiofilesin.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/FluidCorpusManipulation/patchers",
-				"patcherrelativepath" : "../../FluidCorpusManipulation/patchers",
-				"type" : "JSON",
-				"implicit" : 1
+		"parameters" : 		{
+			"obj-22::obj-7::obj-69" : [ "live.text", "live.text", 0 ],
+			"obj-22::obj-7::obj-70" : [ "live.text[1]", "live.text", 0 ],
+			"parameterbanks" : 			{
+				"0" : 				{
+					"index" : 0,
+					"name" : "",
+					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+				}
+
 			}
-, 			{
+,
+			"inherited_shortname" : 1
+		}
+,
+		"dependency_cache" : [ 			{
 				"name" : "fluid.buf2list.mxo",
 				"type" : "iLaX"
 			}
@@ -467,42 +475,42 @@
 			}
 , 			{
 				"name" : "sp.corpusanalysis.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/SP-tools/patchers",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "sp.descriptorframe.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/SP-tools/patchers",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "sp.folderloop.maxpat",
-				"bootpath" : "~/Desktop",
-				"patcherrelativepath" : "../../../../../../Desktop",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
-				"name" : "sp.melbandsframe.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/SP-tools/patchers",
+				"name" : "sp.melbandframe.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "sp.mfccframe.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/SP-tools/patchers",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{
 				"name" : "sp.plotter.maxpat",
-				"bootpath" : "~/Sync/Files/Max/Packages/SP-tools/patchers",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
 				"implicit" : 1

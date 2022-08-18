@@ -51,8 +51,9 @@
 					"maxclass" : "bpatcher",
 					"name" : "sp.descriptordisplay.maxpat",
 					"numinlets" : 2,
-					"numoutlets" : 0,
+					"numoutlets" : 2,
 					"offset" : [ 0.0, 0.0 ],
+					"outlettype" : [ "list", "list" ],
 					"patching_rect" : [ 397.5, 370.831233488530131, 235.0, 235.0 ],
 					"viewvisibility" : 1
 				}
@@ -150,10 +151,10 @@
 					"id" : "obj-98",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
-					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"numoutlets" : 2,
+					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 250.5, 370.831233488530131, 135.0, 22.0 ],
-					"text" : "sp.corpussimpleplayer~"
+					"text" : "sp.corpusplayer~"
 				}
 
 			}
@@ -224,13 +225,13 @@
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
+					"fontname" : "Lato",
 					"fontsize" : 48.0,
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+					"patching_rect" : [ 10.0, 6.0, 478.0, 64.0 ],
 					"text" : "sp.descriptordisplay"
 				}
 
@@ -374,6 +375,10 @@
 				"type" : "iLaX"
 			}
 , 			{
+				"name" : "fluid.bufcompose~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
 				"name" : "fluid.bufflatten~.mxo",
 				"type" : "iLaX"
 			}
@@ -413,7 +418,14 @@
 				"implicit" : 1
 			}
 , 			{
-				"name" : "sp.corpussimpleplayer~.maxpat",
+				"name" : "sp.corpusplayer~.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sp.crossbank~.maxpat",
 				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",
@@ -449,6 +461,13 @@
 			}
 , 			{
 				"name" : "sp.onset~.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sp.playbackcore~.maxpat",
 				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
 				"patcherrelativepath" : "../patchers",
 				"type" : "JSON",

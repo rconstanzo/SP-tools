@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1153.0, 765.0 ],
+						"rect" : [ 313.0, 123.0, 1153.0, 765.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -6067,13 +6067,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.controllers"
 								}
 
@@ -7472,13 +7472,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.controllers"
 								}
 
@@ -9313,7 +9313,7 @@
 							}
 , 							{
 								"box" : 								{
-									"addpoints" : [ 0.0, 1.0, 0, 1.0, 0.75, 0, 2.0, 0.75, 0, 3.0, 0.75, 0, 4.0, 0.75, 0, 5.0, 0.95, 0, 6.0, 1.0, 0, 7.0, 1.0, 0, 8.0, 1.0, 0, 9.0, 0.7, 0, 10.0, 0.95, 0, 11.0, 0.7, 0, 12.0, 0.75, 0, 13.0, 0.5, 0, 14.0, 0.6, 0 ],
+									"addpoints" : [ 0.0, 0.5, 0, 1.0, 0.5, 0, 2.0, 0.5, 0, 3.0, 0.5, 0, 4.0, 0.5, 0, 5.0, 0.5, 0, 6.0, 0.5, 0, 7.0, 0.5, 0, 8.0, 0.5, 0, 9.0, 0.5, 0, 10.0, 0.5, 0, 11.0, 0.5, 0, 12.0, 0.5, 0, 13.0, 0.5, 0, 14.0, 0.5, 0 ],
 									"clickadd" : 0,
 									"domain" : 14.0,
 									"id" : "obj-170",
@@ -9764,13 +9764,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.controllers"
 								}
 
@@ -10018,7 +10018,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 313.0, 123.0, 1153.0, 765.0 ],
+						"rect" : [ 0.0, 26.0, 1153.0, 765.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -11848,13 +11848,13 @@
 							}
 , 							{
 								"box" : 								{
-									"fontname" : "Arial",
+									"fontname" : "Lato",
 									"fontsize" : 48.0,
 									"id" : "obj-6",
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+									"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 									"text" : "sp.controllers"
 								}
 

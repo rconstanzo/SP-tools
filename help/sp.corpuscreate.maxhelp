@@ -230,13 +230,13 @@
 			}
 , 			{
 				"box" : 				{
-					"fontname" : "Arial",
+					"fontname" : "Lato",
 					"fontsize" : 48.0,
 					"id" : "obj-6",
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 10.0, 10.0, 486.0, 60.0 ],
+					"patching_rect" : [ 10.0, 6.0, 462.0, 64.0 ],
 					"text" : "sp.corpuscreate"
 				}
 
@@ -358,6 +358,21 @@
 
 			}
  ],
+		"parameters" : 		{
+			"obj-2::obj-22::obj-7::obj-69" : [ "live.text", "live.text", 0 ],
+			"obj-2::obj-22::obj-7::obj-70" : [ "live.text[1]", "live.text", 0 ],
+			"parameterbanks" : 			{
+				"0" : 				{
+					"index" : 0,
+					"name" : "",
+					"parameters" : [ "-", "-", "-", "-", "-", "-", "-", "-" ]
+				}
+
+			}
+,
+			"inherited_shortname" : 1
+		}
+,
 		"dependency_cache" : [ 			{
 				"name" : "fluid.buf2list.mxo",
 				"type" : "iLaX"
