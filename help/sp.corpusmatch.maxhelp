@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 383.0, 132.0, 1112.0, 796.0 ],
+		"rect" : [ 100.0, 100.0, 1112.0, 796.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1112.0, 770.0 ],
+						"rect" : [ 100.0, 126.0, 1112.0, 770.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -612,7 +612,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 29.208435000000009, 647.863637454545255, 251.0, 93.0 ],
-									"text" : "duration : overall sample duration in ms\ntime_centroid : how long a sample \"sounds\" in ms\nloudness : loudness in dB\ncentroid : centroid in MIDI Hz\nflatness : spectral flatness in dB\npitch : pitch in MIDI Hz\npitch_confidence : pitch confidence in 0 to 1",
+									"text" : "duration : overall sample duration in ms\ntime_centroid : how long a sample \"sounds\" in ms\nloudness : loudness in dB\ncentroid : centroid in MIDI pitch\nflatness : spectral flatness in dB\npitch : pitch in MIDI pitch\npitch_confidence : pitch confidence in 0 to 1",
 									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
 								}
 
@@ -4808,7 +4808,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 383.0, 158.0, 1112.0, 770.0 ],
+						"rect" : [ 0.0, 26.0, 1112.0, 770.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
