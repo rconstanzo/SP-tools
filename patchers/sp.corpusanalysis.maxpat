@@ -135,6 +135,18 @@
 						"title" : "Corpus Info",
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-204",
+									"maxclass" : "newobj",
+									"numinlets" : 0,
+									"numoutlets" : 1,
+									"outlettype" : [ "" ],
+									"patching_rect" : [ 558.0, 565.0, 91.0, 22.0 ],
+									"text" : "r #0reset_index"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-74",
 									"maxclass" : "newobj",
 									"numinlets" : 2,
@@ -2316,6 +2328,13 @@
 									"color" : [ 1.0, 0.501961, 0.0, 1.0 ],
 									"destination" : [ "obj-137", 0 ],
 									"source" : [ "obj-200", 3 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-12", 0 ],
+									"source" : [ "obj-204", 0 ]
 								}
 
 							}
