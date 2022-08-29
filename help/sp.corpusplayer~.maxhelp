@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 440.0, 164.0, 1034.0, 785.0 ],
+		"rect" : [ 496.0, 148.0, 1034.0, 785.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 440.0, 190.0, 1034.0, 759.0 ],
+						"rect" : [ 0.0, 26.0, 1034.0, 759.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1005,18 +1005,6 @@
 							}
 , 							{
 								"box" : 								{
-									"id" : "obj-3",
-									"maxclass" : "newobj",
-									"numinlets" : 2,
-									"numoutlets" : 1,
-									"outlettype" : [ "signal" ],
-									"patching_rect" : [ 82.5, 273.500000000000057, 40.0, 22.0 ],
-									"text" : "*~ 0.5"
-								}
-
-							}
-, 							{
-								"box" : 								{
 									"bgcolor" : [ 0.376470588235294, 0.384313725490196, 0.4, 1.0 ],
 									"bgcolor2" : [ 0.376470588235294, 0.384313725490196, 0.4, 1.0 ],
 									"bgfillcolor_angle" : 270.0,
@@ -1169,7 +1157,7 @@
 									"maxclass" : "ezdac~",
 									"numinlets" : 2,
 									"numoutlets" : 0,
-									"patching_rect" : [ 82.5, 318.110411162843434, 45.0, 45.0 ]
+									"patching_rect" : [ 82.5, 273.500000000000057, 45.0, 45.0 ]
 								}
 
 							}
@@ -1590,22 +1578,6 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-96", 1 ],
-									"order" : 0,
-									"source" : [ "obj-3", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
-									"destination" : [ "obj-96", 0 ],
-									"order" : 1,
-									"source" : [ "obj-3", 0 ]
-								}
-
-							}
-, 							{
-								"patchline" : 								{
 									"destination" : [ "obj-101", 0 ],
 									"source" : [ "obj-4", 0 ]
 								}
@@ -1651,15 +1623,24 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-3", 0 ],
+									"destination" : [ "obj-95", 0 ],
+									"source" : [ "obj-97", 1 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-96", 1 ],
+									"order" : 0,
 									"source" : [ "obj-97", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-95", 0 ],
-									"source" : [ "obj-97", 1 ]
+									"destination" : [ "obj-96", 0 ],
+									"order" : 1,
+									"source" : [ "obj-97", 0 ]
 								}
 
 							}
@@ -2253,7 +2234,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1034.0, 759.0 ],
+						"rect" : [ 496.0, 174.0, 1034.0, 759.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2283,6 +2264,23 @@
 						"showontab" : 1,
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"bubble" : 1,
+									"fontname" : "Arial",
+									"fontsize" : 9.5,
+									"id" : "obj-11",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 359.0, 270.205949235910566, 240.5, 42.0 ],
+									"presentation_linecount" : 4,
+									"text" : "when applying spectral compensation you should use an air mic otherwise you apply the sonic spectrum of the SP sensor which is... not good",
+									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-14",
 									"maxclass" : "live.dial",
@@ -2475,8 +2473,8 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "signal", "signal" ],
-									"patching_rect" : [ 206.5, 280.205949235910509, 92.0, 22.0 ],
-									"text" : "sp.onsetframe~"
+									"patching_rect" : [ 206.5, 280.205949235910509, 143.0, 22.0 ],
+									"text" : "sp.onsetframe~ @input 3"
 								}
 
 							}
@@ -2585,14 +2583,14 @@
 , 							{
 								"box" : 								{
 									"bubble" : 1,
-									"bubbleside" : 2,
 									"fontname" : "Arial",
 									"fontsize" : 13.0,
 									"id" : "obj-9",
+									"linecount" : 2,
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 458.0, 314.617847707731528, 133.0, 40.0 ],
+									"patching_rect" : [ 598.0, 357.617847707731585, 109.0, 40.0 ],
 									"text" : "load analyzed corpus"
 								}
 
@@ -2681,7 +2679,7 @@
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "int" ],
 									"parameter_enable" : 0,
-									"patching_rect" : [ 514.5, 290.110411162843377, 20.0, 20.0 ],
+									"patching_rect" : [ 638.5, 332.904461926932868, 20.0, 20.0 ],
 									"rounded" : 60.0,
 									"text" : "1",
 									"textcolor" : [ 0.34902, 0.34902, 0.34902, 1.0 ]
@@ -2820,7 +2818,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-96", 1 ],
+									"destination" : [ "obj-95", 1 ],
+									"midpoints" : [ 93.0, 269.102974617955283, 278.0, 269.102974617955283 ],
 									"order" : 0,
 									"source" : [ "obj-97", 0 ]
 								}
@@ -2828,8 +2827,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-96", 0 ],
+									"destination" : [ "obj-96", 1 ],
 									"order" : 1,
+									"source" : [ "obj-97", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
+									"destination" : [ "obj-96", 0 ],
+									"order" : 2,
 									"source" : [ "obj-97", 0 ]
 								}
 

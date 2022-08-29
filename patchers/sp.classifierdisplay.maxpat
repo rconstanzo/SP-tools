@@ -91,7 +91,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 893.333333333333371, 214.148112000000026, 46.999938999999813, 22.0 ],
+					"patching_rect" : [ 598.333333333333371, 214.148112000000026, 46.999938999999813, 22.0 ],
 					"text" : "t 2 1"
 				}
 
@@ -115,7 +115,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 836.0, 214.148112000000026, 46.999938999999813, 22.0 ],
+					"patching_rect" : [ 541.0, 214.148112000000026, 46.999938999999813, 22.0 ],
 					"text" : "t 1 0"
 				}
 
@@ -127,7 +127,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "int" ],
-					"patching_rect" : [ 863.999938999999813, 258.685140000000047, 29.5, 22.0 ],
+					"patching_rect" : [ 568.999938999999813, 258.685140000000047, 29.5, 22.0 ],
 					"text" : "!- 1"
 				}
 
@@ -140,7 +140,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 863.999938999999813, 317.222168000000067, 92.0, 22.0 ],
+					"patching_rect" : [ 568.999938999999813, 317.222168000000067, 92.0, 22.0 ],
 					"text" : "prepend hidden"
 				}
 
@@ -153,7 +153,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 735.0, 317.222168000000067, 92.0, 22.0 ],
+					"patching_rect" : [ 440.0, 317.222168000000067, 92.0, 22.0 ],
 					"text" : "prepend hidden"
 				}
 
@@ -1899,7 +1899,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 4,
 					"outlettype" : [ "bang", "bang", "bang", "" ],
-					"patching_rect" : [ 836.0, 169.611084000000005, 105.0, 22.0 ],
+					"patching_rect" : [ 541.0, 169.611084000000005, 105.0, 22.0 ],
 					"text" : "sel snare tom kick"
 				}
 
@@ -1911,7 +1911,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 836.0, 125.074056000000013, 67.0, 22.0 ],
+					"patching_rect" : [ 541.0, 125.074056000000013, 67.0, 22.0 ],
 					"text" : "route drum"
 				}
 
@@ -1924,7 +1924,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 707.0, 80.537028000000007, 148.0, 22.0 ],
+					"patching_rect" : [ 412.0, 80.537028000000007, 148.0, 22.0 ],
 					"text" : "patcherargs @drum snare"
 				}
 
@@ -5748,6 +5748,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-24", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-34", 0 ]
 				}
 
@@ -5755,6 +5756,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-25", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-35", 0 ]
 				}
 
@@ -5762,6 +5764,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-26", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-36", 0 ]
 				}
 
@@ -5769,6 +5772,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-37", 0 ]
 				}
 
@@ -5776,6 +5780,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-23", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-38", 0 ]
 				}
 
@@ -5825,6 +5830,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
+					"hidden" : 1,
 					"source" : [ "obj-40", 0 ]
 				}
 

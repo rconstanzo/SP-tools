@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 228.0, 136.0, 1074.0, 801.0 ],
+		"rect" : [ 382.0, 172.0, 1074.0, 801.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 228.0, 162.0, 1074.0, 775.0 ],
+						"rect" : [ 0.0, 26.0, 1074.0, 775.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -891,7 +891,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1074.0, 775.0 ],
+						"rect" : [ 382.0, 198.0, 1074.0, 775.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1240,7 +1240,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 92.0, 644.076950092162861, 506.0, 79.0 ],
-									"text" : "*The training time and results will vary on your input material, amount of entries, and CPU speed. You basically want to run the training until you see the 'loss' drop off and finally plateau. As a point of reference, the example above arrived at a loss of 0.085 for 192 entries in around 3 minutes on a 2012 Mac mini after an initial drop from 0.3 to 0.15 after a minute, then slowly going down the rest of the way.",
+									"text" : "*The training time and results will vary on your input material, amount of entries, and CPU speed. You basically want to run the training until you see the 'loss' drop off and finally plateau. As a point of reference, the example above arrived at a loss of 0.107 for 192 entries in around 5 minutes on a 2012 Mac mini after an initial drop from 0.3 to 0.15 after a minute, then slowly going down the rest of the way.",
 									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
 								}
 

@@ -15,10 +15,17 @@ All abstractions work in 64-bit and M1/Universal Binary.
 [SP-Tools (alpha v0.1) Video Overview](https://www.youtube.com/watch?v=xxiWaFLn0M8)  
 [SP-Tools (alpha v0.2) Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
 [SP-Tools (alpha v0.3) Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
+[SP-Tools (alpha v0.4) Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
 [Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
 [Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
 
 ## Changelog
+### v0.4 - [SP-Tools v0.4 Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
+* added "concat" objects for real-time mosaicking and concatenative synthesis (`sp.concatanalysis~`, `sp.concatcreate`, `sp.concatmatch`, `sp.concatplayer~`, `sp.concatsynth~`)
+* added ability to apply filtering to any descriptor list (via `sp.filter`)
+* improved filtering to allow for multiple chained criteria (using `and` and `or` joiners)
+* updated/improved pitch and loudness analysis algorithms slightly (you should reanalyze corpora/setups/etc...)
+
 ### v0.3 - [SP-Tools v0.3 Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
 * added ability to filter corpora by descriptors (baked into `sp.corpusmatch` via `filter` messages)  
 * added improved/unified corpus playback with `sp.corpusplayer~`  
@@ -41,6 +48,7 @@ Depending on your knowledge level with machine learning processes, some of these
 **class:** a category or label, or "zone" in Sensory Percussion lingo  
 **classification:** the process of defining and labelling classes  
 **cluster:** a category or label that is determined by a clustering algorithm  
+**concat:** to join end-to-end. a type of resynthesis that stitches together fragments  
 **corpus:** a pre-analyzed folder of samples  
 **descriptors:** analyzed characteristics of a sound  
 **melbands:** perceptually-spread frequency bands  
@@ -61,6 +69,21 @@ sp.classtrain will create a classifier based on incoming class labels and descri
 
 ### **sp.clustertrain** - *Create clusters based on input analysis*
 sp.clustertrain will create a classifier based on incoming class labels and descriptor analysis. The labels can be the default Sensory Percussion labels or any arbitrary input.
+
+### **sp.concatanalysis~** - *Descriptor analysis for real-time mosaicking*
+sp.concatanalysis~ is based on sp.descriptorsrt~ but has all of the appropriate settings pre-baked so it can get sent directly to sp.concatmatch. It also takes some playback controls via Rate and Random parameters.
+
+### **sp.concatcreate** - *Creates a corpus for concatenation from a single audio file*
+Analyze all the samples in a folder for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.
+
+### **sp.concatmatch** - *Find the nearest match in a pre-analyzed concat corpus*
+sp.concatmatch works in conjunction with sp.concatanalysis~ and sp.concatplayer~ to create real-time audio mosaicking via concatatenative synthesis with a pre-analyzed concat corpus. sp.concatmatch handles the nearest neighbor matching.
+
+### **sp.concatplayer~** - *Granular playback engine for concatenative synthesis*
+sp.concatplayer~ is the underlying playback engine for sp.concatsynth~. It is a stripped back granular synth engine that plays back small and windowed fragments of a single large buffer unlike the corpus-based playback elsewhere in SP-Tools.
+
+### **sp.concatsynth~** - *Realtime concatatentative synthesis*
+sp.concatsynth~ creates real-time audio mosaicking via concatatenative synthesis with a pre-analyzed concat corpus. sp.concatsynth~ handles the audio analysis and nearest neighbor matching in a single object. 
 
 ### **sp.controllers** - *Machine Learning tools for drums and percussion*
 sp.controllers works in conjuntion with sp.descriptosr~/sp.descriptorframe to create several meta-parameters based on loudness and centroid (brightness).  
@@ -94,6 +117,9 @@ sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along w
 
 ### **sp.descriptorsrt~** - *Analyzes audio for several audio desriptors based on audio input*
 sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.
+
+### **sp.filter** - *Apply filtering/routing to incoming descriptor messages*
+sp.filter allows you to selectively send incoming descriptor messages to one of two outlets depending on whether the filtering criteria is met. This allows you to fork processing based on audio characteristics.
 
 ### **sp.folderloop** - *A utility for looping through all the samples in a folder*
 sp.folderloop is used in conjunction with sp.corpusanalysis to analyze every sample in a folder for the required descriptors and metadata.
