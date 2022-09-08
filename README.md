@@ -16,8 +16,16 @@ All abstractions work in 64-bit and M1/Universal Binary.
 [SP-Tools (alpha v0.2) Video Overview](https://www.youtube.com/watch?v=luLl4eJdezQ)  
 [SP-Tools (alpha v0.3) Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
 [SP-Tools (alpha v0.4) Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
+[SP-Tools (alpha v0.5) Video Overview](https://www.youtube.com/watch?v=W2N_XyrVvrc)  
 [Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
 [Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
+
+## Changelog
+### v0.5 - [SP-Tools v0.5 Video Overview](https://www.youtube.com/watch?v=W2N_XyrVvrc)  
+* added Max for Live devices for some of the main/flagship functionality (`Concat Match`, `Controllers`, `Corpus Match`, `Descriptors`, `Speed`)  
+* added `sp.gridmatch` abstraction for generic controller-based navigation of corpora
+* added support for the Erae Touch controller (`sp.eraetouch`)
+* improved path stability when loading example corpora
 
 ## Changelog
 ### v0.4 - [SP-Tools v0.4 Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
@@ -118,11 +126,17 @@ sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along w
 ### **sp.descriptorsrt~** - *Analyzes audio for several audio desriptors based on audio input*
 sp.descriptors~ outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.
 
+### **sp.eraetouch** - *Interface for the Erae Touch controller*
+sp.eraetouch acts as the API parser to/from the Erae Touch as well as creating the LED feedback for multiple zones. You can connect this to sp.gridmatch for corpus-based sample playback or use the XYZ outputs directly for anything else in Max.  
+
 ### **sp.filter** - *Apply filtering/routing to incoming descriptor messages*
 sp.filter allows you to selectively send incoming descriptor messages to one of two outlets depending on whether the filtering criteria is met. This allows you to fork processing based on audio characteristics.
 
 ### **sp.folderloop** - *A utility for looping through all the samples in a folder*
 sp.folderloop is used in conjunction with sp.corpusanalysis to analyze every sample in a folder for the required descriptors and metadata.
+
+### **sp.gridmatch** - *Find the nearest match in a pre-analyzed corpus*
+sp.gridmatch finds the nearest match in a corpus based on a grid-ified XY space. You can load/use the same corpora as you would with sp.corpusmatch but instead of matching based on incoming audio descriptors you can match using XY coordinates from a controller or UI object.  
 
 ### **sp.melbandframe** - *Analyzes audio for melbands based on frame input*
 sp.melbandframe outputs 40 melbands which can be used for spectral compensation in corpused-based sample playback.
