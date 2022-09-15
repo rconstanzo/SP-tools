@@ -40,13 +40,25 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
-					"id" : "obj-10",
-					"linecount" : 22,
+					"id" : "obj-12",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 796.0, 41.0, 496.0, 301.0 ],
-					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (50-200%)\nstart = sample start offset (0-50%)\nlength = sample length to play (0-100%)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (50% = linear, 0% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (50% = linear, 0% = exponential, 100% = logarithmic)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
+					"patching_rect" : [ 500.0, 155.5, 121.0, 33.0 ],
+					"text" : "send to every instance of the poly~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"linecount" : 21,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 796.0, 41.0, 525.0, 288.0 ],
+					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (50-200%)\nstart = sample start offset (0-50%)\nlength = sample length to play (0-100%)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (0% = linear, -100% = exponential, 100% = logarithmic)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
 				}
 
 			}
@@ -126,8 +138,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 220.0, 49.0, 433.0, 35.0 ],
-					"text" : "patcherargs @voices 16 @steal 1 @speed 100 @start 0 @length 100 @attack 0 @attackcurve 50 @hold 100 @holdcurve 50 @loudness 100 @spectral 50"
+					"patching_rect" : [ 220.0, 49.0, 405.0, 35.0 ],
+					"text" : "patcherargs @speed 100 @start 0 @length 100 @attack 0 @attackcurve 0 @hold 100 @holdcurve 0 @loudness 100 @spectral 50"
 				}
 
 			}
@@ -201,7 +213,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "signal" ],
 					"patching_rect" : [ 41.0, 161.0, 294.0, 22.0 ],
-					"text" : "poly~ sp.playbackcore~ 16 args #0control"
+					"text" : "poly~ sp.playbackcore~ 16 args #0control @steal 1"
 				}
 
 			}
@@ -232,7 +244,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
-					"midpoints" : [ 643.5, 94.5, 229.5, 94.5 ],
+					"midpoints" : [ 615.5, 94.0, 229.5, 94.0 ],
 					"source" : [ "obj-17", 1 ]
 				}
 
@@ -267,8 +279,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 690.5, 144.5, 417.5, 144.5 ],
+					"destination" : [ "obj-15", 0 ],
+					"midpoints" : [ 690.5, 94.5, 229.5, 94.5 ],
 					"source" : [ "obj-5", 0 ]
 				}
 

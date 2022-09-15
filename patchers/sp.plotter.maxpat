@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-23",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 596.25, 529.485846600000059, 122.0, 47.0 ],
+					"text" : "when there are labels present, send current label out"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-19",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -121,6 +133,53 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-27",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 806.0, 508.316397428571236, 150.0, 47.0 ],
+									"text" : "scale the min/max based on the amount of points so it sits nicely on the XY plot"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-25",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 723.0, 225.877598285714271, 143.0, 47.0 ],
+									"text" : "when there are 3 dimensions, take the first two to use for XY plot"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-22",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 287.0, 586.0, 219.0, 20.0 ],
+									"text" : "dimensionality reduction to fit on 2d plot"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-16",
+									"linecount" : 3,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 381.0, 307.316397428571349, 150.0, 47.0 ],
+									"text" : "depending on list length, reduce dimensions or pass along un touched"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-24",
 									"maxclass" : "newobj",
@@ -296,7 +355,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 152.0, 460.724596142856967, 116.0, 22.0 ],
+									"patching_rect" : [ 162.0, 460.724596142856967, 116.0, 22.0 ],
 									"text" : "prepend fittransform"
 								}
 
@@ -308,7 +367,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 236.0, 84.969399571428568, 69.0, 22.0 ],
+									"patching_rect" : [ 256.0, 84.969399571428568, 69.0, 22.0 ],
 									"text" : "route name"
 								}
 
@@ -320,7 +379,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 68.0, 413.755196571428428, 187.0, 22.0 ],
+									"patching_rect" : [ 68.0, 413.755196571428428, 207.0, 22.0 ],
 									"text" : "gate 3"
 								}
 
@@ -332,7 +391,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "int" ],
-									"patching_rect" : [ 335.5, 366.785796999999889, 22.0, 22.0 ],
+									"patching_rect" : [ 355.5, 366.785796999999889, 22.0, 22.0 ],
 									"text" : "t 1"
 								}
 
@@ -344,7 +403,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "", "" ],
-									"patching_rect" : [ 273.5, 319.816397428571349, 81.0, 22.0 ],
+									"patching_rect" : [ 293.5, 319.816397428571349, 81.0, 22.0 ],
 									"text" : "routepass 2 3"
 								}
 
@@ -356,7 +415,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 273.5, 272.84699785714281, 61.0, 22.0 ],
+									"patching_rect" : [ 293.5, 272.84699785714281, 61.0, 22.0 ],
 									"text" : "route cols"
 								}
 
@@ -368,7 +427,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "", "cols", "" ],
-									"patching_rect" : [ 236.0, 131.938799142857135, 94.0, 22.0 ],
+									"patching_rect" : [ 256.0, 131.938799142857135, 94.0, 22.0 ],
 									"text" : "t l cols l"
 								}
 
@@ -380,7 +439,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 273.5, 225.877598285714271, 80.0, 22.0 ],
+									"patching_rect" : [ 293.5, 225.877598285714271, 80.0, 22.0 ],
 									"text" : "fluid.dataset~"
 								}
 
@@ -392,7 +451,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 311.0, 178.908198714285703, 81.0, 22.0 ],
+									"patching_rect" : [ 331.0, 178.908198714285703, 81.0, 22.0 ],
 									"text" : "prepend refer"
 								}
 
@@ -427,7 +486,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 271.0, 35.0, 81.0, 20.0 ],
+									"patching_rect" : [ 291.0, 35.0, 81.0, 20.0 ],
 									"text" : "dataset name"
 								}
 
@@ -477,7 +536,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 236.0, 30.0, 30.0, 30.0 ]
+									"patching_rect" : [ 256.0, 30.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -497,6 +556,7 @@
 						"lines" : [ 							{
 								"patchline" : 								{
 									"destination" : [ "obj-3", 0 ],
+									"midpoints" : [ 340.5, 212.892898500000001, 303.0, 212.892898500000001 ],
 									"source" : [ "obj-1", 0 ]
 								}
 
@@ -518,7 +578,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-52", 0 ],
-									"midpoints" : [ 245.5, 445.755196571428428, 587.5, 445.755196571428428, 587.5, 180.877598285714271, 617.5, 180.877598285714271 ],
+									"midpoints" : [ 265.5, 445.755196571428428, 587.5, 445.755196571428428, 587.5, 180.877598285714271, 617.5, 180.877598285714271 ],
 									"source" : [ "obj-10", 2 ]
 								}
 
@@ -588,6 +648,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-21", 0 ],
+									"midpoints" : [ 171.5, 695.148095071428315, 77.5, 695.148095071428315 ],
 									"source" : [ "obj-12", 0 ]
 								}
 
@@ -715,7 +776,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
-									"midpoints" : [ 314.0, 400.285796999999889, 77.5, 400.285796999999889 ],
+									"midpoints" : [ 334.0, 400.285796999999889, 77.5, 400.285796999999889 ],
 									"source" : [ "obj-8", 1 ]
 								}
 
@@ -723,7 +784,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
-									"midpoints" : [ 283.0, 400.285796999999889, 77.5, 400.285796999999889 ],
+									"midpoints" : [ 303.0, 400.285796999999889, 77.5, 400.285796999999889 ],
 									"source" : [ "obj-8", 0 ]
 								}
 
@@ -738,7 +799,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
-									"midpoints" : [ 345.0, 400.770496785714158, 77.5, 400.770496785714158 ],
+									"midpoints" : [ 365.0, 400.770496785714158, 77.5, 400.770496785714158 ],
 									"source" : [ "obj-9", 0 ]
 								}
 
@@ -1206,6 +1267,30 @@
 						"subpatcher_template" : "",
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
+								"box" : 								{
+									"id" : "obj-10",
+									"linecount" : 4,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 43.807705402374268, 426.75, 68.0, 60.0 ],
+									"text" : "highlight point then stop after 200ms"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-6",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 204.0, 306.0, 128.0, 33.0 ],
+									"text" : "filter quickly repeating triggers with mouse"
+								}
+
+							}
+, 							{
 								"box" : 								{
 									"id" : "obj-21",
 									"linecount" : 3,
@@ -1726,6 +1811,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-382", 0 ],
+									"midpoints" : [ 123.307705402374268, 344.375, 241.307739000000083, 344.375 ],
 									"order" : 0,
 									"source" : [ "obj-16", 0 ]
 								}

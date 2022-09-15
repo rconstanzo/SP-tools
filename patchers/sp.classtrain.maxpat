@@ -40,6 +40,42 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-28",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 609.0, 313.31818181818187, 110.0, 33.0 ],
+					"text" : "make sure classes are symbols"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-26",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 73.5, 188.681818181818187, 118.0, 33.0 ],
+					"text" : "when done training fit classifier"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-18",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 144.0, 426.409090909090992, 125.0, 33.0 ],
+					"text" : "add points and labels to create classifier"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-20",
 					"linecount" : 9,
 					"maxclass" : "comment",
@@ -67,7 +103,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 59.0, 104.0, 933.0, 348.0 ],
+						"rect" : [ 59.0, 104.0, 884.0, 319.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -102,7 +138,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 638.0, 36.0, 213.0, 47.0 ],
+									"patching_rect" : [ 623.0, 24.0, 213.0, 47.0 ],
 									"text" : "Merge the individual dataset, labelset, and knnclassifer fit to a dictionary and write it to disk."
 								}
 
@@ -113,7 +149,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 81.0, 41.0, 132.0, 20.0 ],
+									"patching_rect" : [ 66.0, 29.0, 132.0, 20.0 ],
 									"text" : "bang to write dictionary"
 								}
 
@@ -125,7 +161,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 782.0, 188.966723599999909, 69.0, 22.0 ],
+									"patching_rect" : [ 767.0, 176.966723599999909, 69.0, 22.0 ],
 									"text" : "route dump"
 								}
 
@@ -137,7 +173,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 577.5, 188.966723599999909, 69.0, 22.0 ],
+									"patching_rect" : [ 562.5, 176.966723599999909, 69.0, 22.0 ],
 									"text" : "route dump"
 								}
 
@@ -149,7 +185,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 4,
 									"outlettype" : [ "write", "dump", "dump", "dump" ],
-									"patching_rect" : [ 44.0, 92.322241199999965, 592.0, 22.0 ],
+									"patching_rect" : [ 29.0, 80.322241199999965, 592.0, 22.0 ],
 									"text" : "t write dump dump dump"
 								}
 
@@ -161,7 +197,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 373.0, 188.966723599999909, 69.0, 22.0 ],
+									"patching_rect" : [ 358.0, 176.966723599999909, 69.0, 22.0 ],
 									"text" : "route dump"
 								}
 
@@ -173,7 +209,7 @@
 									"numinlets" : 2,
 									"numoutlets" : 4,
 									"outlettype" : [ "dictionary", "", "", "" ],
-									"patching_rect" : [ 44.0, 285.611205999999811, 50.5, 22.0 ],
+									"patching_rect" : [ 29.0, 273.611205999999811, 50.5, 22.0 ],
 									"saved_object_attributes" : 									{
 										"embed" : 0,
 										"parameter_enable" : 0,
@@ -191,7 +227,7 @@
 									"numinlets" : 3,
 									"numoutlets" : 1,
 									"outlettype" : [ "dictionary" ],
-									"patching_rect" : [ 373.0, 237.28896479999986, 428.0, 22.0 ],
+									"patching_rect" : [ 358.0, 225.28896479999986, 428.0, 22.0 ],
 									"text" : "dict.pack dataset: labelset: classifier:"
 								}
 
@@ -203,7 +239,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 617.0, 140.64448239999993, 184.0, 22.0 ],
+									"patching_rect" : [ 602.0, 128.64448239999993, 184.0, 22.0 ],
 									"text" : "fluid.knnclassifier~ #0classifier"
 								}
 
@@ -215,7 +251,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 426.0, 140.64448239999993, 170.5, 22.0 ],
+									"patching_rect" : [ 411.0, 128.64448239999993, 170.5, 22.0 ],
 									"text" : "fluid.labelset~ #0labels"
 								}
 
@@ -227,7 +263,7 @@
 									"numinlets" : 1,
 									"numoutlets" : 2,
 									"outlettype" : [ "", "" ],
-									"patching_rect" : [ 235.0, 140.64448239999993, 157.0, 22.0 ],
+									"patching_rect" : [ 220.0, 128.64448239999993, 157.0, 22.0 ],
 									"text" : "fluid.dataset~ #0classifier"
 								}
 
@@ -241,7 +277,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 43.999979666666718, 36.0, 30.0, 30.0 ]
+									"patching_rect" : [ 28.999979666666718, 24.0, 30.0, 30.0 ]
 								}
 
 							}
@@ -277,7 +313,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-65", 0 ],
-									"midpoints" : [ 382.5, 271.950085399999807, 53.5, 271.950085399999807 ],
+									"midpoints" : [ 367.5, 259.950085399999807, 38.5, 259.950085399999807 ],
 									"source" : [ "obj-64", 0 ]
 								}
 
@@ -628,7 +664,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 443.0, 473.454545454545553, 144.0, 22.0 ],
+					"patching_rect" : [ 443.0, 473.454545454545553, 130.0, 22.0 ],
 					"text" : "fluid.labelset~ #0labels"
 				}
 
@@ -664,7 +700,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 766.5, 431.909090909090992, 184.0, 22.0 ],
+					"patching_rect" : [ 766.5, 431.909090909090992, 170.0, 22.0 ],
 					"text" : "fluid.knnclassifier~ #0classifier"
 				}
 
@@ -676,7 +712,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 276.0, 473.454545454545553, 157.0, 22.0 ],
+					"patching_rect" : [ 276.0, 473.454545454545553, 144.0, 22.0 ],
 					"text" : "fluid.dataset~ #0classifier"
 				}
 

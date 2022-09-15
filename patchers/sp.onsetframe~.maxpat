@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-21",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 573.0, 561.166666666666742, 86.0, 33.0 ],
+					"text" : "create random buffer name"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
@@ -433,7 +445,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 369.500000000000057, 35.4788818359375, 88.0, 20.0 ],
+					"patching_rect" : [ 368.500000000000057, 35.4788818359375, 88.0, 20.0 ],
 					"text" : "air microphone"
 				}
 
@@ -444,7 +456,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 144.0, 35.4788818359375, 128.0, 20.0 ],
+					"patching_rect" : [ 140.0, 35.4788818359375, 128.0, 20.0 ],
 					"text" : "SP sensor/contact mic"
 				}
 
@@ -661,7 +673,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 668.5, 566.666666666666742, 90.0, 22.0 ],
+					"patching_rect" : [ 668.5, 566.666666666666742, 77.0, 22.0 ],
 					"text" : "loadmess #0"
 				}
 
@@ -684,7 +696,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 595.0, 35.4788818359375, 57.0, 20.0 ],
+					"patching_rect" : [ 593.0, 35.4788818359375, 57.0, 20.0 ],
 					"text" : "control in"
 				}
 

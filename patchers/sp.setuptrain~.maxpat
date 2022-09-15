@@ -68,7 +68,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 606.0, 138.5, 150.0, 60.0 ],
+					"patching_rect" : [ 212.0, 93.5, 150.0, 60.0 ],
 					"text" : "delay cannot be changed as it needs to be set to 4410 for sp.setupanalysis to work"
 				}
 

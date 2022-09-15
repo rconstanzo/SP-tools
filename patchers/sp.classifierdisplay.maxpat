@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 104.0, 1628.0, 758.0 ],
+		"rect" : [ 53.0, 239.0, 1628.0, 758.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 1,
 		"default_fontsize" : 12.0,
@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-22",
+					"linecount" : 4,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 299.0, 538.33325200000013, 150.0, 60.0 ],
+					"text" : "create a display that somewhat resembles the native Sensory Percussion display"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 666.0, 311.722168000000011, 133.0, 33.0 ],
+					"text" : "hide/unhide the snare and kick displays"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-21",
 					"linecount" : 3,
 					"maxclass" : "comment",
@@ -68,7 +92,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 69.0, 710.436205799999925, 127.0, 20.0 ],
+					"patching_rect" : [ 64.833252000000016, 710.436205799999925, 127.0, 20.0 ],
 					"text" : "class and velocity thru"
 				}
 
@@ -91,7 +115,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "int", "int" ],
-					"patching_rect" : [ 598.333333333333371, 214.148112000000026, 46.999938999999813, 22.0 ],
+					"patching_rect" : [ 617.666666666666629, 214.148112000000026, 46.999938999999813, 22.0 ],
 					"text" : "t 2 1"
 				}
 
@@ -122,6 +146,7 @@
 			}
 , 			{
 				"box" : 				{
+					"hidden" : 1,
 					"id" : "obj-51",
 					"maxclass" : "newobj",
 					"numinlets" : 2,
@@ -1899,7 +1924,7 @@
 					"numinlets" : 4,
 					"numoutlets" : 4,
 					"outlettype" : [ "bang", "bang", "bang", "" ],
-					"patching_rect" : [ 541.0, 169.611084000000005, 105.0, 22.0 ],
+					"patching_rect" : [ 541.0, 169.611084000000005, 134.0, 22.0 ],
 					"text" : "sel snare tom kick"
 				}
 
@@ -6143,6 +6168,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-51", 0 ],
+					"hidden" : 1,
 					"order" : 0,
 					"source" : [ "obj-52", 1 ]
 				}
@@ -6182,6 +6208,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-51", 0 ],
+					"hidden" : 1,
 					"order" : 0,
 					"source" : [ "obj-54", 1 ]
 				}

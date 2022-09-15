@@ -189,7 +189,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 353.0, 184.000000000000114, 60.0, 22.0 ],
+					"patching_rect" : [ 350.0, 172.000000000000114, 60.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -208,7 +208,7 @@
 					"numinlets" : 3,
 					"numoutlets" : 3,
 					"outlettype" : [ "", "", "" ],
-					"patching_rect" : [ 353.0, 139.333333333333371, 154.0, 22.0 ],
+					"patching_rect" : [ 350.0, 127.333333333333371, 154.0, 22.0 ],
 					"text" : "route numframes fftsettings"
 				}
 
@@ -219,7 +219,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 72.0, 47.0, 51.0, 20.0 ],
+					"patching_rect" : [ 69.0, 35.0, 51.0, 20.0 ],
 					"text" : "audio in"
 				}
 
@@ -228,12 +228,12 @@
 				"box" : 				{
 					"comment" : "audio in",
 					"id" : "obj-13",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
-					"patching_rect" : [ 36.0, 42.0, 30.0, 30.0 ]
+					"outlettype" : [ "" ],
+					"patching_rect" : [ 33.0, 30.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -246,7 +246,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 594.0, 42.0, 408.0, 87.0 ],
+					"patching_rect" : [ 591.0, 30.0, 408.0, 87.0 ],
 					"text" : "Analyze incoming audio for descriptors based on audio input.\n\n@fftsettings = sets the fft settings for the descriptor analysis as well as the rate for sp.realtimeframe~ (if no @numframes is given)\n@numframes = sets the amount of frames to analyze, and sets the rate for sp.realtimeframe~"
 				}
 
@@ -259,7 +259,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 353.0, 94.666666666666686, 209.0, 22.0 ],
+					"patching_rect" : [ 350.0, 82.666666666666686, 209.0, 22.0 ],
 					"text" : "patcherargs @fftsettings 512 128 512"
 				}
 
@@ -270,7 +270,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 345.0, 47.0, 57.0, 20.0 ],
+					"patching_rect" : [ 342.0, 35.0, 57.0, 20.0 ],
 					"text" : "control in"
 				}
 
@@ -279,12 +279,12 @@
 				"box" : 				{
 					"comment" : "control in",
 					"id" : "obj-22",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 313.0, 42.0, 30.0, 30.0 ]
+					"patching_rect" : [ 310.0, 30.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -295,7 +295,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 36.0, 273.333333333333371, 296.0, 22.0 ],
+					"patching_rect" : [ 33.0, 261.333333333333371, 296.0, 22.0 ],
 					"text" : "sp.descriptorframe"
 				}
 
@@ -307,7 +307,7 @@
 					"numinlets" : 2,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 36.0, 228.666666666666742, 164.0, 22.0 ],
+					"patching_rect" : [ 33.0, 216.666666666666742, 164.0, 22.0 ],
 					"text" : "sp.realtimeframe~"
 				}
 
@@ -319,7 +319,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 193.0, 315.5, 118.0, 33.0 ],
+					"patching_rect" : [ 190.0, 303.5, 118.0, 33.0 ],
 					"text" : "descriptors/stats as buffer"
 				}
 
@@ -331,7 +331,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 68.0, 315.5, 74.0, 33.0 ],
+					"patching_rect" : [ 65.0, 303.5, 74.0, 33.0 ],
 					"text" : "descriptors as list"
 				}
 
@@ -340,11 +340,11 @@
 				"box" : 				{
 					"comment" : "descriptors/stats as buffer",
 					"id" : "obj-8",
-					"index" : 2,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 313.0, 317.0, 30.0, 30.0 ]
+					"patching_rect" : [ 310.0, 305.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -352,11 +352,11 @@
 				"box" : 				{
 					"comment" : "descriptors as list",
 					"id" : "obj-2",
-					"index" : 1,
+					"index" : 0,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 36.0, 317.0, 30.0, 30.0 ]
+					"patching_rect" : [ 33.0, 305.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -364,7 +364,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
-					"midpoints" : [ 430.0, 172.166666666666742, 362.5, 172.166666666666742 ],
+					"midpoints" : [ 427.0, 160.166666666666742, 359.5, 160.166666666666742 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -386,6 +386,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 1 ],
+					"midpoints" : [ 359.5, 204.833333333333428, 187.5, 204.833333333333428 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
@@ -393,7 +394,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-1", 0 ],
-					"midpoints" : [ 552.5, 127.499999999999943, 362.5, 127.499999999999943 ],
+					"midpoints" : [ 549.5, 115.499999999999943, 359.5, 115.499999999999943 ],
 					"order" : 0,
 					"source" : [ "obj-20", 1 ]
 				}
@@ -402,7 +403,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-23", 1 ],
-					"midpoints" : [ 552.5, 257.5, 322.5, 257.5 ],
+					"midpoints" : [ 549.5, 245.5, 319.5, 245.5 ],
 					"order" : 1,
 					"source" : [ "obj-20", 1 ]
 				}
@@ -419,6 +420,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 1 ],
+					"midpoints" : [ 319.5, 204.833333333333371, 187.5, 204.833333333333371 ],
 					"order" : 1,
 					"source" : [ "obj-22", 0 ]
 				}
@@ -446,6 +448,54 @@
 
 			}
  ],
+		"dependency_cache" : [ 			{
+				"name" : "fluid.buf2list.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufflatten~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufloudness~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufpitch~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufscale~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufspectralshape~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.bufstats~.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "fluid.list2buf.mxo",
+				"type" : "iLaX"
+			}
+, 			{
+				"name" : "sp.descriptorframe.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sp.realtimeframe~.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : ".",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+ ],
+		"autosave" : 0,
 		"styles" : [ 			{
 				"name" : "AudioStatus_Menu",
 				"default" : 				{

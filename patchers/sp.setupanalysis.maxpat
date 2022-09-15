@@ -86,6 +86,29 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-20",
+									"linecount" : 2,
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 93.0, 549.473805666666749, 83.0, 33.0 ],
+									"text" : "try fitting data every 60ms"
+								}
+
+							}
+, 							{
+								"box" : 								{
+									"id" : "obj-14",
+									"maxclass" : "comment",
+									"numinlets" : 1,
+									"numoutlets" : 0,
+									"patching_rect" : [ 425.0, 304.803894000000014, 395.0, 20.0 ],
+									"text" : "neural network structure that seems to work well with this descriptor data"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"id" : "obj-15",
 									"linecount" : 7,
 									"maxclass" : "comment",
@@ -136,7 +159,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 387.5, 124.267964666666671, 76.0, 22.0 ],
+									"patching_rect" : [ 387.5, 124.267964666666671, 63.0, 22.0 ],
 									"text" : "r #0_4410"
 								}
 
@@ -160,7 +183,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 276.75, 124.267964666666671, 69.0, 22.0 ],
+									"patching_rect" : [ 276.75, 124.267964666666671, 56.0, 22.0 ],
 									"text" : "r #0_256"
 								}
 

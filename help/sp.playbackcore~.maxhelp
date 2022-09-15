@@ -215,8 +215,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 652.5, 521.853518821603984, 187.0, 76.0 ],
-					"text" : "patcherargs @voices 16 @steal 1 @speed 100 @start 0 @length 100 @attack 0 @attackcurve 50 @hold 100 @holdcurve 50 @loudness 100 @spectral 50"
+					"patching_rect" : [ 652.5, 521.853518821603984, 185.0, 76.0 ],
+					"text" : "patcherargs @voices 16 @steal 1 @speed 100 @start 0 @length 100 @attack 0 @attackcurve 0 @hold 100 @holdcurve 0 @loudness 100 @spectral 50"
 				}
 
 			}
@@ -378,7 +378,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
-					"midpoints" : [ 830.0, 609.707855973813366, 437.0, 609.707855973813366 ],
+					"midpoints" : [ 828.0, 609.707855973813366, 437.0, 609.707855973813366 ],
 					"source" : [ "obj-17", 1 ]
 				}
 

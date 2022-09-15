@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 59.0, 104.0, 645.0, 563.0 ],
+		"rect" : [ 59.0, 104.0, 657.0, 563.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -105,7 +105,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 271.224622641509427, 24.000002645161231, 329.0, 74.0 ],
+					"patching_rect" : [ 265.643820754716785, 24.000002645161231, 329.0, 74.0 ],
 					"text" : "Take incoming bangs/onsets and convert this into several usable parameters based on the time between attacks (delta).\n\n@history = amount of delta values to compute on (default 7)"
 				}
 
@@ -437,7 +437,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 275.643820754716955, 350.495677045296475, 107.0, 22.0 ],
+					"patching_rect" : [ 235.44990566037734, 350.495677045296475, 107.0, 22.0 ],
 					"text" : "s sp.speed.display"
 				}
 
@@ -1354,7 +1354,7 @@
 									"maxclass" : "comment",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 263.0, 31.0, 295.0, 87.0 ],
+									"patching_rect" : [ 263.0, 31.0, 298.0, 87.0 ],
 									"text" : "Take incoming list of n amount of deltas and compute the standard deviation of the series. This lets you know how much \"variance\" there is in the timings. If you are playing at a consistent rate you will have a lower variance whereas if your playing is irregular and erratic you will have a higher variance."
 								}
 
@@ -2662,6 +2662,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-28", 1 ],
+					"midpoints" : [ 58.75, 110.749075713106009, 104.75, 110.749075713106009 ],
 					"order" : 0,
 					"source" : [ "obj-30", 0 ]
 				}
@@ -2756,6 +2757,7 @@
 				"patchline" : 				{
 					"destination" : [ "obj-63", 0 ],
 					"hidden" : 1,
+					"midpoints" : [ 179.84995283018867, 382.495677045296475, 354.399929245283033, 382.495677045296475, 354.399929245283033, 339.495677045296475, 244.94990566037734, 339.495677045296475 ],
 					"order" : 2,
 					"source" : [ "obj-70", 0 ]
 				}

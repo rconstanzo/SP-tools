@@ -40,6 +40,30 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-13",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 415.0, 204.152587890625, 131.0, 33.0 ],
+					"text" : "functions like second half of fluid.ampgate~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-3",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 440.0, 143.0, 196.0, 47.0 ],
+					"text" : "use ampfeature instead of ampslice to be able to get trigger output from the gen~ subpatch"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-36",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
@@ -699,8 +723,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
-					"patching_rect" : [ 31.0, 149.0, 377.0, 35.0 ],
-					"text" : "fluid.ampfeature~ @highpassfreq 2000 @floor -70 @fastrampup 3 @fastrampdown 383 @slowrampup 2205 @slowrampdown 2205"
+					"patching_rect" : [ 31.0, 149.0, 388.0, 35.0 ],
+					"text" : "fluid.ampfeature~ @highpassfreq 2000 @floor -55 @fastrampup 3 @fastrampdown 383 @slowrampup 2205 @slowrampdown 2205"
 				}
 
 			}
@@ -764,7 +788,7 @@
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 305.0, 29.4788818359375, 389.0, 22.0 ],
-					"text" : "patcherargs @sensitivity 50 @threshold -70 @sensitivity 0 @lockout 30"
+					"text" : "patcherargs @sensitivity 50 @threshold -55 @sensitivity 0 @lockout 30"
 				}
 
 			}

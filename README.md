@@ -17,17 +17,21 @@ All abstractions work in 64-bit and M1/Universal Binary.
 [SP-Tools (alpha v0.3) Video Overview](https://www.youtube.com/watch?v=FSUcIMrjy7c)  
 [SP-Tools (alpha v0.4) Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
 [SP-Tools (alpha v0.5) Video Overview](https://www.youtube.com/watch?v=W2N_XyrVvrc)  
+[SP-Tools (alpha v0.6) Video Overview/Walkthrough](https://www.youtube.com/watch?v=OVByXZEaebo)  
 [Corpus-Based Sampler](https://www.youtube.com/watch?v=WMGHqyyn1TE)  
 [Metal by the Foot 1/4](https://www.youtube.com/watch?v=ZMke-GUlWYU)  
 
 ## Changelog
+### v0.6 - [SP-Tools v0.6 Video Overview/Walkthrough](https://www.youtube.com/watch?v=OVByXZEaebo)  
+* added Max for Live devices (16 total) which cover (nearly) all the functionality of SP-Tools  
+* Max codebase further commented and tidied  
+
 ### v0.5 - [SP-Tools v0.5 Video Overview](https://www.youtube.com/watch?v=W2N_XyrVvrc)  
 * added Max for Live devices for some of the main/flagship functionality (`Concat Match`, `Controllers`, `Corpus Match`, `Descriptors`, `Speed`)  
 * added `sp.gridmatch` abstraction for generic controller-based navigation of corpora
 * added support for the Erae Touch controller (`sp.eraetouch`)
 * improved path stability when loading example corpora
 
-## Changelog
 ### v0.4 - [SP-Tools v0.4 Video Overview](https://www.youtube.com/watch?v=q20wLzf8RVU)  
 * added "concat" objects for real-time mosaicking and concatenative synthesis (`sp.concatanalysis~`, `sp.concatcreate`, `sp.concatmatch`, `sp.concatplayer~`, `sp.concatsynth~`)
 * added ability to apply filtering to any descriptor list (via `sp.filter`)

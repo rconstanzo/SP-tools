@@ -324,6 +324,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 2 ],
+					"midpoints" : [ 414.5, 119.25, 273.5, 119.25 ],
 					"order" : 1,
 					"source" : [ "obj-6", 1 ]
 				}
@@ -332,6 +333,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-4", 1 ],
+					"midpoints" : [ 414.5, 165.5, 325.5, 165.5 ],
 					"order" : 0,
 					"source" : [ "obj-6", 1 ]
 				}

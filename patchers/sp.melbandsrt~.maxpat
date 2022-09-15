@@ -40,6 +40,18 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-5",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 371.5, 169.5, 78.0, 33.0 ],
+					"text" : "limit rate by numframes"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"fontname" : "Arial",
 					"fontsize" : 12.0,
 					"id" : "obj-4",
@@ -362,6 +374,7 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-19", 0 ],
+					"midpoints" : [ 383.0, 163.166666666666686, 315.5, 163.166666666666686 ],
 					"source" : [ "obj-1", 1 ]
 				}
 
@@ -383,6 +396,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 1 ],
+					"midpoints" : [ 315.5, 207.833333333333371, 188.5, 207.833333333333371 ],
 					"source" : [ "obj-19", 0 ]
 				}
 
@@ -416,6 +430,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-27", 1 ],
+					"midpoints" : [ 288.5, 207.833333333333371, 188.5, 207.833333333333371 ],
 					"order" : 1,
 					"source" : [ "obj-22", 0 ]
 				}

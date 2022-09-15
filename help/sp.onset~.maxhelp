@@ -707,7 +707,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 299.0, 168.0, 1154.0, 755.0 ],
+						"rect" : [ 0.0, 26.0, 1154.0, 755.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -9480,7 +9480,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1154.0, 755.0 ],
+						"rect" : [ 299.0, 168.0, 1154.0, 755.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -9511,6 +9511,34 @@
 						"assistshowspatchername" : 0,
 						"boxes" : [ 							{
 								"box" : 								{
+									"id" : "obj-1",
+									"maxclass" : "live.dial",
+									"numinlets" : 1,
+									"numoutlets" : 2,
+									"outlettype" : [ "", "float" ],
+									"parameter_enable" : 1,
+									"patching_rect" : [ 891.0, 299.463836669921875, 47.0, 48.0 ],
+									"saved_attribute_attributes" : 									{
+										"valueof" : 										{
+											"parameter_initial" : [ -55 ],
+											"parameter_initial_enable" : 1,
+											"parameter_longname" : "live.dial[3]",
+											"parameter_mmax" : 0.0,
+											"parameter_mmin" : -99.0,
+											"parameter_shortname" : "threshold",
+											"parameter_type" : 0,
+											"parameter_units" : "dB",
+											"parameter_unitstyle" : 9
+										}
+
+									}
+,
+									"varname" : "live.dial[2]"
+								}
+
+							}
+, 							{
+								"box" : 								{
 									"fontsize" : 13.0,
 									"id" : "obj-9",
 									"maxclass" : "comment",
@@ -9526,7 +9554,7 @@
 								"box" : 								{
 									"id" : "obj-67",
 									"maxclass" : "newobj",
-									"numinlets" : 3,
+									"numinlets" : 4,
 									"numoutlets" : 4,
 									"outlettype" : [ "signal", "signal", "", "" ],
 									"patcher" : 									{
@@ -9540,7 +9568,7 @@
 										}
 ,
 										"classnamespace" : "box",
-										"rect" : [ 292.0, 237.0, 1140.0, 367.0 ],
+										"rect" : [ 292.0, 237.0, 1242.0, 371.0 ],
 										"bglocked" : 0,
 										"openinpresentation" : 0,
 										"default_fontsize" : 12.0,
@@ -9570,12 +9598,48 @@
 										"assistshowspatchername" : 0,
 										"boxes" : [ 											{
 												"box" : 												{
+													"id" : "obj-6",
+													"maxclass" : "newobj",
+													"numinlets" : 1,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 780.0, 95.913147000000009, 79.0, 22.0 ],
+													"text" : "prepend floor"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"id" : "obj-1",
+													"maxclass" : "comment",
+													"numinlets" : 1,
+													"numoutlets" : 0,
+													"patching_rect" : [ 810.0, 35.0, 58.0, 20.0 ],
+													"text" : "threshold"
+												}
+
+											}
+, 											{
+												"box" : 												{
+													"comment" : "lockout",
+													"id" : "obj-3",
+													"index" : 4,
+													"maxclass" : "inlet",
+													"numinlets" : 0,
+													"numoutlets" : 1,
+													"outlettype" : [ "" ],
+													"patching_rect" : [ 780.0, 30.0, 30.0, 30.0 ]
+												}
+
+											}
+, 											{
+												"box" : 												{
 													"id" : "obj-19",
 													"linecount" : 5,
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 818.0, 30.0, 305.0, 74.0 ],
+													"patching_rect" : [ 903.0, 30.0, 305.0, 74.0 ],
 													"text" : "Create a visualizer for the exposed parameters of the onset detection algorithm.\n\nIf you want to tweak further have a look at this article:\nhttps://learn.flucoma.org/reference/ampslice/"
 												}
 
@@ -10007,6 +10071,13 @@
 											}
 , 											{
 												"patchline" : 												{
+													"destination" : [ "obj-6", 0 ],
+													"source" : [ "obj-3", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
 													"destination" : [ "obj-45", 0 ],
 													"order" : 1,
 													"source" : [ "obj-4", 0 ]
@@ -10046,6 +10117,14 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-4", 0 ],
+													"midpoints" : [ 789.5, 127.913147000000009, 874.0, 127.913147000000009, 874.0, 84.913147000000009, 54.5, 84.913147000000009 ],
+													"source" : [ "obj-6", 0 ]
+												}
+
+											}
+, 											{
+												"patchline" : 												{
+													"destination" : [ "obj-4", 0 ],
 													"source" : [ "obj-60", 0 ]
 												}
 
@@ -10053,6 +10132,7 @@
 , 											{
 												"patchline" : 												{
 													"destination" : [ "obj-14", 0 ],
+													"midpoints" : [ 379.5, 69.456573500000005, 512.5, 69.456573500000005 ],
 													"order" : 0,
 													"source" : [ "obj-61", 0 ]
 												}
@@ -10076,7 +10156,7 @@
  ]
 									}
 ,
-									"patching_rect" : [ 729.0, 374.463836669921875, 127.0, 22.0 ],
+									"patching_rect" : [ 729.0, 374.463836669921875, 181.0, 22.0 ],
 									"saved_object_attributes" : 									{
 										"description" : "",
 										"digest" : "",
@@ -10484,6 +10564,13 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
+									"destination" : [ "obj-67", 3 ],
+									"source" : [ "obj-1", 0 ]
+								}
+
+							}
+, 							{
+								"patchline" : 								{
 									"destination" : [ "obj-30", 0 ],
 									"source" : [ "obj-10", 0 ]
 								}
@@ -10573,6 +10660,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-39", 0 ],
+									"midpoints" : [ 792.5, 408.481918334960938, 738.5, 408.481918334960938 ],
 									"source" : [ "obj-67", 1 ]
 								}
 
@@ -10580,6 +10668,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-44", 0 ],
+									"midpoints" : [ 846.5, 408.481918334960938, 738.5, 408.481918334960938 ],
 									"source" : [ "obj-67", 2 ]
 								}
 
@@ -10604,6 +10693,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-8", 0 ],
+									"midpoints" : [ 900.5, 408.481918334960938, 738.5, 408.481918334960938 ],
 									"source" : [ "obj-67", 3 ]
 								}
 
@@ -10701,6 +10791,7 @@
 			"obj-1::obj-7::obj-52" : [ "Level", "Level", 0 ],
 			"obj-1::obj-7::obj-55" : [ "DSP", "DSP", 0 ],
 			"obj-1::obj-7::obj-56" : [ "OutputChannel", "OutputChannel", 0 ],
+			"obj-37::obj-1" : [ "live.dial[3]", "threshold", 0 ],
 			"obj-37::obj-58" : [ "live.dial", "sensitivity", 0 ],
 			"obj-37::obj-59" : [ "live.dial[1]", "lockout", 0 ],
 			"obj-38::obj-82" : [ "live.numbox[4]", "live.numbox[2]", 0 ],

@@ -40,6 +40,42 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-16",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 191.428571428571445, 700.202694016634723, 114.0, 33.0 ],
+					"text" : "create a coll for fast access metadata"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-13",
+					"linecount" : 3,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 191.428571428571445, 488.635130457043033, 74.0, 47.0 ],
+					"text" : "analyze at multiple time frames"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-4",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 414.0, 598.0, 101.0, 33.0 ],
+					"text" : "all info organized in here"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-12",
 					"maxclass" : "newobj",
 					"numinlets" : 0,
@@ -3699,7 +3735,7 @@
 													"maxclass" : "comment",
 													"numinlets" : 1,
 													"numoutlets" : 0,
-													"patching_rect" : [ 514.0, 36.0, 267.0, 60.0 ],
+													"patching_rect" : [ 514.0, 36.0, 270.0, 60.0 ],
 													"text" : "Check to see the file duration. If it is less than 4410 samples (100ms @ 44.1k) then copy it into an empty buffer that is 4410 samples long so the various analysis timecales work correctly."
 												}
 
@@ -4829,7 +4865,7 @@
 									"numinlets" : 0,
 									"numoutlets" : 1,
 									"outlettype" : [ "" ],
-									"patching_rect" : [ 28.0, 145.10472805920972, 74.0, 22.0 ],
+									"patching_rect" : [ 42.0, 145.10472805920972, 74.0, 22.0 ],
 									"text" : "r #0info_dict"
 								}
 
@@ -13551,6 +13587,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 0 ],
+									"midpoints" : [ 636.899999999999977, 206.630910074012149, 908.100000000000023, 206.630910074012149 ],
 									"source" : [ "obj-11", 1 ]
 								}
 
@@ -13565,6 +13602,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-7", 1 ],
+									"midpoints" : [ 786.700000000000045, 188.630910074012149, 1085.099999999999909, 188.630910074012149 ],
 									"source" : [ "obj-12", 1 ]
 								}
 
@@ -13608,6 +13646,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 1 ],
+									"midpoints" : [ 140.5, 176.10472805920972, 106.5, 176.10472805920972 ],
 									"order" : 1,
 									"source" : [ "obj-25", 0 ]
 								}
@@ -13631,6 +13670,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-10", 0 ],
+									"midpoints" : [ 37.5, 103.07854604440729, 63.5, 103.07854604440729 ],
 									"source" : [ "obj-39", 0 ]
 								}
 
@@ -13638,6 +13678,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-11", 0 ],
+									"midpoints" : [ 482.300000000000011, 129.57854604440729, 537.899999999999977, 129.57854604440729 ],
 									"source" : [ "obj-39", 4 ]
 								}
 
@@ -13645,6 +13686,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-12", 0 ],
+									"midpoints" : [ 593.5, 124.57854604440729, 704.700000000000045, 124.57854604440729 ],
 									"source" : [ "obj-39", 5 ]
 								}
 
@@ -13660,6 +13702,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-158", 0 ],
+									"midpoints" : [ 704.700000000000045, 107.57854604440729, 871.5, 107.57854604440729 ],
 									"source" : [ "obj-39", 6 ]
 								}
 
@@ -13667,6 +13710,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-16", 0 ],
+									"midpoints" : [ 371.100000000000023, 128.57854604440729, 268.600000000000023, 128.57854604440729 ],
 									"order" : 1,
 									"source" : [ "obj-39", 3 ]
 								}
@@ -13675,6 +13719,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-177", 0 ],
+									"midpoints" : [ 148.699999999999989, 122.60472805920972, 37.5, 122.60472805920972 ],
 									"source" : [ "obj-39", 1 ]
 								}
 
@@ -13682,6 +13727,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-25", 0 ],
+									"midpoints" : [ 259.899999999999977, 130.57854604440729, 140.5, 130.57854604440729 ],
 									"source" : [ "obj-39", 2 ]
 								}
 
@@ -13718,6 +13764,7 @@
 , 							{
 								"patchline" : 								{
 									"destination" : [ "obj-177", 2 ],
+									"midpoints" : [ 202.5, 203.630910074012149, 243.5, 203.630910074012149 ],
 									"source" : [ "obj-95", 0 ]
 								}
 
@@ -13755,7 +13802,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 77.428571428571445, 736.202694016634723, 105.0, 47.0 ],
+					"patching_rect" : [ 72.428571428571445, 736.202694016634723, 105.0, 47.0 ],
 					"text" : "bang when single file analysis is complete"
 				}
 
@@ -15829,7 +15876,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 156.428571428571445, 552.277021346940955, 60.0, 22.0 ],
+					"patching_rect" : [ 142.928571428571445, 552.277021346940955, 60.0, 22.0 ],
 					"text" : "s #0index"
 				}
 
@@ -16517,7 +16564,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-34", 0 ],
-					"midpoints" : [ 128.928571428571445, 486.064185012094242, 165.928571428571445, 486.064185012094242 ],
+					"midpoints" : [ 128.928571428571445, 486.064185012094242, 152.428571428571445, 486.064185012094242 ],
 					"order" : 3,
 					"source" : [ "obj-2", 0 ]
 				}

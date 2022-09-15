@@ -40,6 +40,54 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-14",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 200.0, 598.847581925734175, 140.0, 33.0 ],
+					"text" : "if dataset is empty, filter criteria was not met"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-12",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 208.499999999999886, 481.091174354666464, 97.0, 33.0 ],
+					"text" : "copy to a dummy dataset"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-10",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 241.749999999999886, 167.074087498485653, 176.0, 33.0 ],
+					"text" : "create a single point dataset to be able to use datasetquery~"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-5",
+					"linecount" : 2,
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 330.0, 82.603303807964721, 141.0, 33.0 ],
+					"text" : "if incoming data is a list, convert it to a buffer"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-9",
 					"linecount" : 21,
 					"maxclass" : "comment",
@@ -1304,7 +1352,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-39", 0 ],
-					"midpoints" : [ 706.999999999999886, 639.091174354666464, 154.833333333333258, 639.091174354666464 ],
+					"midpoints" : [ 706.999999999999886, 648.091174354666464, 154.833333333333258, 648.091174354666464 ],
 					"source" : [ "obj-49", 0 ]
 				}
 

@@ -10,7 +10,7 @@
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 496.0, 148.0, 1034.0, 785.0 ],
+		"rect" : [ 317.0, 154.0, 1034.0, 785.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -57,7 +57,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1034.0, 759.0 ],
+						"rect" : [ 317.0, 180.0, 1034.0, 759.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -434,13 +434,14 @@
 									"numoutlets" : 2,
 									"outlettype" : [ "", "float" ],
 									"parameter_enable" : 1,
-									"patching_rect" : [ 579.0, 428.331233488530131, 44.0, 15.0 ],
+									"patching_rect" : [ 579.0, 423.331233488530131, 44.0, 15.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_initial" : [ 50 ],
+											"parameter_initial" : [ 0 ],
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "live.numbox[4]",
 											"parameter_mmax" : 100.0,
+											"parameter_mmin" : -100.0,
 											"parameter_shortname" : "attack curve",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 5
@@ -464,10 +465,11 @@
 									"patching_rect" : [ 435.0, 423.331233488530131, 44.0, 15.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_initial" : [ 50 ],
+											"parameter_initial" : [ 0 ],
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "live.numbox[5]",
 											"parameter_mmax" : 100.0,
+											"parameter_mmin" : -100.0,
 											"parameter_shortname" : "attack curve",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 5
@@ -2234,7 +2236,7 @@
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 496.0, 174.0, 1034.0, 759.0 ],
+						"rect" : [ 0.0, 26.0, 1034.0, 759.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -2274,7 +2276,6 @@
 									"numinlets" : 1,
 									"numoutlets" : 0,
 									"patching_rect" : [ 359.0, 270.205949235910566, 240.5, 42.0 ],
-									"presentation_linecount" : 4,
 									"text" : "when applying spectral compensation you should use an air mic otherwise you apply the sonic spectrum of the SP sensor which is... not good",
 									"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
 								}
@@ -3272,7 +3273,7 @@
 							}
 , 							{
 								"box" : 								{
-									"buffername" : "13297polybuffer.44",
+									"buffername" : "1994polybuffer.6",
 									"gridcolor" : [ 0.349019607843137, 0.349019607843137, 0.349019607843137, 0.0 ],
 									"id" : "obj-43",
 									"labels" : 0,
@@ -3411,10 +3412,11 @@
 									"patching_rect" : [ 774.0, 354.331233488530131, 44.0, 15.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_initial" : [ 50 ],
+											"parameter_initial" : [ 0 ],
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "live.numbox[2]",
 											"parameter_mmax" : 100.0,
+											"parameter_mmin" : -100.0,
 											"parameter_shortname" : "attack curve",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 5
@@ -3438,10 +3440,11 @@
 									"patching_rect" : [ 630.0, 349.331233488530131, 44.0, 15.0 ],
 									"saved_attribute_attributes" : 									{
 										"valueof" : 										{
-											"parameter_initial" : [ 50 ],
+											"parameter_initial" : [ 0 ],
 											"parameter_initial_enable" : 1,
 											"parameter_longname" : "live.numbox[3]",
 											"parameter_mmax" : 100.0,
+											"parameter_mmin" : -100.0,
 											"parameter_shortname" : "attack curve",
 											"parameter_type" : 0,
 											"parameter_unitstyle" : 5
