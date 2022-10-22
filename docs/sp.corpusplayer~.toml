@@ -1,0 +1,51 @@
+[object]
+name = "sp.corpusplayer~"
+module = "SP-Tools"
+category = ""
+digest = "All-in-one corpus playback object"
+seealso =  ['sp.corpusanalysis', 'sp.corpuscreate', 'sp.gridmatch', 'sp.corpuslist', 'sp.corpusmatch', 'sp.folderloop', 'sp.descriptors~', 'sp.descriptorframe']
+description = "All-in-one corpus playback object."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.corpusplayer~</o> object is an all-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="signal"
+digest="Audio and control in"
+description="Audio input to be analyzed for concatenation/resynthesis."
+
+[outlets]
+[outlets.0]
+type="signal"
+digest="Audio output (left)"
+description="Audio output (left)."
+
+[outlets.1]
+type="signal"
+digest="Audio output (right)"
+description="Audio output (right)."
+
+[messages.load]
+digest = "Load a pre-trained concat <b>.json</b> file"
+description = "Opens file dialog to select pre-trained concat <b>.json</b> file."
+
+[messages.read]
+digest = "Read a pre-trained concat <b>.json</b> file"
+description = "Reads a pre-trained concat <b>.json</b> file directly from a relative or absolute path."
+
+[attributes]
+[attributes.voices]
+digest = "Amount of polyphony"
+description = "Sets the amount of polyphony available for sample playback."
+default = { value=64, type="int", size=1 }
+
+[attributes.steal]
+digest = "Whether poly voice stealing is enabled"
+description = "Sets whether voice stealing is enabled, which allows new samples to start when previous ones are still sounding."
+default = { value=1, type="int", size=1 }

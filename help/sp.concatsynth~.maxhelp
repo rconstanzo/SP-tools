@@ -4,7 +4,7 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
@@ -51,13 +51,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 335.0, 208.0, 1155.0, 685.0 ],
+						"rect" : [ 0.0, 26.0, 1155.0, 685.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -209,7 +209,7 @@
 , 							{
 								"box" : 								{
 									"bgcolor" : [ 0.08992911875248, 0.093083925545216, 0.09630611538887, 1.0 ],
-									"buffername" : "2769concat_buffer",
+									"buffername" : "12367concat_buffer",
 									"gridcolor" : [ 0.349019607843137, 0.349019607843137, 0.349019607843137, 0.0 ],
 									"id" : "obj-51",
 									"ignoreclick" : 1,
@@ -252,7 +252,7 @@
 									"id" : "obj-20",
 									"linecount" : 2,
 									"maxclass" : "newobj",
-									"numinlets" : 2,
+									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "signal", "signal", "" ],
 									"patching_rect" : [ 206.5, 318.333333333333371, 298.0, 35.0 ],
@@ -503,8 +503,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-20", 1 ],
-									"midpoints" : [ 359.0, 308.5, 495.0, 308.5 ],
+									"destination" : [ "obj-20", 0 ],
+									"midpoints" : [ 359.0, 308.5, 216.0, 308.5 ],
 									"source" : [ "obj-35", 0 ]
 								}
 
@@ -591,7 +591,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -641,7 +641,7 @@
 , 							{
 								"box" : 								{
 									"bgcolor" : [ 0.08992911875248, 0.093083925545216, 0.09630611538887, 1.0 ],
-									"buffername" : "2774concat_buffer",
+									"buffername" : "12374concat_buffer",
 									"gridcolor" : [ 0.349019607843137, 0.349019607843137, 0.349019607843137, 0.0 ],
 									"id" : "obj-51",
 									"ignoreclick" : 1,
@@ -683,7 +683,7 @@
 								"box" : 								{
 									"id" : "obj-19",
 									"maxclass" : "newobj",
-									"numinlets" : 2,
+									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "signal", "signal", "" ],
 									"patching_rect" : [ 249.5, 308.5, 116.0, 22.0 ],
@@ -1081,18 +1081,18 @@
  ],
 						"lines" : [ 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 837.335705599999756, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 837.335705599999756, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-112", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 697.0, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 697.0, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-113", 0 ]
 								}
 
@@ -1106,9 +1106,9 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 769.167852799999878, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 769.167852799999878, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-132", 0 ]
 								}
 
@@ -1122,7 +1122,8 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
+									"midpoints" : [ 356.0, 299.666666666666629, 259.0, 299.666666666666629 ],
 									"source" : [ "obj-15", 0 ]
 								}
 
@@ -1136,27 +1137,27 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 876.835705599999869, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 876.835705599999869, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-154", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 697.0, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 697.0, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-155", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-19", 1 ],
+									"destination" : [ "obj-19", 0 ],
 									"hidden" : 1,
-									"midpoints" : [ 757.167852799999878, 299.166666666666629, 356.0, 299.166666666666629 ],
+									"midpoints" : [ 757.167852799999878, 299.166666666666629, 259.0, 299.166666666666629 ],
 									"source" : [ "obj-156", 0 ]
 								}
 
@@ -1262,13 +1263,13 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
 ,
 						"classnamespace" : "box",
-						"rect" : [ 0.0, 26.0, 1155.0, 685.0 ],
+						"rect" : [ 335.0, 208.0, 1155.0, 685.0 ],
 						"bglocked" : 0,
 						"openinpresentation" : 0,
 						"default_fontsize" : 12.0,
@@ -1324,7 +1325,7 @@
 , 							{
 								"box" : 								{
 									"bgcolor" : [ 0.08992911875248, 0.093083925545216, 0.09630611538887, 1.0 ],
-									"buffername" : "2784concat_buffer",
+									"buffername" : "12386concat_buffer",
 									"gridcolor" : [ 0.349019607843137, 0.349019607843137, 0.349019607843137, 0.0 ],
 									"id" : "obj-51",
 									"ignoreclick" : 1,
@@ -1366,7 +1367,7 @@
 								"box" : 								{
 									"id" : "obj-20",
 									"maxclass" : "newobj",
-									"numinlets" : 2,
+									"numinlets" : 1,
 									"numoutlets" : 3,
 									"outlettype" : [ "signal", "signal", "" ],
 									"patching_rect" : [ 236.5, 348.333333333333371, 116.0, 22.0 ],
@@ -1575,15 +1576,16 @@
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-20", 1 ],
+									"destination" : [ "obj-20", 0 ],
+									"midpoints" : [ 343.0, 338.5, 246.0, 338.5 ],
 									"source" : [ "obj-35", 0 ]
 								}
 
 							}
 , 							{
 								"patchline" : 								{
-									"destination" : [ "obj-20", 1 ],
-									"midpoints" : [ 281.75, 338.5, 343.0, 338.5 ],
+									"destination" : [ "obj-20", 0 ],
+									"midpoints" : [ 281.75, 338.5, 246.0, 338.5 ],
 									"source" : [ "obj-88", 0 ]
 								}
 
@@ -1738,6 +1740,20 @@
 				"name" : "sine.svg",
 				"bootpath" : "C74:/media/max/picts/m4l-picts",
 				"type" : "svg",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sp.concatanalysis~.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
+				"implicit" : 1
+			}
+, 			{
+				"name" : "sp.concatmatch.maxpat",
+				"bootpath" : "~/Sync/Files/Max/Packages/SP-Tools/patchers",
+				"patcherrelativepath" : "../patchers",
+				"type" : "JSON",
 				"implicit" : 1
 			}
 , 			{

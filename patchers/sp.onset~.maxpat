@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 226.0, 154.0, 1185.0, 367.0 ],
+		"rect" : [ 226.0, 154.0, 1081.0, 399.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,36 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-8",
+					"maxclass" : "newobj",
+					"numinlets" : 1,
+					"numoutlets" : 1,
+					"outlettype" : [ "signal" ],
+					"patching_rect" : [ 31.0, 139.30517578125, 47.0, 22.0 ],
+					"text" : "t signal"
+				}
+
+			}
+, 			{
+				"box" : 				{
+					"id" : "obj-1",
+					"maxclass" : "newobj",
+					"numinlets" : 2,
+					"numoutlets" : 2,
+					"outlettype" : [ "", "" ],
+					"patching_rect" : [ 31.0, 91.4788818359375, 71.0, 22.0 ],
+					"text" : "route signal"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-13",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 415.0, 204.152587890625, 131.0, 33.0 ],
+					"patching_rect" : [ 415.0, 242.1103515625, 131.0, 33.0 ],
 					"text" : "functions like second half of fluid.ampgate~"
 				}
 
@@ -57,7 +81,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 440.0, 143.0, 196.0, 47.0 ],
+					"patching_rect" : [ 440.0, 180.957763671875, 196.0, 47.0 ],
 					"text" : "use ampfeature instead of ampslice to be able to get trigger output from the gen~ subpatch"
 				}
 
@@ -74,7 +98,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -509,7 +533,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 173.0, 91.4788818359375, 273.0, 22.0 ],
+					"patching_rect" : [ 173.0, 139.30517578125, 273.0, 22.0 ],
 					"saved_object_attributes" : 					{
 						"description" : "",
 						"digest" : "",
@@ -523,23 +547,12 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-18",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 207.0, 34.4788818359375, 57.0, 20.0 ],
-					"text" : "control in"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-15",
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "bang", "bang" ],
-					"patching_rect" : [ 31.0, 257.30517578125, 42.0, 22.0 ],
+					"patching_rect" : [ 31.0, 295.262939453125, 42.0, 22.0 ],
 					"text" : "edge~"
 				}
 
@@ -550,7 +563,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 63.0, 309.957763671875, 35.0, 20.0 ],
+					"patching_rect" : [ 63.0, 347.91552734375, 35.0, 20.0 ],
 					"text" : "bang"
 				}
 
@@ -563,7 +576,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 31.0, 304.957763671875, 30.0, 30.0 ]
+					"patching_rect" : [ 31.0, 342.91552734375, 30.0, 30.0 ]
 				}
 
 			}
@@ -573,7 +586,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 421.0, 309.957763671875, 32.0, 20.0 ],
+					"patching_rect" : [ 421.0, 347.91552734375, 32.0, 20.0 ],
 					"text" : "gate"
 				}
 
@@ -586,7 +599,7 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 389.0, 304.957763671875, 30.0, 30.0 ]
+					"patching_rect" : [ 389.0, 342.91552734375, 30.0, 30.0 ]
 				}
 
 			}
@@ -602,7 +615,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -642,7 +655,7 @@
 									"maxclass" : "newobj",
 									"numinlets" : 1,
 									"numoutlets" : 0,
-									"patching_rect" : [ 719.0, 484.0, 35.0, 22.0 ],
+									"patching_rect" : [ 719.0, 495.0, 35.0, 22.0 ],
 									"text" : "out 2"
 								}
 
@@ -710,7 +723,7 @@
  ]
 					}
 ,
-					"patching_rect" : [ 31.0, 209.652587890625, 377.0, 22.0 ],
+					"patching_rect" : [ 31.0, 247.6103515625, 377.0, 22.0 ],
 					"text" : "gen~ @onthreshold 16 @offthreshold 4.66665 @minslicelength 1323"
 				}
 
@@ -723,21 +736,8 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "signal", "" ],
-					"patching_rect" : [ 31.0, 149.0, 388.0, 35.0 ],
+					"patching_rect" : [ 31.0, 186.957763671875, 388.0, 35.0 ],
 					"text" : "fluid.ampfeature~ @highpassfreq 2000 @floor -55 @fastrampup 3 @fastrampdown 383 @slowrampup 2205 @slowrampdown 2205"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"comment" : "control in",
-					"id" : "obj-2",
-					"index" : 0,
-					"maxclass" : "inlet",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 173.0, 29.4788818359375, 30.0, 30.0 ]
 				}
 
 			}
@@ -747,7 +747,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 185.0, 309.957763671875, 43.0, 20.0 ],
+					"patching_rect" : [ 185.0, 347.91552734375, 43.0, 20.0 ],
 					"text" : "trigger"
 				}
 
@@ -755,11 +755,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-29",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 63.0, 34.4788818359375, 67.0, 20.0 ],
-					"text" : "audio input"
+					"patching_rect" : [ 63.0, 27.9788818359375, 67.0, 33.0 ],
+					"text" : "audio and control in"
 				}
 
 			}
@@ -772,7 +773,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 709.5, 29.4788818359375, 441.0, 74.0 ],
+					"patching_rect" : [ 606.5, 29.4788818359375, 441.0, 74.0 ],
 					"text" : "Analyzing incoming audio for onsets. Outputs a bang, a trigger, and a gate.\n\n@threshold = absolute noise floor below which no attacks will be triggered (in dB)\n@sensitivity = the nervousness of the algorithm thresholds (from 0 to 100%)\n@lockout = time before a bang can be triggered again (in ms)"
 				}
 
@@ -787,7 +788,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 305.0, 29.4788818359375, 389.0, 22.0 ],
+					"patching_rect" : [ 173.0, 91.4788818359375, 389.0, 22.0 ],
 					"text" : "patcherargs @sensitivity 50 @threshold -55 @sensitivity 0 @lockout 30"
 				}
 
@@ -800,13 +801,13 @@
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 153.0, 304.957763671875, 30.0, 30.0 ]
+					"patching_rect" : [ 153.0, 342.91552734375, 30.0, 30.0 ]
 				}
 
 			}
 , 			{
 				"box" : 				{
-					"comment" : "audio input",
+					"comment" : "audio and control in",
 					"id" : "obj-4",
 					"index" : 0,
 					"maxclass" : "inlet",
@@ -820,6 +821,21 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"destination" : [ "obj-36", 0 ],
+					"midpoints" : [ 92.5, 125.89202880859375, 182.5, 125.89202880859375 ],
+					"source" : [ "obj-1", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-1", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-12", 0 ],
 					"source" : [ "obj-15", 0 ]
 				}
@@ -828,14 +844,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-36", 0 ],
-					"source" : [ "obj-2", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-36", 0 ],
-					"midpoints" : [ 684.5, 70.9788818359375, 182.5, 70.9788818359375 ],
+					"midpoints" : [ 552.5, 125.89202880859375, 182.5, 125.89202880859375 ],
 					"source" : [ "obj-31", 1 ]
 				}
 
@@ -843,7 +852,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
-					"midpoints" : [ 436.5, 197.23944091796875, 40.5, 197.23944091796875 ],
+					"midpoints" : [ 436.5, 235.23944091796875, 40.5, 235.23944091796875 ],
 					"source" : [ "obj-36", 1 ]
 				}
 
@@ -851,14 +860,14 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-7", 0 ],
-					"midpoints" : [ 182.5, 130.73944091796875, 40.5, 130.73944091796875 ],
+					"midpoints" : [ 182.5, 174.73944091796875, 40.5, 174.73944091796875 ],
 					"source" : [ "obj-36", 0 ]
 				}
 
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-7", 0 ],
+					"destination" : [ "obj-1", 0 ],
 					"source" : [ "obj-4", 0 ]
 				}
 
@@ -881,7 +890,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-5", 0 ],
-					"midpoints" : [ 40.5, 246.80517578125, 162.5, 246.80517578125 ],
+					"midpoints" : [ 40.5, 284.762939453125, 162.5, 284.762939453125 ],
 					"order" : 0,
 					"source" : [ "obj-6", 0 ]
 				}
@@ -891,6 +900,13 @@
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-7", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-7", 0 ],
+					"source" : [ "obj-8", 0 ]
 				}
 
 			}

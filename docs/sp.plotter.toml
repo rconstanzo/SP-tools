@@ -1,0 +1,38 @@
+[object]
+name = "sp.plotter"
+module = "SP-Tools"
+category = ""
+digest = "Display 2d corpus data and labels"
+seealso =  ['sp.classifierdisplay', 'sp.corpuslist', 'sp.descriptordisplay', 'sp.eraetouch']
+description = "Display 2d corpus data and labels."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.plotter</o> object is a utility for visualizing corpora and trained classes.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Dataset and labelset input"
+description="Dataset and labelset input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Selected point"
+description="Selected point from incoming matching or UI interaction."
+
+[outlets.1]
+type="list"
+digest="Selected label"
+description="Selected label output from incoming matching or UI interaction."
+
+[attributes]
+[attributes.drum]
+digest = "The type of drum to display the UI for"
+description = "Sets the type of <m>drum</m> to use for the UI display<br/><br /> Available options are <b>snare</b>, <b>tom</b>, and <b>kick</b>."
+default = { value="snare", type="list", size=1 }

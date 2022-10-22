@@ -1,0 +1,61 @@
+[object]
+name = "yourspecialobject~"
+digest = "A very short digest of the object"
+seealso =  ["fluid.waveform~"]
+description = "A short description"
+discussion = """
+High level discussion of the object.
+
+Multiline strings with three quotes.
+"""
+
+[metadata]
+author = 'James Bradbury'
+tags = ['words', 'that', 'tag', 'your', 'reference']
+
+[inlets]
+[inlets.0]
+type="signal"
+digest="A signal inlet"
+description="A signal inlet. Much like the <o>groove~</o> object"
+
+[inlets.1]
+type="anything"
+digest="Anything, like a list."
+description="The description for this anything inlet"
+
+[outlets]
+[outlets.0]
+type="signal"
+digest="Signal output"
+description="Outputs some signal innit"
+
+[arguments]
+[arguments.collname]
+optional = true
+type = "symbol"
+digest = "argument digest 1"
+description = "argument description 1"
+
+[arguments.index]
+optional = false
+type = "int"
+digest = "argument digest 2"
+description = "argument description 2"
+
+[messages]
+[messages.range]
+digest = "Message digest"
+description = "Message description"
+args = [
+    { name="x", type="float", optional=0 },
+    { name="y", type="float", optional=1 }
+]
+
+[attributes]
+[attributes.interp]
+digest = "attribute digest"
+description = "attribute description"
+type = "int"
+size = 1
+default = { value = 0.5, size = 1, type = "int" }

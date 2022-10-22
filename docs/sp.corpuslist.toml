@@ -1,0 +1,27 @@
+[object]
+name = "sp.corpuslist"
+module = "SP-Tools"
+category = ""
+digest = "Visualize the sample contents of a corpus"
+seealso =  ['sp.corpusanalysis', 'sp.corpuscreate', 'sp.corpusmatch', 'sp.gridmatch', 'sp.corpusplayer~', 'sp.folderloop']
+description = "Visualize the sample contents of a corpus."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.corpuslist</o> object loads and displays the contents of the <o>polybuffer~</o> at the center of a corpus, allowing the viewing of the selected samples.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="From <o>sp.corpusmatch</o>"
+description="From <o>sp.corpusmatch</o>."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Selected sample"
+description="Selected sample."

@@ -1,0 +1,33 @@
+[object]
+name = "sp.speed"
+module = "SP-Tools"
+category = ""
+digest = "Extract timing and speed parameters from onsets"
+seealso =  ['sp.speed', 'sp.onset~']
+description = "Extracts timing and speed parameters from onsets."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.speed</o> object works in conjunction with <o>sp.onset~</o> to create several parameters based on the time between attacks.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Incoming bang, list, or <o>buffer~</o> in"
+description="Incoming bang, list, or <o>buffer~</o> input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Speed meta-parameters out"
+description="Speed meta-parameters output."
+
+[attributes]
+[attributes.history]
+digest = "Amount of delta values to compute on"
+description = "Amount of delta values to compute on."
+default = { value=7, type="int", size=1 }

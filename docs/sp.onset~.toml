@@ -1,0 +1,45 @@
+[object]
+name = "sp.onset~"
+module = "SP-Tools"
+category = ""
+digest = "Amplitude-based onset detection"
+seealso =  ['sp.onsetframe', 'sp.novelty~', 'sp.realtimeframe~']
+description = "Amplitude-based onset detection."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.onset~</o> object takes audio input and outputs a <b>bang</b>, trigger, and a gate when an onset is detected. The sensitivity is adjustable (0-100%) and a threshold can be set as an absolute noise floor (in dB).</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="signal"
+digest="Audio and control in"
+description="Audio input to analyze for novelty."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="<b>bang</b> out"
+description="<b>bang</b> output when an onset is detected."
+
+[outlets.1]
+type="signal"
+digest="Trigger out"
+description="Trigger output when an onset is detected."
+
+[outlets.2]
+type="signal"
+digest="Gate out"
+description="Gate output when an onset is detected."
+
+[messages.load]
+digest = "Load a pre-trained concat <b>.json</b> file"
+description = "Opens file dialog to select pre-trained concat <b>.json</b> file."
+
+[messages.read]
+digest = "Read a pre-trained concat <b>.json</b> file"
+description = "Reads a pre-trained concat <b>.json</b> file directly from a relative or absolute path."

@@ -1,0 +1,63 @@
+[object]
+name = "sp.databending"
+module = "SP-Tools"
+category = ""
+digest = "Transform and distort descriptor streams"
+seealso =  ['sp.datadelay', 'sp.datagranular', 'sp.datalooper~', 'sp.datatranspose', 'sp.descriptors~', 'sp.descriotorframe']
+description = "Transform and distort descriptor streams."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.databending</o> object takes incoming descriptor data (descriptors, melbands, or MFCCs) and apply various transformations and 'bends'. The input can be lists or <o>buffer~</o>s and the same will be output.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Descriptor and control in"
+description="Incoming descriptors as a list or <o>buffer~</o> as well as control input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Descriptor output"
+description="Transformed descriptor output."
+
+[messages.dropouts]
+digest = "Probably that a given input will be ignored"
+description = "Probably that a given input will be ignored (from 0 to 100%)."
+
+[messages.variation]
+digest = "Amount of variation on gvein input"
+description = "Amount of variation based on the incoming descriptor. The results are relative to the scale of the incoming descriptors so larger values will lead to larger variations (fom 0 to 100%)."
+
+[messages.resolution]
+digest = "Reduces the numerican resolution (ala bit crushing)"
+description = "Reduces the numerican resolution (ala bit crushing) (from 0 to 100%)."
+
+[messages.rotation]
+digest = "Rotation of the descriptor list, with interpolation between points"
+description = "Rotation of the descriptor list, with interpolation between points (from 0 to 100%)."
+
+[attributes.dropouts]
+digest = "Probably that a given input will be ignored"
+description = "Probably that a given input will be ignored (from 0 to 100%)."
+default = { value=0, type="float64", size=1 }
+
+[attributes.variation]
+digest = "Amount of variation on gvein input"
+description = "Amount of variation based on the incoming descriptor. The results are relative to the scale of the incoming descriptors so larger values will lead to larger variations (fom 0 to 100%)."
+default = { value=0, type="float64", size=1 }
+
+[attributes.resolution]
+digest = "Reduces the numerican resolution (ala bit crushing)"
+description = "Reduces the numerican resolution (ala bit crushing) (from 0 to 100%)."
+default = { value=0, type="float64", size=1 }
+
+[attributes.rotation]
+digest = "Rotation of the descriptor list, with interpolation between points"
+description = "Rotation of the descriptor list, with interpolation between points (from 0 to 100%)."
+default = { value=0, type="float64", size=1 }

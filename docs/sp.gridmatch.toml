@@ -1,0 +1,51 @@
+[object]
+name = "sp.gridmatch"
+module = "SP-Tools"
+category = ""
+digest = "Find the nearest match in a pre-analyzed corpus"
+seealso =  ['sp.corpusanalysis', 'sp.corpuscreate', 'sp.corpusmatch', 'sp.corpusplayer~', 'sp.corpuslist', 'sp.folderloop', 'sp.descriptors~', 'sp.descriptorframe']
+description = "Find the nearest match in a pre-analyzed corpus."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.gridmatch</o> object finds the nearest match in a corpus based on a grid-ified XY space. You can load/use the same corpora as you would with <o>sp.corpusmatch</o> but instead of matching based on incoming audio descriptors you can match using XY coordinates from a controller or UI object.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="<o>buffer~</o> and control in"
+description="<o>buffer~</o> and control input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Matched entry"
+description="Matched entry."
+
+[outlets.1]
+type="list"
+digest="<o>dict</o> output for <o>sp.plotter</o>"
+description="<o>dict</o> output for <o>sp.plotter</o>."
+
+[messages.load]
+digest = "Load a pre-trained concat <b>.json</b> file"
+description = "Opens file dialog to select pre-trained concat <b>.json</b> file."
+
+[messages.read]
+digest = "Read a pre-trained concat <b>.json</b> file"
+description = "Reads a pre-trained concat <b>.json</b> file directly from a relative or absolute path."
+
+[attributes]
+[attributes.voices]
+digest = "Amount of polyphony"
+description = "Sets the amount of polyphony available for sample playback."
+default = { value=64, type="int", size=1 }
+
+[attributes.steal]
+digest = "Whether poly voice stealing is enabled"
+description = "Sets whether voice stealing is enabled, which allows new samples to start when previous ones are still sounding."
+default = { value=1, type="int", size=1 }

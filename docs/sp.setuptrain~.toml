@@ -1,0 +1,58 @@
+[object]
+name = "sp.setuptrain~"
+module = "SP-Tools"
+category = ""
+digest = "Create a setup which can be used to improve corpus matching"
+seealso =  ['sp.corpuscreate', 'sp.corpusmatch', 'sp.gridmatch', 'sp.corpusplayer~', 'sp.corpuslist', 'sp.folderloop', 'sp.onsetframe~', 'sp.setupanalysis']
+description = "Create a setup which can be used to improve corpus matching."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.setuptrain~</o> object creates a setup or overview of of your instrument/sticks/sources. It saves multiple descriptors at multiple time frames and can be used to scale your input to match a corpus, or to improve matching overall.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="signal"
+digest="SP Sensor or Contact Mic input"
+description="Audio input from an SP Sensor or Contact Mic to be used for onset detection."
+
+[inlets.1]
+type="signal"
+digest="Air Microphone input"
+description="Audio input from an air microphone when being used in different <at>input</at> modes."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="<o>dict</o> output for <o>sp.plotter</o>"
+description="<o>dict</o> output for <o>sp.plotter</o>."
+
+[outlets.1]
+type="list"
+digest="Amount of entries"
+description="Amount of entries for this training set."
+
+[outlets.2]
+type="float64"
+digest="Training loss"
+description="Training loss value for the neural network."
+
+[messages.print]
+digest = "Print dataset contents to Max console"
+description = "Prints a summary of the descriptors in the dataset to the Max console."
+
+[messages.write]
+digest = "Write training to disk"
+description = "Write a <b>.json</b> file with all the descriptors and class labels to disk."
+
+[messages.clear]
+digest = "Clears the loaded classifer"
+description = "Clears the loaded classifer."
+
+[messages.reset]
+digest = "Resets the loaded classifier"
+description = "Resets the loaded classifier."

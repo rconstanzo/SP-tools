@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 34.0, 213.0, 1308.0, 579.0 ],
+		"rect" : [ 34.0, 213.0, 1426.0, 577.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -45,7 +45,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 609.0, 313.31818181818187, 110.0, 33.0 ],
+					"patching_rect" : [ 609.0, 313.31818181818187, 111.0, 33.0 ],
 					"text" : "make sure classes are symbols"
 				}
 
@@ -81,7 +81,7 @@
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 999.0, 20.0, 292.0, 127.0 ],
+					"patching_rect" : [ 1115.0, 20.0, 292.0, 127.0 ],
 					"text" : "Create and train a classifier based on incoming analysis points.\n\nAlso writes the dataset, labelset, and knnclassifier fit to disk for later usage (with sp.classmatch).\n\nThe classes trained can be arbitrary (numbers/symbols) but works well with the Sensory Percussion class names (center, edge, etc...)"
 				}
 
@@ -97,7 +97,7 @@
 						"appversion" : 						{
 							"major" : 8,
 							"minor" : 3,
-							"revision" : 1,
+							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
 						}
@@ -407,28 +407,6 @@
 			}
 , 			{
 				"box" : 				{
-					"id" : "obj-22",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 230.0, 25.0, 65.0, 20.0 ],
-					"text" : "train on/off"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-16",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 455.0, 25.0, 76.0, 20.0 ],
-					"text" : "class to train"
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"id" : "obj-14",
 					"maxclass" : "comment",
 					"numinlets" : 1,
@@ -560,32 +538,6 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "class to train",
-					"id" : "obj-9",
-					"index" : 0,
-					"maxclass" : "inlet",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 533.0, 20.0, 30.0, 30.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"comment" : "train on/off",
-					"id" : "obj-8",
-					"index" : 0,
-					"maxclass" : "inlet",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 197.0, 20.0, 30.0, 30.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
 					"comment" : "buffer and control in",
 					"id" : "obj-7",
 					"index" : 0,
@@ -601,11 +553,11 @@
 				"box" : 				{
 					"id" : "obj-6",
 					"maxclass" : "newobj",
-					"numinlets" : 5,
-					"numoutlets" : 5,
-					"outlettype" : [ "", "", "", "", "" ],
-					"patching_rect" : [ 622.0, 69.545454545454547, 323.0, 22.0 ],
-					"text" : "route clear reset print write"
+					"numinlets" : 7,
+					"numoutlets" : 7,
+					"outlettype" : [ "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 622.0, 69.545454545454547, 475.0, 22.0 ],
+					"text" : "route clear reset print write train class"
 				}
 
 			}
@@ -942,8 +894,17 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
-					"midpoints" : [ 935.5, 102.590909090909093, 285.5, 102.590909090909093 ],
+					"midpoints" : [ 1087.5, 102.590909090909093, 285.5, 102.590909090909093 ],
 					"order" : 2,
+					"source" : [ "obj-6", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-24", 0 ],
+					"midpoints" : [ 935.5, 142.363636363636374, 50.0, 142.363636363636374 ],
+					"order" : 1,
 					"source" : [ "obj-6", 4 ]
 				}
 
@@ -951,7 +912,24 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-29", 1 ],
-					"midpoints" : [ 935.5, 374.454545454545496, 915.5, 374.454545454545496 ],
+					"midpoints" : [ 1087.5, 374.454545454545496, 915.5, 374.454545454545496 ],
+					"order" : 0,
+					"source" : [ "obj-6", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 1011.5, 287.681818181818244, 542.5, 287.681818181818244 ],
+					"source" : [ "obj-6", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-30", 0 ],
+					"midpoints" : [ 935.5, 142.590909090909093, 206.5, 142.590909090909093 ],
 					"order" : 0,
 					"source" : [ "obj-6", 4 ]
 				}
@@ -960,9 +938,9 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-36", 2 ],
-					"midpoints" : [ 935.5, 422.227272727272748, 389.5, 422.227272727272748 ],
+					"midpoints" : [ 1087.5, 422.227272727272748, 389.5, 422.227272727272748 ],
 					"order" : 1,
-					"source" : [ "obj-6", 4 ]
+					"source" : [ "obj-6", 6 ]
 				}
 
 			}
@@ -978,30 +956,6 @@
 				"patchline" : 				{
 					"destination" : [ "obj-6", 0 ],
 					"source" : [ "obj-7", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-24", 0 ],
-					"midpoints" : [ 206.5, 137.590909090909093, 50.0, 137.590909090909093 ],
-					"order" : 1,
-					"source" : [ "obj-8", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-30", 0 ],
-					"order" : 0,
-					"source" : [ "obj-8", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-9", 0 ]
 				}
 
 			}

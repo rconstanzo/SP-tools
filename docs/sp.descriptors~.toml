@@ -1,0 +1,55 @@
+[object]
+name = "sp.descriptors~"
+module = "SP-Tools"
+category = ""
+digest = "Analyzes audio for several audio desriptors based on audio onsets"
+seealso =  ['sp.descriptorframe', 'sp.descriptorsrt~', 'sp.melbandframe', 'sp.melbands~', 'sp.melbandsrt~', 'sp.mfcc~', 'sp.mfccframe', 'sp.mfccrt~', 'sp.onsetframe~', 'sp.realtimeframe~']
+description = "Analyzes audio for several audio desriptors based on audio onsets."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.descriptors~</o> object outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="signal"
+digest="SP Sensor or Contact Mic input"
+description="Audio input from an SP Sensor or Contact Mic to be used for onset detection."
+
+[inlets.1]
+type="signal"
+digest="Air Microphone input"
+description="Audio input from an air microphone when being used in different <at>input</at> modes."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Descriptors as list"
+description="Analyzed descriptors in list form."
+
+[outlets.1]
+type="list"
+digest="Descriptors as <o>buffer~</o>"
+description="Analyzed descriptors in <o>buffer~</o> form."
+
+[outlets.2]
+type="signal"
+digest="Trigger output"
+description="Analyzed onset as a trigger, delay-compensated based on the current <at>delay</at> settings."
+
+[outlets.3]
+type="signal"
+digest="Gate output"
+description="Analyzed onset as a gate, delay-compensated based on the current <at>delay</at> settings."
+
+[messages.load]
+digest = "Load a pre-trained concat <b>.json</b> file"
+description = "Opens file dialog to select pre-trained concat <b>.json</b> file."
+
+[messages.read]
+digest = "Read a pre-trained concat <b>.json</b> file"
+description = "Reads a pre-trained concat <b>.json</b> file directly from a relative or absolute path."

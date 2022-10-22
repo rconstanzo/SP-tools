@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 342.0, 286.0, 1325.0, 380.0 ],
+		"rect" : [ 215.0, 254.0, 1582.0, 393.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -40,12 +40,24 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-13",
+					"maxclass" : "newobj",
+					"numinlets" : 14,
+					"numoutlets" : 14,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 408.0, 161.0, 592.0, 22.0 ],
+					"text" : "routepass speed start length attack attackcurve hold holdcurve loudness spectral timestretch pitch mode done"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-12",
 					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 500.0, 155.5, 121.0, 33.0 ],
+					"patching_rect" : [ 500.0, 211.5, 121.0, 33.0 ],
 					"text" : "send to every instance of the poly~"
 				}
 
@@ -53,12 +65,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-10",
-					"linecount" : 21,
+					"linecount" : 24,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 796.0, 41.0, 525.0, 288.0 ],
-					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (50-200%)\nstart = sample start offset (0-50%)\nlength = sample length to play (0-100%)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (0% = linear, -100% = exponential, 100% = logarithmic)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
+					"patching_rect" : [ 1023.0, 39.5, 525.0, 328.0 ],
+					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (0.01-1000%)\nstart = sample start offset (0-50%)\nlength = sample length to play (0-100%)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (0% = linear, -100% = exponential, 100% = logarithmic)\ntimestretch = enables timestretch mode (0/1)\nmode = timestretch algorithm (basic, monophonic, rhythmic, general, extremestretch, efficient)\npitch = amount of halfsteps to transpose up or down (when in timestretchmode) (-24-24)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
 				}
 
 			}
@@ -87,22 +99,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-11",
+					"linecount" : 2,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 720.0, 46.0, 57.0, 20.0 ],
-					"text" : "control in"
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"id" : "obj-9",
-					"maxclass" : "comment",
-					"numinlets" : 1,
-					"numoutlets" : 0,
-					"patching_rect" : [ 73.0, 46.0, 121.0, 20.0 ],
-					"text" : "from sp.corpusmatch"
+					"patching_rect" : [ 91.0, 47.5, 126.0, 33.0 ],
+					"text" : "from sp.corpusmatch and control in"
 				}
 
 			}
@@ -112,7 +114,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 408.0, 161.0, 87.0, 22.0 ],
+					"patching_rect" : [ 408.0, 217.0, 87.0, 22.0 ],
 					"text" : "send #0control"
 				}
 
@@ -138,7 +140,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
-					"patching_rect" : [ 220.0, 49.0, 405.0, 35.0 ],
+					"patching_rect" : [ 241.0, 49.0, 405.0, 35.0 ],
 					"text" : "patcherargs @speed 100 @start 0 @length 100 @attack 0 @attackcurve 0 @hold 100 @holdcurve 0 @loudness 100 @spectral 50"
 				}
 
@@ -169,27 +171,14 @@
 			}
 , 			{
 				"box" : 				{
-					"comment" : "control in",
+					"comment" : "from sp.corpusmatch and control in",
 					"id" : "obj-5",
 					"index" : 0,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
 					"outlettype" : [ "" ],
-					"patching_rect" : [ 681.0, 41.0, 30.0, 30.0 ]
-				}
-
-			}
-, 			{
-				"box" : 				{
-					"comment" : "from sp.corpusmatch",
-					"id" : "obj-4",
-					"index" : 0,
-					"maxclass" : "inlet",
-					"numinlets" : 0,
-					"numoutlets" : 1,
-					"outlettype" : [ "" ],
-					"patching_rect" : [ 41.0, 41.0, 30.0, 30.0 ]
+					"patching_rect" : [ 59.0, 49.0, 30.0, 30.0 ]
 				}
 
 			}
@@ -220,6 +209,116 @@
  ],
 		"lines" : [ 			{
 				"patchline" : 				{
+					"destination" : [ "obj-3", 0 ],
+					"midpoints" : [ 990.5, 199.0, 1007.5, 199.0, 1007.5, 25.0, 50.5, 25.0 ],
+					"source" : [ "obj-13", 13 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 902.346153846153811, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 11 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 858.269230769230717, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 10 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 814.192307692307622, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 9 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 770.115384615384642, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 8 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 726.038461538461547, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 7 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 681.961538461538453, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 6 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 637.884615384615358, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 5 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 593.807692307692378, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 4 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 549.730769230769283, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 3 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 505.653846153846189, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 461.576923076923094, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 1 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"source" : [ "obj-13", 0 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-13", 0 ],
+					"source" : [ "obj-15", 2 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
 					"destination" : [ "obj-2", 0 ],
 					"midpoints" : [ 323.5, 143.5, 50.5, 143.5 ],
 					"source" : [ "obj-15", 1 ]
@@ -236,15 +335,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-8", 0 ],
-					"source" : [ "obj-15", 2 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
-					"midpoints" : [ 615.5, 94.0, 229.5, 94.0 ],
+					"midpoints" : [ 636.5, 94.0, 229.5, 94.0 ],
 					"source" : [ "obj-17", 1 ]
 				}
 
@@ -272,15 +364,8 @@
 			}
 , 			{
 				"patchline" : 				{
-					"destination" : [ "obj-3", 0 ],
-					"source" : [ "obj-4", 0 ]
-				}
-
-			}
-, 			{
-				"patchline" : 				{
 					"destination" : [ "obj-15", 0 ],
-					"midpoints" : [ 690.5, 94.5, 229.5, 94.5 ],
+					"midpoints" : [ 68.5, 94.5, 229.5, 94.5 ],
 					"source" : [ "obj-5", 0 ]
 				}
 

@@ -1,0 +1,72 @@
+[object]
+name = "sp.datatranspose"
+module = "SP-Tools"
+category = ""
+digest = "Transpose and modify descriptor streams"
+seealso =  ['sp.databending', 'sp.datadelay', 'sp.datagranular', 'sp.datalooper~', 'sp.descriptors~', 'sp.descriotorframe']
+description = "Transpose and modify descriptor streams."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.datatranspose</o> object takes incoming descriptor data (descriptors, melbands, or MFCCs) and 'transposes' it in different ways. The input can be lists or <o>buffer~</o>s and the same will be output.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Descriptor and control in"
+description="Incoming descriptors as a list or <o>buffer~</o> as well as control input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Descriptor output"
+description="Transformed descriptor output."
+
+[messages.centroid]
+digest = "Centroid transposition"
+description = "Centroid transposition in <b>MIDI pitch</b>."
+
+[messages.flatness]
+digest = "Flatness transposition"
+description = "Flatness transposition in <b>dB</b>."
+
+[messages.loudness]
+digest = "Loudness transposition"
+description = "Loudness transposition in <b>dB</b>."
+
+[messages.pitch]
+digest = "Pitch transposition"
+description = "Pitch transposition in <b>MIDI pitch</b>."
+
+[messages.transpose]
+digest = "Overall transposition"
+description = "Overall transposition amount that can be applied to all descriptor types <b>(from -100 to 100%)</b>."
+
+[attributes.centroid]
+digest = "Centroid transposition"
+description = "Centroid transposition in <b>MIDI pitch</b>."
+default = { value=0, type="float64", size=1 }
+
+[attributes.flatness]
+digest = "Flatness transposition"
+description = "Flatness transposition in <b>dB</b>."
+default = { value=0, type="float64", size=1 }
+
+[attributes.loudness]
+digest = "Loudness transposition"
+description = "Loudness transposition in <b>dB</b>."
+default = { value=0, type="float64", size=1 }
+
+[attributes.pitch]
+digest = "Pitch transposition"
+description = "Pitch transposition in <b>MIDI pitch</b>."
+default = { value=0, type="float64", size=1 }
+
+[attributes.transpose]
+digest = "Overall transposition"
+description = "Overall transposition amount that can be applied to all descriptor types <b>(from -100 to 100%)</b>."
+default = { value=0, type="float64", size=1 }

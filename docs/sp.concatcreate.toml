@@ -1,0 +1,56 @@
+[object]
+name = "sp.concatcreate"
+module = "SP-Tools"
+category = ""
+digest = "Descriptor analysis for real-time mosaicking"
+seealso =  ['sp.concatcreate', 'sp.concatmatch', 'sp.concatplayer~', 'sp.concatsynth~']
+description = "Creates a corpus for concatenation from a single audio file."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>Analyze a single sound file for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Control in"
+description="Takes the messages for object control."
+
+[outlets]
+[outlets.0]
+type="float"
+digest="Completion amount"
+description="The analysis process completion expressed in percentage."
+
+[outlets.1]
+type="list"
+digest="Total duration"
+description="The total amount of time the analysis took."
+
+[messages.load]
+digest = "Load an audio file for analysis"
+description = "Opens file dialog to select a single audio file for analysis."
+
+[messages.read]
+digest = "Read an audio file for analysis"
+description = "Reads a single audio file for analysis directly from a relative or absolute path."
+
+[messages.clear]
+digest = "Clears the datasets"
+description = "Clears the internal datasets."
+
+[messages.reset]
+digest = "Resets the datasets"
+description = "Resets the internal datasets."
+
+[messages.print]
+digest = "Print summary info to Max console"
+description = "Prints summary info including overall statistics to the Max console."
+
+[messages.write]
+digest = "Write corpus to disk"
+description = "Write a <b>.json</b> file with all the descriptors and required metadata to disk."

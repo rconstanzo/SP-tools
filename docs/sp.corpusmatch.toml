@@ -1,0 +1,136 @@
+[object]
+name = "sp.corpusmatch"
+module = "SP-Tools"
+category = ""
+digest = "Find the nearest match in a pre-analyzed corpus"
+seealso =  ['sp.corpusanalysis', 'sp.corpuscreate', 'sp.gridmatch', 'sp.corpusplayer~', 'sp.corpuslist', 'sp.folderloop', 'sp.descriptors~', 'sp.descriptorframe']
+description = "Find the nearest match in a pre-analyzed corpus."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.corpusmatch</o> object works in conjunction with <o>sp.descriptors~</o> or <o>sp.descriptorsframe</o> to find the nearest match in a pre-analyzed corpus. <o>sp.corpusmatch<o/> also houses the required datasets, <o>coll</o>, and <o>polybuffer~<o/>.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="<o>buffer~</o> and control in"
+description="<o>buffer~</o> and control input."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Matched entry"
+description="Matched entry."
+
+[outlets.1]
+type="list"
+digest="<o>dict</o> output for <o>sp.plotter</o>"
+description="<o>dict</o> output for <o>sp.plotter</o>."
+
+[messages.corpus]
+digest = "Messages related to corpus matching"
+description = """
+Messages related to corpus matching.<br/>
+After sending the <m>corpus</m> message you send an argument of 'match' followed by a time-scale you wish to match against.<br/>
+The available options are:<br/>
+<b>short</b> = the first 256 samples (at 44.1k sample rate)<br/>
+<b>medium</b> = the first 4410 samples (at 44.1k sample rate)<br/>
+<b>all</b> = the entire file<br/><br/>
+Therefore a complete message would look as follows:<br/>
+'corpus match all' or 'corpus match small'
+"""
+
+[messages.filter]
+digest = "Messages related to corpus filtering"
+description = """
+Messages related to corpus filtering.<br/>
+After sending the <m>filter</m> message you send a series of additional arguments that determine what descriptor is being filtered, how it is being filtered, as well as further filtering strangs combined with conditionals.<br/>
+The available descriptors that can be used for filtering are:<br/>
+<b>duration</b> =  overall sample duration in <b>ms<b/><br/>
+<b>time_centroid</b> = how long a sample 'sounds' in <b>ms<b/><br/>
+<b>loudness</b> = loudness in <b>dB<b/><br/>
+<b>centroid</b> = centroid in <b>MIDI pitch<b/><br/>
+<b>flatness</b> = spectral flatness in <b>dB<b/><br/>
+<b>pitch</b> = pitch in <b>MIDI pitch<b/><br/>
+<b>pitch_confidence</b> = pitch confidence in <b>0 to 1<b/><br/>
+<b>loudness_medium</b> = same for medium time frame<br/>
+<b>centroid_medium</b> = same for medium time frame<br/>
+<b>flatness_medium</b> = same for medium time frame<br/>
+<b>pitch_medium</b> = same for medium time frame<br/>
+<b>pitch_confidence_medium</b> = same for medium time frame<br/>
+<b>loudness_all</b> = same for entire sample<br/>
+<b>centroid_all</b> = same for entire sample<br/>
+<b>flatness_all</b> = same for entire sample<br/>
+<b>pitch_all</b> = same for entire sample<br/>
+<b>pitch_confidence_all</b> = same for entire sample<br/>
+<b>index</b> = the sample index in the corpus<br/><br/>
+You can filter by the following operators:<br/>
+<b>==</b> = equals<br/>
+<b>!=</b> = does not equal<br/>
+<b><</b> = less than<br/>
+<b><=</b> = less than or equal<br/>
+<b>></b> = greater than<br/>
+<b>>=</b> = greater than or equal<br/>
+You can join multiple queries using:<br/>
+<b>and</b>
+<b>or</b><br/><br/>
+Therefore a complete message would look as follows:<br/>
+'filter loudness < -45' or 'filter duration > 2500' or 'filter centroid > 60 and time_centroid < 80'<br/><br/>
+To reset the filtering you can send the following message:<br/>
+'filter reset'
+"""
+
+[messages.info]
+digest = "Print corpus metatdata/info to Max console"
+description = "Prints a summary of the corpus metatdata/info to the Max console."
+
+[messages.load]
+digest = "Load a pre-trained corpus <b>.json</b> file"
+description = "Opens file dialog to select pre-trained corpus <b>.json</b> file."
+
+[messages.print]
+digest = "Print dataset contents to Max console"
+description = "Prints a summary of the descriptors in the dataset to the Max console."
+
+[messages.read]
+digest = "Read a pre-trained corpus <b>.json</b> file"
+description = "Reads a pre-trained corpus <b>.json</b> file directly from a relative or absolute path."
+
+[messages.setup]
+digest = "Messages related to setups"
+description = """
+Messages related to setups.<br/>
+After sending the <m>setup</m> message you can send send several additional arguments. These are:<br/>
+<b>load</b> = opens file dialog to select pre-analyzed setup <b>.json</b> file.<br/>
+<b>read</b> = reads a pre-analyzed setup <b>.json</b> file from a relative or absolute path<br/>
+<b>match</b> = enables or disables the setup matching by sending a <b>0</b> or <b>1</b><br/>
+<b>range</b> = sets the median and range for the internal standardization. this consists of two values between <b>0-100</b> with the default being <b>25 75</b><br/><br/>
+Therefore a complete message would look as follows:<br/>
+'setup range 10 90' or 'setup match 1' or 'setup read setup_snare.json'
+"""
+
+[messages.roundrobin]
+digest = "Enable roundrobin sample matching"
+description = """
+Enables round robin sample matching so when a match is found twice in a row, a randomized selection is made within a window of options. <br/>
+The available options are:<br/>
+<b>0</b> = round robin selection is off <br/>
+<b>1</b> = round robin selection is on (default 5 nearest neighbors) <br/>
+<b>2+</b> = sets the amount of nearest neighbors <br/>
+"""
+
+[attributes]
+[attributes.roundrobin]
+digest = "Enable roundrobin sample matching"
+description = """
+Enables round robin sample matching so when a match is found twice in a row, a randomized selection is made within a window of options. <br/>
+The available options are:<br/>
+<b>0</b> = round robin selection is off <br/>
+<b>1</b> = round robin selection is on (default 5 nearest neighbors) <br/>
+<b>2+</b> = sets the amount of nearest neighbors <br/>
+"""
+default = { value=1, type="int", size=1 }

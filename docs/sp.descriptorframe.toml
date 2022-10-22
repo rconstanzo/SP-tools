@@ -1,0 +1,142 @@
+[object]
+name = "sp.descriptorframe"
+module = "SP-Tools"
+category = ""
+digest = "Analyzes audio for several audio desriptors based on frame input"
+seealso =  ['sp.descriptors~', 'sp.descriptorsrt~', 'sp.melbandframe', 'sp.melbands~', 'sp.melbandsrt~', 'sp.mfcc~', 'sp.mfccframe', 'sp.mfccrt~', 'sp.onsetframe~', 'sp.realtimeframe~']
+description = "Analyzes audio for several audio desriptors based on frame input."
+discussion = """
+    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.descriptorframe</o> object outputs loudness, centroid, spectral flatness, and pitch along with the derivatives for loudness/centroid/flatness and confidence for pitch.</p>
+"""
+
+[metadata]
+author = "Rodrigo Constanzo, Flucoma Project"
+tags = ['Machine Learning', 'Drums']
+
+[inlets]
+[inlets.0]
+type="list"
+digest="Frame to analyze"
+description="Frame to analyze from <o>sp.onsetframe~</o>."
+
+[outlets]
+[outlets.0]
+type="list"
+digest="Descriptors as list"
+description="Analyzed descriptors in list form."
+
+[outlets.1]
+type="list"
+digest="Descriptors as <o>buffer~</o>"
+description="Analyzed descriptors in <o>buffer~</o> form."
+
+[messages.blocking]
+digest = "Choose which thread to use for processing"
+description = """
+By default non-realtime objects use the Max main thread.<br/>
+The available options are:<br/>
+<b>0: Non-blocking</b> = Use a dedicated worker thread (for longer jobs)<br/>
+<b>1: Blocking (Low Priority)</b> = Use Max main thread (for small jobs)<br/>
+<b>2: Blocking (High Priority)</b> = Use calling thread (for very small jobs)<br/>
+"""
+
+[messages.fftsettings]
+digest = "FFT settings for analysis"
+description = """
+FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:<br/>
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:<br/>
+For the hop size, -1 = windowsize/2<br/>
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 => fftsize 1024, but windowssize 1000 also => fftsize 1024)<br/><br/>
+Constraints<br/>
+FFTSize, if != -1, will snap to the next greatest power of two<br/>
+if FFT size != -1, then window size is clipped at FFT size
+"""
+
+[messages.numchans]
+digest = "How many channels are processed"
+description = "For multichannel <m>source</m>, how many channels should be processed. The default of -1 indicates to analyse through the last channel in the buffer."
+
+[messages.numframes]
+digest = "How many samples to analyze"
+description = "How many samples to analyse. The default of -1 indicates to analyse through to the end of the <o>buffer~</o>."
+
+[messages.pitch]
+digest = "Includes pitch descriptors in output"
+description = "Includes the two pitch descriptors in the output."
+
+[messages.realtime]
+digest = "Runs in high-priority thread for realtime performance"
+description = "Runs in high-priority thread when fast realtime performance is required."
+
+[messages.source]
+digest = "The buffer to use as source material"
+description = "The <o>buffer~</o> to use as the source material to be pitch-tracked. The different channels of multichannel buffers will be processed sequentially."
+
+[messages.startframe]
+digest = "WHere in the <m>source</m> to start analysis."
+description = "Where in <m>source</m> to start the analysis, in samples. The default is 0."
+
+[messages.startchan]
+digest = "Which channel to begin analyzing."
+description = "For multichannel <m>source</m>, from which channel to begin analysing. The default is 0."
+
+[attributes]
+[attributes.blocking]
+digest = "Choose which thread to use for processing"
+description = """
+By default non-realtime objects use the Max main thread.<br/>
+The available options are:<br/>
+<b>0: Non-blocking</b> = Use a dedicated worker thread (for longer jobs)<br/>
+<b>1: Blocking (Low Priority)</b> = Use Max main thread (for small jobs)<br/>
+<b>2: Blocking (High Priority)</b> = Use calling thread (for very small jobs)<br/>
+"""
+default = { value=1, type="int", size=1 }
+
+[attributes.fftsettings]
+digest = "FFT settings for analysis"
+description = """
+FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:<br/>
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:<br/>
+For the hop size, -1 = windowsize/2<br/>
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 => fftsize 1024, but windowssize 1000 also => fftsize 1024)<br/><br/>
+Constraints<br/>
+FFTSize, if != -1, will snap to the next greatest power of two<br/>
+if FFT size != -1, then window size is clipped at FFT size
+"""
+default = { value="256 64 512", type="list", size=1 }
+
+[attributes.numchans]
+digest = "How many channels are processed"
+description = "For multichannel <m>source</m>, how many channels should be processed. The default of -1 indicates to analyse through the last channel in the buffer."
+default = { value=1, type="int", size=1 }
+
+[attributes.numframes]
+digest = "How many samples to analyze"
+description = "How many samples to analyse. The default of -1 indicates to analyse through to the end of the <o>buffer~</o>."
+default = { value=256, type="int", size=1 }
+
+[attributes.pitch]
+digest = "Includes pitch descriptors in output"
+description = "Includes the two pitch descriptors in the output."
+default = { value=1, type="int", size=1 }
+
+[attributes.realtime]
+digest = "Runs in high-priority thread for realtime performance"
+description = "Runs in high-priority thread when fast realtime performance is required."
+default = { value=1, type="int", size=1 }
+
+[attributes.source]
+digest = "The buffer to use as source material"
+description = "The <o>buffer~</o> to use as the source material to be pitch-tracked. The different channels of multichannel buffers will be processed sequentially."
+default = { value="", type="list", size=1 }
+
+[attributes.startframe]
+digest = "WHere in the <m>source</m> to start analysis."
+description = "Where in <m>source</m> to start the analysis, in samples. The default is 0."
+default = { value=0, type="int", size=1 }
+
+[attributes.startchan]
+digest = "Which channel to begin analyzing."
+description = "For multichannel <m>source</m>, from which channel to begin analysing. The default is 0."
+default = { value=0, type="int", size=1 }

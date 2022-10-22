@@ -4,13 +4,13 @@
 		"appversion" : 		{
 			"major" : 8,
 			"minor" : 3,
-			"revision" : 1,
+			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 508.0, 215.0, 532.0, 500.0 ],
+		"rect" : [ 128.0, 264.0, 532.0, 500.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -103,7 +103,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 1,
 					"numoutlets" : 2,
-					"outlettype" : [ "", "" ],
+					"outlettype" : [ "int", "" ],
 					"patching_rect" : [ 119.0, 276.0, 261.0, 22.0 ],
 					"text" : "sp.concatcreate"
 				}
@@ -196,7 +196,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 10.0, 91.0, 495.0, 36.0 ],
-					"text" : "Analyze all the samples in a folder for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.",
+					"text" : "Analyze a single sound file for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.",
 					"textcolor" : [ 0.426676, 0.426663, 0.42667, 1.0 ]
 				}
 
