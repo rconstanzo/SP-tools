@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.probability~' category='' module='SP-Tools'>
+    <digest>Probability-based message filter</digest>
+    <description>Probability-based message filter.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.probability~</o> object only passes a certain amount of the incoming messages, which can be bangs, lists, buffers, triggers, or gates. The messages that are not passed are sent to alternate outputs.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Input to filter</digest>
+            <description>Input to filter (can be bangs, lists, buffers, triggers, or gates).</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Trigger input</digest>
+            <description>Trigger input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Bangs/lists/buffer output</digest>
+            <description>Bangs/lists/buffer output.</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Trigger/gate output</digest>
+            <description>Trigger/gate output.</description>
+        </outlet>
+        <outlet id='2' type='list'>
+            <digest>Bangs/lists/buffer output (not passed)</digest>
+            <description>Bangs/lists/buffer output (not passed).</description>
+        </outlet>
+        <outlet id='3' type='signal'>
+            <digest>Trigger/gate output (not passed)</digest>
+            <description>Trigger/gate output (not passed).</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+        <objarg name='probability' optional='1' type='number'>
+            <digest>robability of input passing through (in %)</digest>
+            <description>robability of input passing through (in %).</description>
+        </objarg>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='probability' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Probability of input passing through (in %)</digest>
+        <description>Probability of input passing through (in %).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.onset~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.novelty~' />
+        <seealso name='sp.probability~' />
+        <seealso name='sp.realtimeframe~' />
+        <seealso name='sp.triggerbounce~' />
+        <seealso name='sp.triggercloud~' />
+        <seealso name='sp.triggerframe~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Input to filter (can be bangs, lists, buffers, triggers, or gates).</description>
+        </entry>
+        <entry name='signal'>
+            <description>Trigger input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Bangs/lists/buffer output.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Trigger/gate output.</description>
+        </entry>
+        <entry name='list'>
+            <description>Bangs/lists/buffer output (not passed).</description>
+        </entry>
+        <entry name='signal'>
+            <description>Trigger/gate output (not passed).</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

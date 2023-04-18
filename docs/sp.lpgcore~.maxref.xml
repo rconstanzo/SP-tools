@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.lpgcore~' category='' module='SP-Tools'>
+    <digest>A poly~ of a vactrol/low pass gate model</digest>
+    <description>A poly~ of a vactrol/low pass gate model.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.lpgcore~</o> object is the underlying <o>poly~</o> that handles the actual filter/gate part of the low pass gate algorithm. It is wrapped up inside a <o>poly~</o> to be enable upsampling for better sounding results. It's not intended to be used on its own, but rather it is the core component of <o>sp.lpg~</o>.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio input</digest>
+            <description>Audio input.</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Envelope input</digest>
+            <description>Envelope input.</description>
+        </inlet>
+        <inlet id='2' type='signal'>
+            <digest>VCAness input</digest>
+            <description>VCAness input.</description>
+        </inlet>
+        <inlet id='3' type='signal'>
+            <digest>Resonance input</digest>
+            <description>Resonance input.</description>
+        </inlet>
+        <inlet id='4' type='int'>
+            <digest>Low pass mode input</digest>
+            <description>Low pass mode input.</description>
+        </inlet>
+        <inlet id='5' type='int'>
+            <digest>Nonlinear mode input</digest>
+            <description>Nonlinear mode input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output</digest>
+            <description>Audio output.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.resonatorscreate~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Audio input.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Envelope input.</description>
+        </entry>
+        <entry name='signal'>
+            <description>VCAness input.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Resonance input.</description>
+        </entry>
+        <entry name='int'>
+            <description>Low pass mode input.</description>
+        </entry>
+        <entry name='int'>
+            <description>Nonlinear mode input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Audio output.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

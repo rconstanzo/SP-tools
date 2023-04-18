@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
+			"minor" : 5,
 			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 215.0, 254.0, 1582.0, 393.0 ],
+		"rect" : [ 93.0, 219.0, 1726.0, 408.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -42,11 +42,11 @@
 				"box" : 				{
 					"id" : "obj-13",
 					"maxclass" : "newobj",
-					"numinlets" : 14,
-					"numoutlets" : 14,
-					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
-					"patching_rect" : [ 408.0, 161.0, 592.0, 22.0 ],
-					"text" : "routepass speed start length attack attackcurve hold holdcurve loudness spectral timestretch pitch mode done"
+					"numinlets" : 16,
+					"numoutlets" : 16,
+					"outlettype" : [ "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "" ],
+					"patching_rect" : [ 408.0, 161.0, 746.0, 22.0 ],
+					"text" : "routepass speed start startabsolute length lengthabsolute attack attackcurve hold holdcurve loudness spectral timestretch pitch mode done"
 				}
 
 			}
@@ -65,12 +65,12 @@
 , 			{
 				"box" : 				{
 					"id" : "obj-10",
-					"linecount" : 24,
+					"linecount" : 26,
 					"maxclass" : "comment",
 					"numinlets" : 1,
 					"numoutlets" : 0,
-					"patching_rect" : [ 1023.0, 39.5, 525.0, 328.0 ],
-					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (0.01-1000%)\nstart = sample start offset (0-50%)\nlength = sample length to play (0-100%)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (0% = linear, -100% = exponential, 100% = logarithmic)\ntimestretch = enables timestretch mode (0/1)\nmode = timestretch algorithm (basic, monophonic, rhythmic, general, extremestretch, efficient)\npitch = amount of halfsteps to transpose up or down (when in timestretchmode) (-24-24)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
+					"patching_rect" : [ 1178.0, 34.5, 525.0, 355.0 ],
+					"text" : "All-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.\n\n@voices = amount of polyphony\n@steal = whether poly voice stealing is enabled\n\nWill automatically adapt to the type of incoming message. If you only connect sp.corpusmatch directly, it will do simple nearest-neighbor matching. If you send it a [join]'d list that adds a descriptors buffer, it will also give you the option for adding loudness compensation. If you also [join] a melbands buffer, you will then have the option to do loudness and spectral compensation.\n\nMessages for sample playback control are:\nspeed = playback speed (0.01-1000%)\nstart = sample start offset (0-50%)\nstartabsolute = sample start offset (ms)\nlength = sample length to play (0-100%)\nlengthabsolute = sample length to play (ms)\nattack = attack fade in amount (0-100%)\nattackcurve = curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic)\nhold = amount of sample to play back before fading out (0-100%)\nholdcurve = curve for hold fade out (0% = linear, -100% = exponential, 100% = logarithmic)\ntimestretch = enables timestretch mode (0/1)\nmode = timestretch algorithm (basic, monophonic, rhythmic, general, extremestretch, efficient)\npitch = amount of halfsteps to transpose up or down (when in timestretchmode) (-24-24)\nloudness = amount of loudness compensation (-100-100%)\nspectral = amount of spectral compensation (-100-100%)"
 				}
 
 			}
@@ -210,7 +210,15 @@
 		"lines" : [ 			{
 				"patchline" : 				{
 					"destination" : [ "obj-3", 0 ],
-					"midpoints" : [ 990.5, 199.0, 1007.5, 199.0, 1007.5, 25.0, 50.5, 25.0 ],
+					"midpoints" : [ 1144.5, 199.0, 1164.5, 199.0, 1164.5, 25.0, 50.5, 25.0 ],
+					"source" : [ "obj-13", 15 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 1047.566666666666606, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 13 ]
 				}
 
@@ -218,7 +226,15 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 902.346153846153811, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 999.100000000000023, 199.5, 417.5, 199.5 ],
+					"source" : [ "obj-13", 12 ]
+				}
+
+			}
+, 			{
+				"patchline" : 				{
+					"destination" : [ "obj-8", 0 ],
+					"midpoints" : [ 950.633333333333326, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 11 ]
 				}
 
@@ -226,7 +242,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 858.269230769230717, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 902.166666666666742, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 10 ]
 				}
 
@@ -234,7 +250,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 814.192307692307622, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 853.700000000000045, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 9 ]
 				}
 
@@ -242,7 +258,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 770.115384615384642, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 805.233333333333348, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 8 ]
 				}
 
@@ -250,7 +266,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 726.038461538461547, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 756.766666666666652, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 7 ]
 				}
 
@@ -258,7 +274,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 681.961538461538453, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 708.299999999999955, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 6 ]
 				}
 
@@ -266,7 +282,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 637.884615384615358, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 659.833333333333371, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 5 ]
 				}
 
@@ -274,7 +290,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 593.807692307692378, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 611.366666666666674, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 4 ]
 				}
 
@@ -282,7 +298,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 549.730769230769283, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 562.899999999999977, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 3 ]
 				}
 
@@ -290,7 +306,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 505.653846153846189, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 514.433333333333394, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 2 ]
 				}
 
@@ -298,7 +314,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-8", 0 ],
-					"midpoints" : [ 461.576923076923094, 199.5, 417.5, 199.5 ],
+					"midpoints" : [ 465.966666666666697, 199.5, 417.5, 199.5 ],
 					"source" : [ "obj-13", 1 ]
 				}
 

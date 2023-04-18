@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.datalooper~' category='' module='SP-Tools'>
+    <digest>Record, loop, and play back descriptor data</digest>
+    <description>Record, loop, and play back descriptor data.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.datalooper~</o> object takes incoming descriptor data (descriptors, melbands, MFCCs, or sines) and sends them into a looper with somewhat conventional looper controls. The input can be lists or <o>buffer~</o>s and the same will be output.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor and control in</digest>
+            <description>Incoming descriptors as a list or <o>buffer~</o> as well as control input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptor output</digest>
+            <description>Transformed descriptor output.</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Loop sync output</digest>
+            <description>Current loop position.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the recorded loop</digest>
+        <description>Clears the recorded loop and stops playback.</description>
+    </method>
+    <method name='end'>
+        <arglist>
+        </arglist>
+        <digest>Stops recording and sets loop length</digest>
+        <description>Stops recording and sets the loop length.</description>
+    </method>
+    <method name='play'>
+        <arglist>
+        </arglist>
+        <digest>Play recorded loop</digest>
+        <description>Plays recorded loop.</description>
+    </method>
+    <method name='record'>
+        <arglist>
+        </arglist>
+        <digest>Records a new loop</digest>
+        <description>Records a new loop.</description>
+    </method>
+    <method name='speed'>
+        <arglist>
+        </arglist>
+        <digest>Playback speed of recorded loop</digest>
+        <description>Playback speed of recorded loop as a <b>%</b>/</description>
+    </method>
+    <method name='stop'>
+        <arglist>
+        </arglist>
+        <digest>Stops playback</digest>
+        <description>Stops playback.</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Maximum duration for loop 'buffer'</digest>
+        <description>The maxmimum amount of time that you can record into the 'buffer', in <b>ms</b>.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='30000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.databending' />
+        <seealso name='sp.datadelay' />
+        <seealso name='sp.datagranular' />
+        <seealso name='sp.datatranspose' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.descriotorframe' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Incoming descriptors as a list or <o>buffer~</o> as well as control input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Transformed descriptor output.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Current loop position.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

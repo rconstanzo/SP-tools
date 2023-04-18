@@ -1,0 +1,468 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.sines~' category='' module='SP-Tools'>
+    <digest>Analyzes audio for sinusoidal components based on audio onsets</digest>
+    <description>Analyzes audio for sinusoidal components based on audio onsets.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.sines~</o> object outputs 32 sinusoidal components as frequency and gain pairs which can be used for resynthesis purposes.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>SP Sensor or Contact Mic input</digest>
+            <description>Audio input from an SP Sensor or Contact Mic to be used for onset detection.</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Air Microphone input</digest>
+            <description>Audio input from an air microphone when being used in different <at>input</at> modes.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptors as list</digest>
+            <description>Analyzed descriptors in list form.</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Descriptors as <o>buffer~</o></digest>
+            <description>Analyzed descriptors in <o>buffer~</o> form.</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Trigger output</digest>
+            <description>Analyzed onset as a trigger, delay-compensated based on the current <at>delay</at> settings.</description>
+        </outlet>
+        <outlet id='3' type='signal'>
+            <digest>Gate output</digest>
+            <description>Analyzed onset as a gate, delay-compensated based on the current <at>delay</at> settings.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='delay' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time to wait before sending frame to analyze</digest>
+        <description>Amount of time to wait, in samples, before sending frame to analyze.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when falling</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when falling. Typically, this will be faster than slowrampdown.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='383'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when raising</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when raising. Typically, this will be faster than slowrampup.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:<br/>
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:<br/>
+For the hop size, -1 = windowsize/2<br/>
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 => fftsize 1024, but windowssize 1000 also => fftsize 1024)<br/><br/>
+Constraints<br/>
+FFTSize, if != -1, will snap to the next greatest power of two<br/>
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='1024 256 1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='floor' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor</digest>
+        <description>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-55'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='highpassfreq' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The frequency of the fourth-order high-pass filter. This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths.</digest>
+        <description>The frequency of the fourth-order Linkwitz–Riley high-pass filter (https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter). This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths. A frequency of 0 bypasses the filter.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='600'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the mic input mode (SP Sensor, contact/trigger, air microphone)</digest>
+        <description>Sets the mic input mode allowing you to use an SP Sensor, a normal drum trigger/contact mic, or an air microphone. When using input modes 3/4, the SP sensor and contact mic are only used for onset detection, and the air microphone will be recorded into the <o>buffer~</o> for audio analysis.<br/>
+The available options are:<br/>
+<b>0</b> = SP sensor (default)<br/>
+<b>1</b> = drum trigger or contact mic<br/>
+<b>2</b> = air microphone<br/>
+<b>3</b> = SP sensor + air microphone<br/>
+<b>4</b> = drum trigger/contact mic + air microphone<br/>
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lockout' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time (in <b>ms</b>) before it can get triggered again</digest>
+        <description>Amount of time (in <b>ms</b>) before an onset can get triggered again.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='30'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='minslicelength' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The length in samples that the slice will stay ON</digest>
+        <description>The length in samples that the Slice will stay ON. Changes of states during that period will be ignored. This is the equivalent of <a>lockout</a> but set in samples.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1323'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numchans' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How many channels are processed</digest>
+        <description>For multichannel <m>source</m>, how many channels should be processed. The default of -1 indicates to analyse through the last channel in the buffer.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numframes' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How many samples to analyze</digest>
+        <description>How many samples to analyse. The default of -1 indicates to analyse through to the end of the <o>buffer~</o>.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.</digest>
+        <description>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='4.66665'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='onthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state</digest>
+        <description>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state. It is computed on the difference between the two envelope followers.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='16'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sensitivity' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The nervousness of the algorithm thresholds (from 0 to 100%)</digest>
+        <description>The nervousness of the algorithm thresholds (from 0 to 100%). This is essentially a 'macro' parameter for the individual on/off thresholds.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when falling.</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when falling.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when raising.</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when raising.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='startchan' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Which channel to begin analyzing.</digest>
+        <description>For multichannel <m>source</m>, from which channel to begin analysing. The default is 0.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='threshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The level in dB to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.</digest>
+        <description>The level in dB to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-55'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorframe' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.descriptorsrt~' />
+        <seealso name='sp.melbandframe' />
+        <seealso name='sp.melbands~' />
+        <seealso name='sp.melbandsrt~' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.mfccframe' />
+        <seealso name='sp.mfccrt~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.realtimeframe~' />
+        <seealso name='sp.sineframe' />
+        <seealso name='sp.sinesrt~' />
+        <seealso name='sp.triggerframe~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Audio input from an SP Sensor or Contact Mic to be used for onset detection.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Audio input from an air microphone when being used in different <at>input</at> modes.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Analyzed descriptors in list form.</description>
+        </entry>
+        <entry name='list'>
+            <description>Analyzed descriptors in <o>buffer~</o> form.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Analyzed onset as a trigger, delay-compensated based on the current <at>delay</at> settings.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Analyzed onset as a gate, delay-compensated based on the current <at>delay</at> settings.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

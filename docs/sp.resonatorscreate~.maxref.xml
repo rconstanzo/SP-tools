@@ -1,0 +1,195 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.resonatorscreate~' category='' module='SP-Tools'>
+    <digest>Create a model for <o>sp.resonators~</o></digest>
+    <description>Create a model for <o>sp.resonators~</o>.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.resonatorscreate~</o> object analyzes a loaded audio file for sinusoidal components (frequency/gain) as well as derivative of loudness, in order to create CNMAT formatted tuplets of frequency, gain, and decayrate. This can be then loaded into <o>sp.resonators~</o>.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Control in</digest>
+            <description>Control input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output</digest>
+            <description>Audio output.</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Sinusoidal components</digest>
+            <description>Sinusoidal components as a laced list of frequency/gain pairs for visualization.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='analyze'>
+        <arglist>
+        </arglist>
+        <digest>Analyze the loaded file</digest>
+        <description>Analyze the loaded file with the current settings.</description>
+    </method>
+    <method name='audition'>
+        <arglist>
+        </arglist>
+        <digest>Play back the current model</digest>
+        <description>Play back the current model.</description>
+    </method>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the analysis</digest>
+        <description>Clears the analysis.</description>
+    </method>
+    <method name='load'>
+        <arglist>
+        </arglist>
+        <digest>Loads a sample to analyze</digest>
+        <description>Loads a sample to analyze.</description>
+    </method>
+    <method name='play'>
+        <arglist>
+        </arglist>
+        <digest>Play back the currently loaded file</digest>
+        <description>Play back the currently loaded file.</description>
+    </method>
+    <method name='read'>
+        <arglist>
+        </arglist>
+        <digest>Reads a samples to analyze</digest>
+        <description>Reads a sample to analyze directly from a relative or absolute path.</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the analysis</digest>
+        <description>Resets the analysis.</description>
+    </method>
+    <method name='stop'>
+        <arglist>
+        </arglist>
+        <digest>Stop playback of the currently loaded file</digest>
+        <description>Stop playback of the currently loaded file.</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write model analysis to disk</digest>
+        <description>Write a <b>.json</b> file with all the required information to recreate the model.</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='normalize' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether the gains will be normalized or not</digest>
+        <description>Whether the gains will be normalized or not.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numpeaks' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The amount of peaks to create a resynthesis with</digest>
+        <description>The amount of peaks to create a resynthesis with.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='32'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='time_centroid' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether the analysis will be on the entire file or only on the first half of the time centroid</digest>
+        <description>Whether the analysis will be on the entire file or only on the first half of the time centroid.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.lpgcore~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Control input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Audio output.</description>
+        </entry>
+        <entry name='list'>
+            <description>Sinusoidal components as a laced list of frequency/gain pairs for visualization.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

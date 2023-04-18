@@ -1,0 +1,224 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.concatplayer~' category='' module='SP-Tools'>
+    <digest>Granular playback engine</digest>
+    <description>Granular playback engine for concatenative synthesis.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.concatplayer~</o> object is the underlying playback engine for <o>sp.concatsynth~</o>. It is a stripped-back granular synth engine that plays back small and windowed fragments of a single large <o>buffer~</o> unlike the corpus-based playback elsewhere in SP-Tools.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Position and <o>buffer~</o> to play from</digest>
+            <description>Position (offset in <b>ms</b>) and <o>buffer~</o> name to play back from.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (left)</digest>
+            <description>Audio output (left).</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (right)</digest>
+            <description>Audio output (right).</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='rate' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rate of concatenation</digest>
+        <description>Rate of matching/playback in <b>ms</b> in the concatenation engine.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='size' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Size of grain to play back</digest>
+        <description>Size of grain to play back, in %.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='speed' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Playback speed</digest>
+        <description>Sets the playback speed for each individual grain.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='steal' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether poly voice stealing is enabled</digest>
+        <description>Sets whether voice stealing is enabled, which allows new samples to start when previous ones are still sounding.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='width' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Panning width</digest>
+        <description>Sets the random distribution width for the grain panning.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='window' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Window function for playback</digest>
+        <description>Sets the window function for the grain playback."
+The available options are:<br/>
+<b>sine</b><br/>
+<b>hann</b><br/>
+<b>triangle</b><br/>
+<b>rampdown</b><br/>
+<b>rampup</b><br/>
+<b>onset</b><br/>
+<b>hamming</b><br/>
+<b>blackman</b><br/>
+<b>square</b>
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='sine'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='voices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of polyphony</digest>
+        <description>Sets the amount of polyphony available for sample playback.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='64'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.concatcreate' />
+        <seealso name='sp.concatmatch' />
+        <seealso name='sp.concatsynth~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Position (offset in <b>ms</b>) and <o>buffer~</o> name to play back from.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Audio output (left).</description>
+        </entry>
+        <entry name='signal'>
+            <description>Audio output (right).</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

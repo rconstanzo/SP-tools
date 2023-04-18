@@ -1,0 +1,255 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.sineframe' category='' module='SP-Tools'>
+    <digest>Analyzes audio for sinusoidal components based on frame input</digest>
+    <description>Analyzes audio for sinusoidal components based on frame input.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.sineframe</o> object outputs 32 sinusoidal components as frequency and gain pairs which can be used for resynthesis purposes.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Frame to analyze</digest>
+            <description>Frame to analyze from <o>sp.onsetframe~</o>, <o>sp.realtimeframe~</o>, or <o>sp.triggerframe~</o></description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Sines as list</digest>
+            <description>Analyzed sinusoidal components in list form.</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Sines as <o>buffer~</o></digest>
+            <description>Analyzed sinusoidal components in <o>buffer~</o> form.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='blocking' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Choose which thread to use for processing</digest>
+        <description>By default non-realtime objects use the Max main thread.<br/>
+The available options are:<br/>
+<b>0: Non-blocking</b> = Use a dedicated worker thread (for longer jobs)<br/>
+<b>1: Blocking (Low Priority)</b> = Use Max main thread (for small jobs)<br/>
+<b>2: Blocking (High Priority)</b> = Use calling thread (for very small jobs)<br/>
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:<br/>
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:<br/>
+For the hop size, -1 = windowsize/2<br/>
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 => fftsize 1024, but windowssize 1000 also => fftsize 1024)<br/><br/>
+Constraints<br/>
+FFTSize, if != -1, will snap to the next greatest power of two<br/>
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='1024 256 1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numchans' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How many channels are processed</digest>
+        <description>For multichannel <m>source</m>, how many channels should be processed. The default of -1 indicates to analyse through the last channel in the buffer.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numframes' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How many samples to analyze</digest>
+        <description>How many samples to analyse. The default of -1 indicates to analyse through to the end of the <o>buffer~</o>.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='realtime' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Runs in high-priority thread for realtime performance</digest>
+        <description>Runs in high-priority thread when fast realtime performance is required.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='source' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The buffer to use as source material</digest>
+        <description>The <o>buffer~</o> to use as the source material to be pitch-tracked. The different channels of multichannel buffers will be processed sequentially.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='startframe' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>WHere in the <m>source</m> to start analysis.</digest>
+        <description>Where in <m>source</m> to start the analysis, in samples. The default is 0.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='startchan' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Which channel to begin analyzing.</digest>
+        <description>For multichannel <m>source</m>, from which channel to begin analysing. The default is 0.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorframe' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.descriptorsrt~' />
+        <seealso name='sp.melbandframe' />
+        <seealso name='sp.melbands~' />
+        <seealso name='sp.melbandsrt~' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.mfccframe' />
+        <seealso name='sp.mfccrt~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.realtimeframe~' />
+        <seealso name='sp.sines~' />
+        <seealso name='sp.sinesrt~' />
+        <seealso name='sp.triggerframe~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Frame to analyze from <o>sp.onsetframe~</o>, <o>sp.realtimeframe~</o>, or <o>sp.triggerframe~</o></description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Analyzed sinusoidal components in list form.</description>
+        </entry>
+        <entry name='list'>
+            <description>Analyzed sinusoidal components in <o>buffer~</o> form.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.triggerbounce~' category='' module='SP-Tools'>
+    <digest>Bouncing ball pattern of triggers and gates</digest>
+    <description>Bouncing ball pattern of triggers and gates.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.triggerbounce~</o> object creates a series of triggers (or gates) after each input based on a duration, amount of "bounces", and the curve. Can be used to trigger more processes down the line.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Trigger/gate and control in</digest>
+            <description>Trigger/gate and control in.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Trigger/gate output</digest>
+            <description>Trigger/gate output.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='bounces' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of bounces to happen in given duration</digest>
+        <description>Amount of bounces to happen in given duration.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='12'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='curve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for timing of 'bounces' (0% = linear, -100% = speeding up, 100% = speeding down)</digest>
+        <description>Curve for timing of 'bounces' (0% = linear, -100% = speeding up, 100% = speeding down).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='70'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Duration of bounces (ms)</digest>
+        <description>Duration of bounces (ms).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='400'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='retrigger' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether you can retrigger a new series of bounces before it has finished</digest>
+        <description>Whether you can retrigger a new series of bounces before it has finished.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.onset~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.novelty~' />
+        <seealso name='sp.probability~' />
+        <seealso name='sp.realtimeframe~' />
+        <seealso name='sp.triggercloud~' />
+        <seealso name='sp.triggerframe~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Trigger/gate and control in.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Trigger/gate output.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

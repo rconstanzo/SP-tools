@@ -3,7 +3,7 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
+			"minor" : 5,
 			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
@@ -155,7 +155,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 594.0, 32.5, 445.0, 248.0 ],
-					"text" : "Analyze incoming audio for descriptors based on audio input.\n\nAlso takes all the attributes of sp.onsetframe:\n@sensitivity = the nervousness of the algorithm thresholds (from 0 to 100%)\n@threshold = absolute noise floor below which no attacks will be triggered (in dB)\n@lockout = time before a bang can be triggered again (in ms)\n@input = mic input mode (0 = sp only, 1 = mic only, 2 = sp+mic)\n\ninput modes\n0 = SP sensor\n1 = drum trigger (contact mic)\n2 = air microphone\n3 = SP sensor + air microphone\n4 = drum trigger + air microphone\n\nWhen using input modes 3/4, the SP sensor and contact mic only be used for onset detection, and the air microphone will be recorded into the buffer for audio analysis."
+					"text" : "Analyze incoming audio for descriptors based on audio input.\n\nAlso takes all the attributes of sp.onsetframe:\n@sensitivity = the nervousness of the algorithm thresholds (from 0 to 100%)\n@threshold = absolute noise floor below which no attacks will be triggered (in dB)\n@lockout = time before a bang can be triggered again (in ms)\n@input = sets the mic input mode (SP Sensor, contact/trigger, air microphone)\n\ninput modes\n0 = SP sensor\n1 = drum trigger (contact mic)\n2 = air microphone\n3 = SP sensor + air microphone\n4 = drum trigger + air microphone\n\nWhen using input modes 3/4, the SP sensor and contact mic only be used for onset detection, and the air microphone will be recorded into the buffer for audio analysis."
 				}
 
 			}
@@ -237,7 +237,7 @@
 				"box" : 				{
 					"id" : "obj-4",
 					"maxclass" : "newobj",
-					"numinlets" : 2,
+					"numinlets" : 1,
 					"numoutlets" : 2,
 					"outlettype" : [ "", "" ],
 					"patching_rect" : [ 39.0, 223.5, 296.0, 22.0 ],

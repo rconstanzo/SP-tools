@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.folder' category='' module='SP-Tools'>
+    <digest>A utility for looping through all the samples in a folder</digest>
+    <description>A utility for looping through all the samples in a folder.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.folderloop</o> object is used in conjunction with <o>sp.corpusanalysis</o> to analyze every sample in a folder for the required descriptors and metadata.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest><b>Bang</b> to select folder to analyze</digest>
+            <description><b>Bang</b> to select folder to analyze.</description>
+        </inlet>
+        <inlet id='1' type='list'>
+            <digest><b>Bang</b> to continue through loop </digest>
+            <description><b>Bang</b> to continue analyzing through loop.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest><b>Bang</b> when file is loaded</digest>
+            <description><b>Bang</b> when file to be analyzed is loaded. Also sends out a unique/random <o>buffer~</o> name to be used by <o>sp.corpusanalysis</o> when patch is first created.</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Total duration of analysis</digest>
+            <description>Total duration of analysis in <b>ms</b>.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.corpusanalysis' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description><b>Bang</b> to select folder to analyze.</description>
+        </entry>
+        <entry name='list'>
+            <description><b>Bang</b> to continue analyzing through loop.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description><b>Bang</b> when file to be analyzed is loaded. Also sends out a unique/random <o>buffer~</o> name to be used by <o>sp.corpusanalysis</o> when patch is first created.</description>
+        </entry>
+        <entry name='list'>
+            <description>Total duration of analysis in <b>ms</b>.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

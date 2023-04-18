@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.lpg~' category='' module='SP-Tools'>
+    <digest>Vactrol/low pass gate model</digest>
+    <description>Vactrol/low pass gate model.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.lpg~</o> object is an implementation of a low pass gate, which rolls back the harmonics as well as cutting the volume based on a vactrol model.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and control input</digest>
+            <description>Audio and control input.</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Trigger/gate input</digest>
+            <description>Trigger/gate input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output</digest>
+            <description>Audio output.</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Envelope output</digest>
+            <description>Envelope output.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Duration of low pass gate in ms</digest>
+        <description>Duration of low pass gate in ms (natural vactrol duration is ~2000ms).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='500'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offset' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Offset for incoming signal to further drive lpg</digest>
+        <description>Offset for incoming signal to further drive or activate the lpg (in %).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lowpass' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enables low pass mode</digest>
+        <description>Enables low pass mode (0/1).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='nonlinear' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enables nonlinear processing</digest>
+        <description>Enables nonlinear processing (0/1).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='resonance' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Filter resonance when in low pass mode</digest>
+        <description>Filter resonance when in low pass mode (in %)</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='vcaness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Character of envelope</digest>
+        <description>Character of envelope (lpg vs vca) (0-100).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.lpgcore~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.resonatorscreate~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Audio and control input.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Trigger/gate input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Audio output.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Envelope output.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

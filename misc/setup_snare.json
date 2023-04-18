@@ -1,8 +1,8 @@
 {
 	"meta" : 	{
 		"setttings" : 		{
-			"fftsettings" : "256 64 512 for melbands and spectral shape, 256 64 256 for everything else",
-			"numframes" : "256, 4410",
+			"fftsettings" : "256 64 512 for melbands and spectral shape, 256 64 256 for everything else (relative to a 44.1k sample rate)",
+			"numframes" : "256, 4410 (relative to a 44.1k sample rate)",
 			"descriptors" : "mean of loudness, deriv of loudness, mean of centroid, deriv of centroid, mean of flatness, deriv of flatness, mean of pitch, pitch confidence, 40 melbands (for spectral compensation), 13 mfccs + stats",
 			"comment" : "using 8d of descriptors for nearest neighbor matching, and then loudness and 40 melbands for loudness/spectral compensation and 13 mfccs + stats for classificaiton/regression. also saves the fits for normalization and standardization"
 		}

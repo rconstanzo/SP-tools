@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.databending' category='' module='SP-Tools'>
+    <digest>Transform and distort descriptor streams</digest>
+    <description>Transform and distort descriptor streams.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.databending</o> object takes incoming descriptor data (descriptors, melbands, MFCCs, or sines) and apply various transformations and 'bends'. The input can be lists or <o>buffer~</o>s and the same will be output.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor and control in</digest>
+            <description>Incoming descriptors as a list or <o>buffer~</o> as well as control input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptor output</digest>
+            <description>Transformed descriptor output.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='dropouts' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Probability that a given input will be ignored</digest>
+        <description>Probability that a given input will be ignored (from 0 to 100%).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='resolution' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Reduces the numerical resolution (ala bit crushing)</digest>
+        <description>Reduces the numerical resolution (ala bit crushing) (from 0 to 100%).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='rotation' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rotation of the descriptor list, with interpolation between points</digest>
+        <description>Rotation of the descriptor list, with interpolation between points (from 0 to 100%).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='scramble' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rotation of the descriptor list, with interpolation between points</digest>
+        <description>Rotation of the descriptor list, with interpolation between points (from 0 to 100%).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='variation' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of variation on gvein input</digest>
+        <description>Amount of variation based on the incoming descriptor. The results are relative to the scale of the incoming descriptors so larger values will lead to larger variations (fom 0 to 100%).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.datadelay' />
+        <seealso name='sp.datagranular' />
+        <seealso name='sp.datalooper~' />
+        <seealso name='sp.datatranspose' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.descriotorframe' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Incoming descriptors as a list or <o>buffer~</o> as well as control input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Transformed descriptor output.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

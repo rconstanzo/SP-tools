@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.classifierdisplay' category='' module='SP-Tools'>
+    <digest>Display classes in a UI</digest>
+    <description>Displays the matched class using the Sensory Percussion zones/labels.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.classifierdisplay</o> object lets you visualize what classes have been matched by <o>sp.classmatch</o>. Can display the typical snare/tom classes as well as an option to visualize kick classes.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Class and velocity to display</digest>
+            <description>An incoming class name (with optional velocity) will flash on the UI.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Class and velocity thru</digest>
+            <description>Passes the incoming class (and velocity) directly out.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='drum' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The type of drum to display the UI for</digest>
+        <description>Sets the type of <at>drum</at> to use for the UI display<br/><br /> Available options are <b>snare</b>, <b>tom</b>, and <b>kick</b>.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='snare'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.plotter' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.descriptordisplay' />
+        <seealso name='sp.eraetouch' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>An incoming class name (with optional velocity) will flash on the UI.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Passes the incoming class (and velocity) directly out.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

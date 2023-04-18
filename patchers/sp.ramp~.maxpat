@@ -3,14 +3,14 @@
 		"fileversion" : 1,
 		"appversion" : 		{
 			"major" : 8,
-			"minor" : 3,
+			"minor" : 5,
 			"revision" : 2,
 			"architecture" : "x64",
 			"modernui" : 1
 		}
 ,
 		"classnamespace" : "box",
-		"rect" : [ 284.0, 109.0, 1329.0, 570.0 ],
+		"rect" : [ 65.0, 428.0, 1329.0, 570.0 ],
 		"bglocked" : 0,
 		"openinpresentation" : 0,
 		"default_fontsize" : 12.0,
@@ -61,7 +61,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
+							"minor" : 5,
 							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -386,7 +386,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
+							"minor" : 5,
 							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -608,7 +608,7 @@
 					"numinlets" : 1,
 					"numoutlets" : 0,
 					"patching_rect" : [ 847.0, 28.0, 456.0, 127.0 ],
-					"text" : "Take incoming bangs, triggers, or gates and create signal rate envelopes from them with optional looping, retriggering, and other parameters.\n\n@duration = duration of each ramp (in ms)\n@speed = the playback speed (%) (no reverse at the moment)\n@loop = enable ramp looping (0/1)\n@retrigger = whether you can retrigger the envelope before it has finished (has no impact when looping is enabled)\n@pause = pause all envelopes where they presently are"
+					"text" : "Take incoming bangs, triggers, or gates and create signal rate envelopes from them with optional looping, retriggering, and other parameters.\n\n@duration = duration of each ramp (in ms)\n@speed = the playback speed (%) (no reverse at the moment)\n@loop = enable ramp looping (0/1)\n@retrigger = whether you can retrigger the ramp before it has finished (has no impact when looping is enabled)\n@pause = pause all ramps where they presently are"
 				}
 
 			}
@@ -693,7 +693,7 @@
 				"box" : 				{
 					"comment" : "position",
 					"id" : "obj-26",
-					"index" : 0,
+					"index" : 4,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -716,7 +716,7 @@
 				"box" : 				{
 					"comment" : "palindrome",
 					"id" : "obj-25",
-					"index" : 0,
+					"index" : 3,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -739,7 +739,7 @@
 				"box" : 				{
 					"comment" : "backwards",
 					"id" : "obj-33",
-					"index" : 0,
+					"index" : 2,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -762,7 +762,7 @@
 				"box" : 				{
 					"comment" : "forwards",
 					"id" : "obj-34",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "outlet",
 					"numinlets" : 1,
 					"numoutlets" : 0,
@@ -781,7 +781,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
+							"minor" : 5,
 							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1116,11 +1116,11 @@
 				"box" : 				{
 					"comment" : "",
 					"id" : "obj-7",
-					"index" : 0,
+					"index" : 1,
 					"maxclass" : "inlet",
 					"numinlets" : 0,
 					"numoutlets" : 1,
-					"outlettype" : [ "" ],
+					"outlettype" : [ "bang" ],
 					"patching_rect" : [ 207.5, 23.0, 30.0, 30.0 ]
 				}
 
@@ -1187,7 +1187,7 @@
 						"fileversion" : 1,
 						"appversion" : 						{
 							"major" : 8,
-							"minor" : 3,
+							"minor" : 5,
 							"revision" : 2,
 							"architecture" : "x64",
 							"modernui" : 1
@@ -1245,7 +1245,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 3,
+											"minor" : 5,
 											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -1481,7 +1481,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 3,
+											"minor" : 5,
 											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -1896,7 +1896,7 @@
 										"fileversion" : 1,
 										"appversion" : 										{
 											"major" : 8,
-											"minor" : 3,
+											"minor" : 5,
 											"revision" : 2,
 											"architecture" : "x64",
 											"modernui" : 1
@@ -3538,9 +3538,7 @@
 				}
 
 			}
- ],
-		"dependency_cache" : [  ],
-		"autosave" : 0
+ ]
 	}
 
 }

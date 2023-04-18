@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.plotter' category='' module='SP-Tools'>
+    <digest>Display 2d corpus data and labels</digest>
+    <description>Display 2d corpus data and labels.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.plotter</o> object is a utility for visualizing corpora and trained classes.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Dataset and labelset input</digest>
+            <description>Dataset and labelset input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Selected point</digest>
+            <description>Selected point from incoming matching or UI interaction.</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Selected label</digest>
+            <description>Selected label output from incoming matching or UI interaction.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='bgcolor'>
+        <arglist>
+        </arglist>
+        <digest>Sets the background color of the plotter</digest>
+        <description>Sets the background color of the plotter.</description>
+    </method>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the graph and all associated data and settings</digest>
+        <description>Clears the graph and all associated data and settings.</description>
+    </method>
+    <method name='pointcolor'>
+        <arglist>
+            <arg 
+            name='identifier' 
+            optional='0' 
+            type='symbol' 
+            units = ''
+            />
+            <arg 
+            name='red' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='green' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='blue' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='alpha' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+    <method name='pointsize'>
+        <arglist>
+            <arg 
+            name='identifier' 
+            optional='0' 
+            type='symbol' 
+            units = ''
+            />
+            <arg 
+            name='size' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+    <method name='pointsizescale'>
+        <arglist>
+            <arg 
+            name='scale' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+    <method name='setpoint'>
+        <arglist>
+            <arg 
+            name='identifier' 
+            optional='0' 
+            type='symbol' 
+            units = ''
+            />
+            <arg 
+            name='x' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='y' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+    <method name='xrange'>
+        <arglist>
+            <arg 
+            name='min' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='max' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+    <method name='yrange'>
+        <arglist>
+            <arg 
+            name='min' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+            <arg 
+            name='max' 
+            optional='0' 
+            type='float' 
+            units = ''
+            />
+        </arglist>
+        <digest></digest>
+        <description></description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classifierdisplay' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.descriptordisplay' />
+        <seealso name='sp.eraetouch' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Dataset and labelset input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description>Selected point from incoming matching or UI interaction.</description>
+        </entry>
+        <entry name='list'>
+            <description>Selected label output from incoming matching or UI interaction.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

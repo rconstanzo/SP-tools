@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.clustertrain' category='' module='SP-Tools'>
+    <digest>Create clusters based on input analysis</digest>
+    <description>Finds the nearest match based on pre-trained classes/clusters</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.classtrain</o> object will create classes by automatically clustering the dataset contents based on the amount of clusters you request.</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest><o>buffer~</o> and control in</digest>
+            <description>Incoming <o>buffer~</o> of descriptors to analyze for cluster matching. Also takes the messages for object control.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Dict out for visualization</digest>
+            <description><o>dict</o> output for displaying on an <o>sp.plotter</o>.</description>
+        </outlet>
+        <outlet id='1' type='int'>
+            <digest>Amount of entries</digest>
+            <description>Total amount of entries that have been sent to the clustering algorithm.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the analyzed data</digest>
+        <description>Clears the analyzed data.</description>
+    </method>
+    <method name='clusters'>
+        <arglist>
+        </arglist>
+        <digest>Amount of clusters to create</digest>
+        <description>The amount of clusters to find in the current training data.</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print dataset contents to Max console</digest>
+        <description>Prints a summary of the descriptors in the dataset to the Max console.</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the analyzed data</digest>
+        <description>Resets the analyzed data.</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write training to disk</digest>
+        <description>Write a <b>.json</b> file with all the descriptors and cluster labels to disk.</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classtrain' />
+        <seealso name='sp.clustertrain' />
+        <seealso name='sp.classifierdisplay' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='list'>
+            <description>Incoming <o>buffer~</o> of descriptors to analyze for cluster matching. Also takes the messages for object control.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='list'>
+            <description><o>dict</o> output for displaying on an <o>sp.plotter</o>.</description>
+        </entry>
+        <entry name='int'>
+            <description>Total amount of entries that have been sent to the clustering algorithm.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

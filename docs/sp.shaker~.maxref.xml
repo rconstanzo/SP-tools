@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.shaker~' category='' module='SP-Tools'>
+    <digest>Physical model of a maraca/shaker</digest>
+    <description>Physical model of a maraca/shaker.</description>
+    <discussion>    <h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+    <p>The <o>sp.shaker~</o> object is a physical model of a maraca. It can also be used to create hi-hat or snare sounds depending on the settings. The model is activated by a generated impulse, live input, or a combination of both, which serves to further shape the resultant sound..</p>
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Drums</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Note input and optional audio input</digest>
+            <description>Note input (as MIDI float) and optional audio input for triggering the algorithm.</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Trigger input</digest>
+            <description>Trigger input.</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output</digest>
+            <description>Audio output.</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Impulse output</digest>
+            <description>Impulse that is fed to algorithm output.</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='frequency' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Resonant frequency of the model</digest>
+        <description>Resonant frequency of the model.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='3200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='gain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output gain</digest>
+        <description>Output gain (in %).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='impulse' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of impulse signal sent to algorithm</digest>
+        <description>Amount of impulse signal sent to algorithm.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of input signal sent to algorithm</digest>
+        <description>Amount of input signal sent to algorithm.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='35'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='noise' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of noise added to the impulse signal</digest>
+        <description>Amount of noise added to the impulse signal.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='10'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='objects' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of objects in the model</digest>
+        <description>Amount of objects in the model (minimum 1).</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='25'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pickup' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>'Pickup' parameter in impulse generator algorithm</digest>
+        <description>'Pickup' parameter in impulse generator algorithm.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='33'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='position' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>'Position' parameter in impulse generator algorithm</digest>
+        <description>'Position' parameter in impulse generator algorithmalgorithm.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='20'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sustain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How long the energy lasts</digest>
+        <description>How long the energy lasts.</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.lpgcore~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.resonatorscreate~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+
+    <!-- INLETS -->
+    <misc name="Input">
+        <entry name='signal'>
+            <description>Note input (as MIDI float) and optional audio input for triggering the algorithm.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Trigger input.</description>
+        </entry>
+    </misc> 
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <misc name="Output">
+        <entry name='signal'>
+            <description>Audio output.</description>
+        </entry>
+        <entry name='signal'>
+            <description>Impulse that is fed to algorithm output.</description>
+        </entry>
+    </misc>
+    <!-- OUTLETS -->
+</c74object>

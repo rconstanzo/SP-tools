@@ -1,9 +1,9 @@
 {
 	"name" : "SP Tools",
 	"displayname" : "",
-	"version" : "0.7",
+	"version" : "0.8",
 	"author" : "Rodrigo Constanzo",
-	"description" : "A set of marchine learning tools that are optimized for low latency and real-time performance. The tools can be used with Sensory Percussion sensors, ordinary drum triggers, or any audio input. IMPORTANT: requires FluCoMa 1.0 or higher. ",
+	"description" : "A set of marchine learning tools that are optimized for low latency and real-time performance. The tools can be used with Sensory Percussion sensors, ordinary drum triggers, or any audio input. IMPORTANT: requires FluCoMa 1.0.6 or higher. ",
 	"tags" : [ "sensory percussion", "machine learning", "corpus-based sampling", "concatenation" ],
 	"website" : "http://www.rodrigoconstanzo.com/sp-tools",
 	"extends" : "FluidCorpusManipulation",
