@@ -41,7 +41,6 @@ All abstractions work in 64-bit and M1/Universal Binary.
 * added sample rate adaptation to all realtime and offline analyses. previously things were optimized and assumed for 44.1k/48k but now everything works at every sample rate (up to 192k)
 * added some puredata abstractions and help files to the package (in the `puredata` folder)
 
-## Changelog
 ### v0.7 - [SP-Tools v0.7 - Ramps, Data Processing, Novelty, and Timestretching](https://www.youtube.com/watch?v=yCWKemdfm78)  
 * **BREAKING CHANGES** - all objects that had a separate control inlet, now take those messages in the left-most inlet
 * added new "ramp" objects for structural and gestural changes (`sp.ramp`, `sp.ramp~`)
