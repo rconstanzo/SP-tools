@@ -1,0 +1,153 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.classifierdisplay' category='' module='SP-Tools'>
+    <digest>Display for visualizing matched classes
+</digest>
+    <description>Display for visualizing matched classes.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.classifierdisplay</o> object lets you visualize what classes have been matched by any of the class matching objects. It automatically adapts to the dump outlet of sp.classmatch or it can be preset with Sensory Percussion or any arbitrary labels.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Class to display
+</digest>
+            <description>An incoming class (as name, index, or normalized float) will flash on the UI. Also takes the dump outlet of class matching objects to set the class labels.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Class thru
+</digest>
+            <description>Passes the incoming class directly out as well as outputting mouse clicks on the UI.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='defaultdisplay' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the default display state
+</digest>
+        <description>Sets the default for the UI display<br /> 
+Available options are <strong>spsnare</strong>, <strong>sptom</strong>, and <strong>spkick</strong>, but you can also input an arbitrary list of class names.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='spsnare'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offcolor' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>RGB values for the background color
+</digest>
+        <description>RGB values for the background color as floats between 0. and 1.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='0.647059 0.647059 0.647059'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='oncolor' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>RGB values for the flashing color
+</digest>
+        <description>RGB values for the flashing color as floats between 0. and 1.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='1. 0.709804 0.196078'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='size' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Display size of UI
+</digest>
+        <description>Display size of UI (small: 169, medium: 235, large: 350).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='medium'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classcreate' />
+        <seealso name='sp.classmatch' />
+        <seealso name='sp.clustercreate' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.descriptordisplay' />
+        <seealso name='sp.plotter' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

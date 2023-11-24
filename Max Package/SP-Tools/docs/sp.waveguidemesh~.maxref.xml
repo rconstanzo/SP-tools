@@ -1,0 +1,517 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.waveguidemesh~' category='' module='SP-Tools'>
+    <digest>Physical model of a vibrating membrane
+</digest>
+    <description>Physical model of a vibrating membrane.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.waveguidemesh~</o> object is an implementation of Digital Waveguide Meshes to model vibrating membranes. This is a 3 nodes triangular Digital Waveguide Mesh model (each node consist of 6 waveguides) implemented with a few other options like damping and nonlinearity.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Note input and optional audio input
+</digest>
+            <description>Note input (as MIDI float) and optional audio input for triggering the algorithm.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Trigger input
+</digest>
+            <description>Trigger input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (L)
+</digest>
+            <description>Audio output (L).
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (R)
+</digest>
+            <description>Audio output (R).
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Impulse output
+</digest>
+            <description>Impulse that is fed to algorithm output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='bang'>
+        <arglist>
+        </arglist>
+        <digest>Equivalent of sending a trigger when sent into right inlet
+</digest>
+        <description>Equivalent of sending a trigger when sent into right inlet.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='a1' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>First filter coefficient
+</digest>
+        <description>First allpass filter coefficient.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='4'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='a2' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Second filter coefficient
+</digest>
+        <description>Second allpass filter coefficient.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='brightness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>&#39;Brightness&#39; parameter in impulse generator algorithm
+</digest>
+        <description>&#39;Brightness&#39; parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='damping' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of damping applied inside the waveguide algorithm
+</digest>
+        <description>Amount of damping applied inside the waveguide algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='47'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='decay' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Decay time of generated impulse
+</digest>
+        <description>Decay time of generated impulse.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='54'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='gain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output gain
+</digest>
+        <description>Output gain (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='impulse' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of impulse signal sent to algorithm
+</digest>
+        <description>Amount of impulse signal sent to algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='impulseout' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of impulse sent to the output
+</digest>
+        <description>Amount of impulse signal sent to the otuput.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of input signal sent to algorithm
+</digest>
+        <description>Amount of input signal sent to algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='inputgain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of input sent directly to model when in realtime/combined modes
+</digest>
+        <description>Amount of input sent directly to model when in realtime/combined modes.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='mode' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the actuation mode for audio input
+</digest>
+        <description>Sets the actuation mode for audio input.
+The available options are:
+<strong>0</strong> = no direct audio, triggers only
+<strong>1</strong> = direct audio only, no triggers
+<strong>2</strong> = both direct and trigger audio)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='node1' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Delay time for waveguide node
+</digest>
+        <description>Delay time for waveguide node (in samples).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='61.42857'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='node2' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Delay time for waveguide node
+</digest>
+        <description>Delay time for waveguide node (in samples).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='127.14286'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='node3' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Delay time for waveguide node
+</digest>
+        <description>Delay time for waveguide node (in samples).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='194.285721'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='ramp' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Ramp time for smoothing of each parameter
+</digest>
+        <description>Ramp time for smoothing each parameter (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='20'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='reflect' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of reflection in waveguide algorithm
+</digest>
+        <description>Amount of reflection in waveguide algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='9'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='reflectmode' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Reflect mode for waveguide algorithm
+</digest>
+        <description>Reflect mode for waveguide algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='9'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='resonance' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>&#39;Resonance&#39; parameter in impulse generator algorithm
+</digest>
+        <description>&#39;Resonance&#39; parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='99'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='position' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Position parameter in impulse generator algorithm
+</digest>
+        <description>Position parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='4'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sharpness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>&#39;Sharpness&#39; parameter in impulse generator algorithm
+</digest>
+        <description>&#39;Sharpness&#39; parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

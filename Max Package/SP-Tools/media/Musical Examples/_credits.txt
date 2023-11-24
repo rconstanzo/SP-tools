@@ -1,0 +1,45 @@
+Andreae-acoustic7.wav
+	- Sam Andreae : acoustic (breath, keys, mute) from Solo, 2014
+	- https://tombedvisionsrecords.bandcamp.com/album/solo
+	- https://samandreae.com
+
+Bledsoe-BambooFlute.wav
+Bledsoe-FluteArticulated.wav
+	- Helen Bledsoe : examples created for demonstration purposes, 2023
+	- https://helenbledsoe.com
+
+Brew-AcousticGuitar.wav
+Brew-ChordHarmonics.wav
+	- Daniel Brew : examples created for demonstration purposes, 2023
+	- https://www.danielbrew.com
+
+Ferreira-BeatBoxing.wav
+Ferreira-PercussiveVocals.wav
+	- Diogo Ferreira : extract from play talk play video, 2022
+	- https://www.youtube.com/watch?v=9aQi96fhuqg
+	- https://www.instagram.com/1diogoferreira
+
+Rivero-MelodicVocals.wav
+Rivero-PercussiveVocals.wav
+	- Danishta Rivero : extracts from solo performance, 2022
+	- http://www.danishtarivero.com
+
+BrushesExample_DPA_SP.wav
+ClassiferShort_DPA_SP.wav
+ClassiferTraining_DPA_SP.wav
+ClassifierGroove_DPA_SP.wav
+GongDrumPerformance.wav
+NoveltyExample_DPA_SP.wav
+WurlitzerLoopHigh.wav
+	- Rodrigo Constanzo : examples created for demonstration purposes, 2022-2023
+
+CircuitBentCasioSK-10.wav
+	- Rodrigo Constanzo : recording of circuit-bent Casio SK-10
+
+Constanzo-PreparedSnare.wav
+	- Rodrigo Constanzo : recording of prepared snare, 2018
+
+KaizoSnare.wav
+	- Rodrigo Constanzo : excerpt from Kaizo Snare, 2019
+	- https://www.youtube.com/watch?v=MTWklm1oXWQ
+	- https://rodrigoconstanzo.com/2020/08/kaizo-snare

@@ -1,0 +1,205 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.melbandsrt~' category='' module='SP-Tools'>
+    <digest>Analyzes audio for several audio descriptors based on audio input
+</digest>
+    <description>Analyzes audio for several audio descriptors based on audio input.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.melbandsrt~</o> object outputs 40 melbands which can be used for spectral compensation in corpus-based sample playback.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and control in
+</digest>
+            <description>Audio input to analyze.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Melbands as list
+</digest>
+            <description>Analyzed melbands in list form.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Melbands as <o>buffer~</o>
+</digest>
+            <description>Analyzed melbands in <o>buffer~</o> form.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis
+</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:
+For the hop size, -1 = windowsize/2
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 =&gt; fftsize 1024, but windowssize 1000 also =&gt; fftsize 1024)
+Constraints
+FFTSize, if != -1, will snap to the next greatest power of two
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='512 128 512'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='history' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The size of the history window for smoothing
+</digest>
+        <description>The size of the history window for smoothing.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='6'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='maxfreq' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The upper bound of the frequency band to use in analysis
+</digest>
+        <description>The upper bound of the frequency band to use in analysis, in Hz.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='10000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='minfreq' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The lower bound of the frequency band to use in analysis
+</digest>
+        <description>The lower bound of the frequency band to use in analysis, in Hz.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='numframes' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>How many samples to analyze
+</digest>
+        <description>How many samples to analyse.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='256'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='rate' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rate at which the frame is output (also sets the delay to make sure the window is analyzed)
+</digest>
+        <description>Rate at which the frame is output (also sets the delay to make sure the window is analyzed).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='512'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorsrt~' />
+        <seealso name='sp.kitchensinkrt~' />
+        <seealso name='sp.melbands~' />
+        <seealso name='sp.mfccrt~' />
+        <seealso name='sp.sinesrt~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

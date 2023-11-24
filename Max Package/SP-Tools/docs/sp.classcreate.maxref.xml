@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.classcreate' category='' module='SP-Tools'>
+    <digest>Create classes based on input analysis
+</digest>
+    <description>Finds the nearest match based on pre-trained classes/clusters.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.classcreate</o> object will create a classifier based on incoming class labels and descriptor analysis.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Buffer and control in
+</digest>
+            <description>Incoming <o>buffer~</o> of descriptors to attach to the current label/class. Also takes the messages for object control.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Matched class
+</digest>
+            <description>The nearest match in the pre-trained classifier.
+</description>
+        </outlet>
+        <outlet id='1' type='int'>
+            <digest>Amount of entries
+</digest>
+            <description>Total amount of entries that have been sent to the classifier.
+</description>
+        </outlet>
+        <outlet id='2' type='float64'>
+            <digest>Training loss
+</digest>
+            <description>Training loss value for the neural network.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='class'>
+        <arglist>
+        </arglist>
+        <digest>Class label to train
+</digest>
+        <description>The label you want to apply to the incoming entries. The following argument will be the name of the class. e.g. &#39;class center&#39;
+</description>
+    </method>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the loaded classifer
+</digest>
+        <description>Clears the loaded classifer.
+</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print dataset contents to Max console
+</digest>
+        <description>Prints a summary of the descriptors in the dataset to the Max console.
+</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the loaded classifier
+</digest>
+        <description>Resets the loaded classifier.
+</description>
+    </method>
+    <method name='train'>
+        <arglist>
+        </arglist>
+        <digest>Enable classifier training
+</digest>
+        <description>Enables the training mode for the internal classifier.
+</description>
+    </method>
+    <method name='trainmlp'>
+        <arglist>
+        </arglist>
+        <digest>Sets the training state of the neural network
+</digest>
+        <description>Sets the training state of the neural network. A &#39;1&#39; will begin training the network, and a &#39;0&#39; will complete the training.
+</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write training to disk
+</digest>
+        <description>Write a <strong>.json</strong> file with all the descriptors and class labels to disk.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='classifier' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>What type of classifier to use
+</digest>
+        <description>What type of classifier to use. Can be &#39;knn&#39; (K-nearest neighbor using a k-d tree) or &#39;mlp&#39; (multi-layer perceptron neural network).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='knn'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classifierdisplay' />
+        <seealso name='sp.classmatch' />
+        <seealso name='sp.clustercreate' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.mfccframe' />
+        <seealso name='sp.sampler~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

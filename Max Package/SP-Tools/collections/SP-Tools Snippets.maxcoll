@@ -1,0 +1,5 @@
+{
+	"name" : "SP-Tools Snippets",
+	"type" : "filelist",
+	"contents" : [ "SP - BopPad.maxsnip", "SP - Class Match Descriptors.maxsnip", "SP - Class Match.maxsnip", "SP - Class Create.maxsnip", "SP - Cluster Create.maxsnip", "SP - Concat Synth Unpacked.maxsnip", "SP - Concat Synth.maxsnip", "SP - Controllers.maxsnip", "SP - Corpus Create.maxsnip", "SP - Corpus Sampler Unpacked.maxsnip", "SP - Corpus Sampler.maxsnip", "SP - Erae Touch.maxsnip", "SP - Onset Descriptors.maxsnip", "SP - Onset.maxsnip", "SP - Speed.maxsnip", "SP - Onset Settings.maxsnip" ]
+}

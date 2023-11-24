@@ -1,0 +1,261 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.novelty~' category='' module='SP-Tools'>
+    <digest>Novelty-based onset detection
+</digest>
+    <description>Novelty-based onset detection.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.novelty~</o> object takes audio input and outputs a <strong>bang</strong>, trigger, and a gate when novelty is detected. The novelty can be computed across different time frames and for different parameters.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and control in
+</digest>
+            <description>Audio input to analyze for novelty.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>bang out
+</digest>
+            <description>bang output when novelty is detected.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Trigger out
+</digest>
+            <description>Trigger output when novelty is detected.
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Gate out
+</digest>
+            <description>Gate output when novelty is detected.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='algorithm' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The feature on which novelty is computed.
+</digest>
+        <description>The feature on which novelty is computed.
+Possible values:
+<strong>0: Spectrum</strong> = The magnitude of the full spectrum.
+<strong>1: MFCC</strong> = 13 Mel-Frequency Cepstrum Coefficients.
+<strong>2: Chroma</strong> = The contour of a 12-band chromagram.
+<strong>3: Pitch</strong> = The pitch and its confidence.
+<strong>4: Loudness</strong> = The true peak and loudness
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis
+</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:
+For the hop size, -1 = windowsize/2
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 =&gt; fftsize 1024, but windowssize 1000 also =&gt; fftsize 1024)
+Constraints
+FFTSize, if != -1, will snap to the next greatest power of two
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='1024 512 1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lockout' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time (in <strong>ms</strong>) before it can get triggered again
+</digest>
+        <description>Amount of time (in <strong>ms</strong>) before novelty can get triggered again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold of the novelty curve to reset, aka to allow the algorithm to trigger again.
+</digest>
+        <description>The threshold of the novelty curve to reset, aka to allow the algorithm to trigger again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0.2'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='onthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold of the novelty curve to trigger an onset, aka to go ON when in OFF state
+</digest>
+        <description>The threshold of the novelty curve to trigger an onset, aka to go ON when in OFF state.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0.2'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='smoothing' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The size of the smoothing filter applied to the novelty curve (in <strong>ms</strong>)
+</digest>
+        <description>The size of the smoothing filter applied to the novelty curve (in <strong>ms</strong>).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sensitivity' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The nervousness of the algorithm thresholds (from 0 to 100%)
+</digest>
+        <description>The nervousness of the algorithm thresholds (from 0 to 100%). This is essentially a &#39;macro&#39; parameter for the individual on/off thresholds of the novelty curve to consider it a segmentation point. It is important to note that each algorithm has a wildy different output range, so depending on the material and algorithm used you may need to manually tweak the on/off thresholds rather than using the macro &#39;sensitivity&#39; parameter.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='window' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The granularity of the window in which the algorithm looks for change.
+</digest>
+        <description>The granularity of the window in which the algorithm looks for change in <strong>ms</strong>. A small number will be sensitive to short term changes, and a large number should look for long term changes.
+Constraints:
+<strong>Minimum</strong> = 30ms
+<strong>Maximum</strong> = 500ms
+*Although the values are taken in <strong>ms</strong>, it is internally quantized to an odd number of <strong>samples</strong>
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.onset~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.spectralonset~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

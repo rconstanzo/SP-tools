@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.clustercreate' category='' module='SP-Tools'>
+    <digest>Create clusters based on input analysis
+</digest>
+    <description>Create clusters based on input analysis.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.classcreate</o> object will create classes by either automatically clustering the dataset contents based on the amount of clusters you request or by manually seeding specific clusters.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Buffer and control in
+</digest>
+            <description>Incoming <o>buffer~</o> of descriptors to analyze for cluster matching. Also takes the messages for object control.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Dict out for visualization
+</digest>
+            <description>Dict output for displaying on an <o>sp.plotter</o>.
+</description>
+        </outlet>
+        <outlet id='1' type='int'>
+            <digest>Amount of entries
+</digest>
+            <description>Total amount of entries that have been sent to the clustering algorithm.
+</description>
+        </outlet>
+        <outlet id='2' type='float64'>
+            <digest>Training loss
+</digest>
+            <description>Training loss value for the neural network.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the analyzed data
+</digest>
+        <description>Clears the analyzed data.
+</description>
+    </method>
+    <method name='clearseed'>
+        <arglist>
+        </arglist>
+        <digest>Clears the seed examples
+</digest>
+        <description>Clears the seed examples.
+</description>
+    </method>
+    <method name='clusters'>
+        <arglist>
+        </arglist>
+        <digest>Amount of clusters to create
+</digest>
+        <description>The amount of clusters to find in the current training data.
+</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print dataset contents to Max console
+</digest>
+        <description>Prints a summary of the descriptors in the dataset to the Max console.
+</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the analyzed data
+</digest>
+        <description>Resets the analyzed data.
+</description>
+    </method>
+    <method name='resetseed'>
+        <arglist>
+        </arglist>
+        <digest>Resets the seed examples
+</digest>
+        <description>Resets the seed examples.
+</description>
+    </method>
+    <method name='seed'>
+        <arglist>
+        </arglist>
+        <digest>Enable cluster seeding
+</digest>
+        <description>Enables the seeding of clusters instead of specifying an amount of cluster.
+</description>
+    </method>
+    <method name='trainmlp'>
+        <arglist>
+        </arglist>
+        <digest>Sets the training state of the neural network
+</digest>
+        <description>Sets the training state of the neural network. A &#39;1&#39; will begin training the network, and a &#39;0&#39; will complete the training.
+</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write training to disk
+</digest>
+        <description>Write a <strong>.json</strong> file with all the descriptors and cluster labels to disk.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classcreate' />
+        <seealso name='sp.classmatch' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.mfccframe' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

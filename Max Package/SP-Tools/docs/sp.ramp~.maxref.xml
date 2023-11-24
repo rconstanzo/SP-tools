@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.ramp~' category='' module='SP-Tools'>
+    <digest>Onset-based ramp generation
+</digest>
+    <description>Onset-based ramp generation.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.ramp~</o> object takes onsets as input (as bangs or triggers/gates) and outputs three versions of a given ramp allowing for sample accurate gestures to be triggered by incoming onsets.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Onset and control input
+</digest>
+            <description>Incoming onsets (as bangs/triggers/gates) and control input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Forwards ramp output
+</digest>
+            <description>Forwards ramp output per event step.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Backwards ramp output
+</digest>
+            <description>Backwards ramp output per event step.
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Palindrome ramp output
+</digest>
+            <description>Palindrome ramp output per event step.
+</description>
+        </outlet>
+        <outlet id='3' type='signal'>
+            <digest>Current position
+</digest>
+            <description>Current position through the given ramp.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='jump'>
+        <arglist>
+        </arglist>
+        <digest>Jump to this position in the ramp immediately
+</digest>
+        <description>Jump to this position in the ramp immediately
+</description>
+    </method>
+    <method name='pause'>
+        <arglist>
+        </arglist>
+        <digest>Pause movement through the ramp (0/1)
+</digest>
+        <description>Pause movement through the ramp (0/1).
+</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the progress and position of the ramp
+</digest>
+        <description>Resets the progress and position of the ramp.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Duration of each ramp (in ms)
+</digest>
+        <description>Duration of each ramp (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='5000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loop' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether looping is enabled (0/1)
+</digest>
+        <description>Whether looping is enabled(0/1).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='retrigger' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Wether you can retrigger the ramp before it has finished (has no impact when looping is enabled)
+</digest>
+        <description>Wether you can retrigger the ramp before it has finished (has no impact when looping is enabled).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='speed' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rate at which to move through events (0 to 500%)
+</digest>
+        <description>Rate at which to move through events (0 to 500%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.ramp' />
+        <seealso name='sp.sequenceclock~' />
+        <seealso name='sp.sequencedata~' />
+        <seealso name='sp.datalooper~' />
+        <seealso name='sp.quantizetime~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.realtimeframe~' category='' module='SP-Tools'>
+    <digest>Buffer recording and clock output
+</digest>
+    <description>Buffer recording and clock output.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.realtimeframe~</o> object is the counterpart to <o>sp.onsetframe~</o> where instead of outputting the frame to analyzed based on onset detection, <o>sp.realtimeframe~</o> spits out a constant stream of frame values to analyze enabling realtime analysis of multiple descriptor types that remain in sync.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and control in
+</digest>
+            <description>Audio input to analyze.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Sample position to beging analysis from
+</digest>
+            <description>Sample position to analyze in rolling <o>buffer~</o> along with <o>buffer~</o> name.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='rate' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Rate at which the frame is output (also sets the delay to make sure the window is analyzed)
+</digest>
+        <description>Rate at which the frame is output (also sets the delay to make sure the window is analyzed) (in samples).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='256'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorframe' />
+        <seealso name='sp.melbandframe' />
+        <seealso name='sp.mfccframe' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.sineframe' />
+        <seealso name='sp.triggerframe~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

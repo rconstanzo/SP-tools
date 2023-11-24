@@ -1,0 +1,464 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.corpusplayer~' category='' module='SP-Tools'>
+    <digest>All-in-one corpus playback object
+</digest>
+    <description>All-in-one corpus playback object.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.corpusplayer~</o> object is an all-in-one playback object that allows for mono or stereo playback, optional loudness and spectral compensation, along with various sample playback controls and features.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>From <o>sp.corpusmatch</o> and control in
+</digest>
+            <description>From <o>sp.corpusmatch</o> and control in.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (left)
+</digest>
+            <description>Audio output (left).
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (right)
+</digest>
+            <description>Audio output (right). The right outlet will be the same as the left outlet if the entry in the corpus is mono. It will only play back in true stereo when the source file is in stereo.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='jump'>
+        <arglist>
+        </arglist>
+        <digest>Jump to that position in the last played sample
+</digest>
+        <description>Jump to that position in the last played sample (0.0 to 1.0).
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='buffer' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Polybuffer name to use
+</digest>
+        <description>Polybuffer name to take when being used for non-corpus playback.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='in' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Fade in amount
+</digest>
+        <description>Fade in amount (0-100%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='incurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for attack fade in
+</digest>
+        <description>Curve for attack fade in (0% = linear, -100% = exponential, 100% = logarithmic).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='length' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sample length to play
+</digest>
+        <description>Sample length to play (0-100%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lengthabsolute' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sample length to play (in ms)
+</digest>
+        <description>Sample length to play (in ms). This will be compared to the relative length and the lesser of the two will be taken as the actual length.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loop' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enables looping of playback
+</digest>
+        <description>Enables looping of playback. The loop parameter applies globally so if you have sp.corpusplayer~ set to 16 voices (the default) you can quickly end up with a chaotic and polymetric loop.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loudness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of loudness compensation to apply
+</digest>
+        <description>Amount of loudness compensation to apply (bewteen -100 and 100%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='out' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Fade out amount
+</digest>
+        <description>Fade out amount (0-100%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='outcurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for attack fade out
+</digest>
+        <description>Curve for fade out (0% = linear, -100% = logarithmic, 100% = exponential).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pitch' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of half steps to transpose up or down (when in timestretch mode)
+</digest>
+        <description>Amount of half steps to transpose up or down (when in timestretch mode) (-24-24).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='spectral' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of spectral compensation to apply
+</digest>
+        <description>Amount of spectral compensation to apply (bewteen -100 and 100%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='speed' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Playback speed
+</digest>
+        <description>Playback speed (-1000 to 1000%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='start' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sample start offset
+</digest>
+        <description>Sample start offset (0-50%).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='startabsolute' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sample start offset (in ms)
+</digest>
+        <description>Sample start offset (in ms). This will be added to the relative offset to combine the two.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='steal' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether poly voice stealing is enabled
+</digest>
+        <description>Sets whether voice stealing is enabled, which allows new samples to start when previous ones are still sounding.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='timestretch' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enables timestretch mode
+</digest>
+        <description>Enables timestretch mode.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='timestretchmode' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Timestretch algorithm to use
+</digest>
+        <description>Timestretch algorithm to use (basic, monophonic, rhythmic, general, extremestretch, efficient).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='basic'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='voices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of polyphony
+</digest>
+        <description>Sets the amount of polyphony available for sample playback.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='16'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.controllermatch' />
+        <seealso name='sp.corpusclustermatch' />
+        <seealso name='sp.corpuscreate' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.corpusmatch~' />
+        <seealso name='sp.corpussampler~' />
+        <seealso name='sp.gridmatch' />
+        <seealso name='sp.plotter' />
+        <seealso name='sp.sampler~' />
+        <seealso name='sp.setupcreate~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

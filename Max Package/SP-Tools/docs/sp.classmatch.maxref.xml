@@ -1,0 +1,148 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.classmatch' category='' module='SP-Tools'>
+    <digest>Finds nearest class based on MFCC input
+</digest>
+    <description>Finds the nearest match based on pre-trained classes/clusters.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.classmatch</o> object will find the nearest match in a set of pre-trained classes or clusters.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Buffer and control in
+</digest>
+            <description>Takes incoming <o>buffer~</o> name to find the nearest class match. Also takes the messages for object control.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Matched class
+</digest>
+            <description>The nearest match in the pre-trained classifier.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Dict out for visualization
+</digest>
+            <description>Dict output for displaying on an <o>sp.plotter</o>.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+        <objarg name='default' optional='1' type='symbol'>
+            <digest>JSON file to load by default
+</digest>
+            <description>JSON file to load by default.
+</description>
+        </objarg>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the loaded classifer
+</digest>
+        <description>Clears the loaded classifer.
+</description>
+    </method>
+    <method name='dump'>
+        <arglist>
+        </arglist>
+        <digest>Dumps classifier summary out the right-most outlet
+</digest>
+        <description>Dump class names, amount of classes, class means (as <o>dict</o>) out of the right-most outlet.
+</description>
+    </method>
+    <method name='load'>
+        <arglist>
+        </arglist>
+        <digest>Load a pre-trained classsifier
+</digest>
+        <description>Opens file dialog to select pre-trained classifer <strong>.json</strong> file.
+</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print classifier info to Max console
+</digest>
+        <description>Prints a summary of the classifier and trained classes to the Max console.
+</description>
+    </method>
+    <method name='read'>
+        <arglist>
+        </arglist>
+        <digest>Read a pre-trained classifier
+</digest>
+        <description>Reads a pre-trained classifier directly from a relative or absolute path.
+</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the loaded classifier
+</digest>
+        <description>Resets the loaded classifier.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='classifier' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>What type of classifier to use
+</digest>
+        <description>What type of classifier to use. Can be &#39;knn&#39; (K-nearest neighbor using a k-d tree) or &#39;mlp&#39; (multi-layer perceptron neural network).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='knn'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classcreate' />
+        <seealso name='sp.clustercreate' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.mfccframe' />
+        <seealso name='sp.sampler~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

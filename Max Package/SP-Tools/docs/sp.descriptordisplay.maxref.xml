@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.descriptordisplay' category='' module='SP-Tools'>
+    <digest>Displays incoming descriptors
+</digest>
+    <description>Displays the descriptors as a radar chart.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.descriptordisplay</o> object displays incoming descriptors while adapting to every descriptor type.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor input
+</digest>
+            <description>Incoming descriptors as a list or <o>buffer~</o>.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptor output
+</digest>
+            <description>Descriptor thru as a list or <o>buffer~</o>.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='size' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Display size of UI
+</digest>
+        <description>Display size of UI (small: 169, medium: 235, large: 350).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='medium'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.classifierdisplay' />
+        <seealso name='sp.controllers' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.melbands~' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.sines~' />
+        <seealso name='sp.speed' />
+        <seealso name='sp.plotter' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

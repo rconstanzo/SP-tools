@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.gridmatch' category='' module='SP-Tools'>
+    <digest>Find the nearest match in a pre-analyzed corpus
+</digest>
+    <description>Find the nearest match in a pre-analyzed corpus.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.gridmatch</o> object finds the nearest match in a corpus based on a grid-ified XY space. You can load/use the same corpora as you would with <o>sp.corpusmatch</o> but instead of matching based on incoming audio descriptors you can match using XY coordinates from a controller or UI object.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>XY and control in
+</digest>
+            <description>XY and control input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Matched entry
+</digest>
+            <description>Matched entry.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Dict output for <o>sp.plotter</o> or <o>sp.eraetouch</o>
+</digest>
+            <description>Dict output for <o>sp.plotter</o> or <o>sp.eraetouch</o>.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='corpus'>
+        <arglist>
+        </arglist>
+        <digest>Messages related to corpus matching
+</digest>
+        <description>Messages related to corpus matching.
+After sending the <m>corpus</m> message you send an argument of &#39;match&#39; followed by a time-scale you wish to match against.
+The available options are:
+<strong>short</strong> = the first 256 samples (at 44.1k sample rate)
+<strong>medium</strong> = the first 4410 samples (at 44.1k sample rate)
+<strong>all</strong> = the entire file
+Therefore a complete message would look as follows:
+&#39;corpus match all&#39; or &#39;corpus match small&#39;
+</description>
+    </method>
+    <method name='info'>
+        <arglist>
+        </arglist>
+        <digest>Print corpus metatdata/info to Max console
+</digest>
+        <description>Prints a summary of the corpus metatdata/info to the Max console.
+</description>
+    </method>
+    <method name='load'>
+        <arglist>
+        </arglist>
+        <digest>Load a pre-trained concat <strong>.json</strong> file
+</digest>
+        <description>Opens file dialog to select pre-trained concat <strong>.json</strong> file.
+</description>
+    </method>
+    <method name='read'>
+        <arglist>
+        </arglist>
+        <digest>Read a pre-trained concat <strong>.json</strong> file
+</digest>
+        <description>Reads a pre-trained concat <strong>.json</strong> file directly from a relative or absolute path.
+</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print dataset contents to Max console
+</digest>
+        <description>Prints a summary of the descriptors in the dataset to the Max console.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='roundrobin' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enable roundrobin sample matching
+</digest>
+        <description>Enables round robin sample matching so when a match is found twice in a row, a randomized selection is made within a window of options.
+The available options are:
+<strong>0</strong> = round robin selection is off 
+<strong>1</strong> = round robin selection is on (default 5 nearest neighbors)
+<strong>2+</strong> = sets the amount of nearest neighbors 
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.boppad' />
+        <seealso name='sp.eraetouch' />
+        <seealso name='sp.gridscale' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

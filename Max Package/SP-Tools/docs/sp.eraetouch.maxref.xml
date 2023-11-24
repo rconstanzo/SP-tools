@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.eraetouch' category='' module='SP-Tools'>
+    <digest>Interface for the Erae Touch controller
+</digest>
+    <description>Interface for the Erae Touch controller.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.eraetouch</o> acts as the API parser to/from the Erae Touch as well as creating the LED feedback for multiple zones. You can connect this to <o>sp.gridmatch</o> for corpus-based sample playback or use the XYZ outputs directly for anything else in Max.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Dataset and control in
+</digest>
+            <description>Dataset (instance 1) and control input.
+</description>
+        </inlet>
+        <inlet id='1' type='list'>
+            <digest>Dataset in (2)
+</digest>
+            <description>Dataset (instance 2) input.
+</description>
+        </inlet>
+        <inlet id='2' type='list'>
+            <digest>Dataset in (3)
+</digest>
+            <description>Dataset (instance 3) input.
+</description>
+        </inlet>
+        <inlet id='3' type='list'>
+            <digest>Dataset in (4)
+</digest>
+            <description>Dataset (instance 4) input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>XYZ position
+</digest>
+            <description>XYZ position from the Erae Touch or UI input.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Buffer out (1)
+</digest>
+            <description>Buffer (instance 1) output.
+</description>
+        </outlet>
+        <outlet id='2' type='list'>
+            <digest>Buffer out (2)
+</digest>
+            <description>Buffer (instance 2) output.
+</description>
+        </outlet>
+        <outlet id='3' type='list'>
+            <digest>Buffer out (3)
+</digest>
+            <description>Buffer (instance 3) output.
+</description>
+        </outlet>
+        <outlet id='4' type='list'>
+            <digest>Buffer out (4)
+</digest>
+            <description>Buffer (instance 4) output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clear LEDs
+</digest>
+        <description>Clear all LEDs. Applies to all the zones.
+</description>
+    </method>
+    <method name='color'>
+        <arglist>
+        </arglist>
+        <digest>Set the color mapping for the LEDs
+</digest>
+        <description>Set the color mapping for the LEDs. The color is based on the 3rd dimension of the analyzed dataset and then is projected onto the Erae Touch&#39;s LEDs using one of several color maps.
+The available options are:
+<strong>linear</strong> = Black - Blue - Green - Orange - Yellow map. The most perceptually accurate mapping.
+<strong>rainbow</strong> = Vivid rainbow colour map from blue to red with a small perceptual blind spot at yellow. Beware, the vivid colours may make you segment regions in your data on the basis of the colours in the map rather than the structure in your data.
+<strong>cyclic</strong> = Attractive six-colour cyclic with primaries and secondaries matched in lightness.
+<strong>greyscale</strong> = Standard grey scale.
+<strong>colorblind</strong> = Linear map with maximal chroma for Protanopic/Deuteranopic viewers.
+<strong>hsl</strong> = Even distribution based on Hue, Lightness, and Saturation. Offers wide visual contrast at the cost of distance accuracy in the data.
+As a rule of thumb linear offers the most accurate display and hsl offers the most visual contrast.
+</description>
+    </method>
+    <method name='initialize'>
+        <arglist>
+        </arglist>
+        <digest>Initialize and connect Erae Touch
+</digest>
+        <description>Initialize and connect Erae Touch. It should connect automatically but if it has not you can force it with this.
+</description>
+    </method>
+    <method name='zones'>
+        <arglist>
+        </arglist>
+        <digest>Sets the amount of available zones
+</digest>
+        <description>Sets the amount of available zones. Sets how the corpora are drawn to the available LEDs internally.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.boppad' />
+        <seealso name='sp.gridmatch' />
+        <seealso name='sp.gridscale' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

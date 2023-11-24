@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.quantizepitch' category='' module='SP-Tools'>
+    <digest>Pitch quantization
+</digest>
+    <description>Pitch quantization.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.quantizepitch</o> object takes incoming pitch values as ints, floats, descriptor lists or buffers and quantizes them to a given scale and key.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='float'>
+            <digest>Notes to quantize
+</digest>
+            <description>Notes to quantize.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='float'>
+            <digest>Quantized notes
+</digest>
+            <description>Quantized MIDI note output.
+</description>
+        </outlet>
+        <outlet id='1' type='int'>
+            <digest>Display output for <o>kslider</o>
+</digest>
+            <description>Display output for <o>kslider</o>.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='amount' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount to correct pitch
+</digest>
+        <description>Amount to correct pitch (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='key' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Key to transpose the scale/mode to
+</digest>
+        <description>Key to transpose the scale/mode to.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='7'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='scale' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Scale/mode to use
+</digest>
+        <description>Scale/mode to use. All options from the native BEAP quantizer.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='7'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorframe' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.quantizetime~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

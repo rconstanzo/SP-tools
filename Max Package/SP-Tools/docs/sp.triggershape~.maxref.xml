@@ -1,0 +1,246 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.triggershape~' category='' module='SP-Tools'>
+    <digest>AHR envelope based on trigger/gate input
+</digest>
+    <description>Attack, hold, release envelope based on trigger/gate input.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.triggershape~</o> takes an incoming trigger/gate and use it as an attack, hold, release-style (AHR) envelope.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Trigger/gate in
+</digest>
+            <description>Trigger/gate input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>AHR output
+</digest>
+            <description>AHR output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='bang'>
+        <arglist>
+        </arglist>
+        <digest>Equivalent of sending a trigger
+</digest>
+        <description>Equivalent of sending a trigger.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='attack' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Ramp up time for the AHR envelope
+</digest>
+        <description>Ramp up time for the AHR envelope (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='attackcurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for attack of envelope
+</digest>
+        <description>Curve for attack of envelope
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='curve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for both attack and release
+</digest>
+        <description>Curve for both attack and release
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='75'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='hold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Hold time for AHR envelope
+</digest>
+        <description>Hold time for AHR envelope (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offset' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Offset of generated envelope
+</digest>
+        <description>Offset of generated envelope
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='release' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Release time for the AHR envelope
+</digest>
+        <description>Release time for the AHR envelope (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='releasecurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve for release of envelope
+</digest>
+        <description>Curve for release of envelope.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='scale' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Scale of generated envelope
+</digest>
+        <description>Scale of generated envelope (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.novelty~' />
+        <seealso name='sp.onset~' />
+        <seealso name='sp.probability~' />
+        <seealso name='sp.spectralonset~' />
+        <seealso name='sp.triggerbounce~' />
+        <seealso name='sp.triggercloud~' />
+        <seealso name='sp.triggerlength~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

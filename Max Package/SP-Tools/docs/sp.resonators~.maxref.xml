@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.resonators~' category='' module='SP-Tools'>
+    <digest>Resonant filter bank
+</digest>
+    <description>Resonant filter bank.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.resonators~</o> object is a bank of resonating filters used to create resonant models. Models can be loaded from a preset list or can be added as frequency, gain, and decay rate triplet list in CNMAT format.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and contron input
+</digest>
+            <description>Audio and control input.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Trigger input
+</digest>
+            <description>Trigger input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (L)
+</digest>
+            <description>Audio output (L).
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (R)
+</digest>
+            <description>Audio output (R).
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Impulse output
+</digest>
+            <description>Impulse that is fed to algorithm output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the model settings
+</digest>
+        <description>Clears the model settings
+</description>
+    </method>
+    <method name='bang'>
+        <arglist>
+        </arglist>
+        <digest>Equivalent of sending a trigger when sent into right inlet
+</digest>
+        <description>Equivalent of sending a trigger when sent into right inlet.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Decay of resonant model (in %)
+</digest>
+        <description>Decay of resonant model (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='gain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output gain
+</digest>
+        <description>Output gain (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='model' 
+        type='list' 
+        size='3080'
+        get='1' set='1' 
+        >
+        <digest>Select resonator model or submit list formated as frequency, gain, and decaryrate triples
+</digest>
+        <description>Select resonator model or submit list formated as frequency, gain, and decaryrate triples.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3080' 
+            value='bass'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='impulse' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of impulse signal sent to algorithm
+</digest>
+        <description>Amount of impulse signal sent to algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of input signal sent to algorithm
+</digest>
+        <description>Amount of input signal sent to algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='35'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='inputgain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of input sent directly to model when in realtime/combined modes
+</digest>
+        <description>Amount of input sent directly to model when in realtime/combined modes.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='mode' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the actuation mode for audio input
+</digest>
+        <description>Sets the actuation mode for audio input.
+The available options are:
+<strong>0</strong> = no direct audio, triggers only
+<strong>1</strong> = direct audio only, no triggers
+<strong>2</strong> = both direct and trigger audio)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='noise' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of noise added to the impulse signal
+</digest>
+        <description>Amount of noise added to the impulse signal.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='10'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pickup' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Pickup parameter in impulse generator algorithm
+</digest>
+        <description>Pickup parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='33'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='position' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Position parameter in impulse generator algorithm
+</digest>
+        <description>Position parameter in impulse generator algorithm.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='20'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='width' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Width of the stereo spread of the model
+</digest>
+        <description>Width of the stereo spread of the model.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.karplus~' />
+        <seealso name='sp.resonatorscreate~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.quantizetime~' category='' module='SP-Tools'>
+    <digest>Time quantization
+</digest>
+    <description>Time quantization.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.quantizetime~</o> object takes incoming messages (including bangs, lists, buffers, triggers, and gates)  quantizes them to either a local (to the instance) or global clock.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Input to quantize
+</digest>
+            <description>Input to quantize.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Bang, Lists, buffer output
+</digest>
+            <description>Bang, Lists, buffer output.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Trigger and gate out
+</digest>
+            <description>Trigger and gate output.
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Phasor output
+</digest>
+            <description>Quantization phasor position.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets quantization <o>phasor~</o> position
+</digest>
+        <description>Resets quantization <o>phasor~</o> position.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='quantize' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Subdivision of tempo to quantize to
+</digest>
+        <description>Subdivision of tempo to quantize to (in &#39;4n&#39; notation).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='16n'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sync' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sync to local or global clock
+</digest>
+        <description>Sync to local or global clock.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='local'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='tempo' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Tempo for quantization
+</digest>
+        <description>Tempo for quantization (set in bpm).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='120'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.novelty~' />
+        <seealso name='sp.onset~' />
+        <seealso name='sp.spectralonset~' />
+        <seealso name='sp.quantizepitch' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

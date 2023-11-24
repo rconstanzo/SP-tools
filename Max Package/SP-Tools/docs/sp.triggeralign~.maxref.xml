@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.triggeralign~' category='' module='SP-Tools'>
+    <digest>Trigger alignment based on descriptor analysis latency
+</digest>
+    <description>Trigger alignment based on descriptor analysis latency.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.triggeralign~</o> object takes a gate input and time-aligns it to any message-based input in the left inlet. This is primarily useful for delaying triggers/gates so they line up with non-deterministic processes like descriptor analysis or corpus queries.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor in
+</digest>
+            <description>Descriptor input.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Gate in
+</digest>
+            <description>Gate input from <o>sp.onsetframe~</o>.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Trigger out
+</digest>
+            <description>Time-aligned trigger output.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Gate out
+</digest>
+            <description>Time-aligned gate output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.kitchensink~' />
+        <seealso name='sp.melbands~' />
+        <seealso name='sp.mfcc~' />
+        <seealso name='sp.sines~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

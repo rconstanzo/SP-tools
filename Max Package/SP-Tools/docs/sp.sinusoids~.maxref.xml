@@ -1,0 +1,575 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.sinusoids~' category='' module='SP-Tools'>
+    <digest>Analyzes audio for sinusoidal components and resynthesize it for output
+</digest>
+    <description>Analyzes audio for sinusoidal components and resynthesize it for output.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.sinusoids~</o> object creates a flurry of triggers (or gates) after each input based on the current parameter settings. Can be used to trigger more processes down the line.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Primary audio input
+</digest>
+            <description>Primary input for onset detection and recording. Different <at>input</at> modes can apply filtering based on the type of input being used.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Secondary audio input
+</digest>
+            <description>Audio input for recording independently of onset detection when being used in different <at>input</at> modes.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (L)
+</digest>
+            <description>Audio output (L).
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (R)
+</digest>
+            <description>Audio output (R).
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='brightness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of waveshapping added to each individual voice
+</digest>
+        <description>Amount of waveshapping added to each individual voice.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='delay' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time to wait before sending frame to analyze
+</digest>
+        <description>Amount of time to wait, in samples, before sending frame to analyze.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Duration of each sinusoidal component
+</digest>
+        <description>Duration of each sinusoidal component (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='1500'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when falling
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when falling. Typically, this will be faster than slowrampdown.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='383'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when raising
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when raising. Typically, this will be faster than slowrampup.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis
+</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:
+For the hop size, -1 = windowsize/2
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 =&gt; fftsize 1024, but windowssize 1000 also =&gt; fftsize 1024)
+Constraints
+FFTSize, if != -1, will snap to the next greatest power of two
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='1024 256 1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='floor' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor
+</digest>
+        <description>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-70'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='gain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output gain
+</digest>
+        <description>Output gain (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='highpassfreq' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The frequency of the fourth-order high-pass filter. This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths.
+</digest>
+        <description>The frequency of the fourth-order Linkwitz–Riley high-pass filter (<a href="https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter">https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter</a>). This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths. A frequency of 0 bypasses the filter.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='2000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the input mode (air microphone, SP Sensor, contact/trigger)
+</digest>
+        <description>Sets the input mode allowing you to use an air microphone, a Sensory Percussion sensor, or a normal drum trigger/contact mic. When using input modes 3/4, the SP sensor and contact mic are only used for onset detection, and the air microphone will be recorded into the <o>buffer~</o> for audio analysis.
+The available options are:
+<strong>0</strong> = primary input (onset and recording)
+<strong>1</strong> = SP sensor in primary input (onset and recording)
+<strong>2</strong> = contact mic in primary input (onset and recording)
+<strong>3</strong> = SP sensor + air microphone (secondary input)
+<strong>4</strong> = contact mic + air microphone (secondary input)
+<strong>5</strong> = SP sensor with mic correction
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lockout' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time (in <strong>ms</strong>) before it can get triggered again
+</digest>
+        <description>Amount of time (in <strong>ms</strong>) before an onset can get triggered again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='30'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='maxvoices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Total amount of voices that can sustain at a time
+</digest>
+        <description>Total amount of voices that can sustain at a time. Can be useful for saving CPU.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='minslicelength' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The length in samples that the slice will stay ON
+</digest>
+        <description>The length in samples that the Slice will stay ON. Changes of states during that period will be ignored. This is the equivalent of <a>lockout</a> but set in samples.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1323'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</digest>
+        <description>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='8'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='onthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state
+</digest>
+        <description>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state. It is computed on the difference between the two envelope followers.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='19'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sensitivity' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The nervousness of the algorithm thresholds (from 0 to 100%)
+</digest>
+        <description>The nervousness of the algorithm thresholds (from 0 to 100%). This is essentially a &#39;macro&#39; parameter for the individual on/off thresholds.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='shape' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to the ramp up and ramp down
+</digest>
+        <description>Curve that is applied to the ramp up and ramp down.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slope' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Ratio bewteen ramp up and ramp down
+</digest>
+        <description>Whether the ramp up or ramp down time is longer as part of the overall duration.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='transpose' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Transposition of the sinusoidal analysis
+</digest>
+        <description>Transposition of the sinusoidal analysis (in half steps).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='voices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of sinusoidal components to resynthesize
+</digest>
+        <description>Amount of sinusoidal components to resynthesize.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='13'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='width' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Width of the stereo spread of the resynthesis
+</digest>
+        <description>Width of the stereo spread of the resynthesis.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoidplayer~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

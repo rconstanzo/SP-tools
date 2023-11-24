@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.descriptorreplace' category='' module='SP-Tools'>
+    <digest>Replace descriptors from descriptor list or buffer
+</digest>
+    <description>Replace descriptors from descriptor list or buffer.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.descriptorreplace</o> object takes incoming descriptors (as list or buffer) from <o>sp.descriptors~</o>/<o>sp.descriptorframe</o> and replace any of the four main descriptors within it (loudness, centroid, flatness, and pitch).
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor and control in
+</digest>
+            <description>Descriptor input as list or <o>buffer~</o>.
+</description>
+        </inlet>
+        <inlet id='1' type='list'>
+            <digest>Replacement descriptors
+</digest>
+            <description>Descriptors to use as replacements, as list or <o>buffer~</o>.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptor output
+</digest>
+            <description>Descriptor output (as list or <o>buffer~</o>).
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='replace' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>What descriptor(s) to replace
+</digest>
+        <description>What descriptor(s) to replace (loudness, centroid, flatness, pitch)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='4' 
+            value='pitch'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorcurves' />
+        <seealso name='sp.filter' />
+        <seealso name='sp.gridscale' />
+        <seealso name='sp.quantizepitch' />
+        <seealso name='sp.schmitt' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

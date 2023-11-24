@@ -1,0 +1,3 @@
+This file is not real.
+It is only here to help find the path of the samples in the examples regardless of where you load them.
+So close me, and let’s pretend you never saw this.

@@ -1,0 +1,262 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.sinusoidplayer~' category='' module='SP-Tools'>
+    <digest>Oscillator bank for the playback of sinusoidal analysis
+</digest>
+    <description>Oscillator bank for the playback of sinusoidal analysis.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.sinusoidplayer~</o> object is an oscillator bank for the playback of analyzed sinusoidal components. Allows for random variation in envelope parameters so each individual oscillator has its own unique decay.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Frequency/gain pairs from <o>sp.sineframe</o> or <o>sp.sines~</o>
+</digest>
+            <description>Frequency/gain pairs from <o>sp.sineframe</o> or <o>sp.sines~</o>.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output (L)
+</digest>
+            <description>Audio output (L).
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Audio output (R)
+</digest>
+            <description>Audio output (R).
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='brightness' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of waveshapping added to each individual voice
+</digest>
+        <description>Amount of waveshapping added to each individual voice.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='duration' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Duration of each sinusoidal component
+</digest>
+        <description>Duration of each sinusoidal component (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='1500'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='gain' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output gain
+</digest>
+        <description>Output gain (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='maxvoices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Total amount of voices that can sustain at a time
+</digest>
+        <description>Total amount of voices that can sustain at a time. Can be useful for saving CPU.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1024'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='shape' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to the ramp up and ramp down
+</digest>
+        <description>Curve that is applied to the ramp up and ramp down.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slope' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Ratio bewteen ramp up and ramp down
+</digest>
+        <description>Whether the ramp up or ramp down time is longer as part of the overall duration.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='transpose' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Transposition of the sinusoidal analysis
+</digest>
+        <description>Transposition of the sinusoidal analysis (in half steps).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='voices' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of sinusoidal components to resynthesize
+</digest>
+        <description>Amount of sinusoidal components to resynthesize.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='13'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='width' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Width of the stereo spread of the resynthesis
+</digest>
+        <description>Width of the stereo spread of the resynthesis.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.resonators~' />
+        <seealso name='sp.shaker~' />
+        <seealso name='sp.sinusoids~' />
+        <seealso name='sp.waveguidemesh~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

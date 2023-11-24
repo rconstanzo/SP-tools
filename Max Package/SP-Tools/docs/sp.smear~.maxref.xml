@@ -1,0 +1,417 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.smear~' category='' module='SP-Tools'>
+    <digest>Send incoming audio to mutilple outputs based on amplitude
+</digest>
+    <description>Send incoming audio to mutilple outputs based on amplitude.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.smear~</o> object takes audio input and runs it through an envelope follower (<o>sp.envelope~</o>). Based on the output of that it is smeared across a multi-channel output so that different amplitudes can be sent to different places.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio input
+</digest>
+            <description>Audio input.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Manual envelope input
+</digest>
+            <description>Manual envelope input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio out
+</digest>
+            <description>Multi-channel audio output.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Envelope out
+</digest>
+            <description>Envelope output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='attack' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Attack time of envelope follower
+</digest>
+        <description>Attack time of envelope follower (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='5'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='attackgate' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Attack time of gate output
+</digest>
+        <description>Attack time of gate output (in ms)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='chans' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the number of output channels
+</digest>
+        <description>Sets the number of output channels in the multi-channel output (requires dsp restart to take effect).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='4'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='decay' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Decay time of envelope follower
+</digest>
+        <description>Decay time of envelope follower (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='200'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='decaygate' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Decay time of gate out
+</digest>
+        <description>Decay time of gate output (in  ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='40'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='depth' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Depth for gate out
+</digest>
+        <description>Depth for gate output (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='100'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='hold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Hold time for gate out
+</digest>
+        <description>Hold time for gate output (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='20'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='invert' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Whether the inverted output is flipped or inverted
+</digest>
+        <description>Whether the inverted output is the inverted or flipped version of the gate out.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='invertoffset' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Offset to inverted gate signal
+</digest>
+        <description>Offset to inverted gate signal (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='linear' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Enables linear envelope following
+</digest>
+        <description>Enables linear envelope following (logarithmic is default).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='manual' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Disable internal envelope follower
+</digest>
+        <description>Disable internal envelope follower (0 or 1).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='mode' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>What to do when envelope follower exceeds 1.0
+</digest>
+        <description>What to do when envelope follower exceeds 1.0 (none, fold, wrap, clip).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='none'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offset' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Offset of generated envelope, pre-wavefolding
+</digest>
+        <description>Offset of generated envelope, pre-wavefolding (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='scale' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Scale of generated envelope, pre-wavefolding
+</digest>
+        <description>Scale of generated envelope, pre-wavefolding (in %).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='150'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slew' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Slew applied to envelope, post-wavefolding
+</digest>
+        <description>Slew applied to envelope, post-wavefolding (in ms).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='threshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Threshold for gate out
+</digest>
+        <description>Threshold for gate out (in dB).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-20'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.envelope~' />
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.scatter~' />
+        <seealso name='sp.scramble~' />
+        <seealso name='sp.shatter~' />
+        <seealso name='sp.sift~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.corpuscreate' category='' module='SP-Tools'>
+    <digest>Creates a corpus based on a folder of samples
+</digest>
+    <description>Creates a corpus based on a folder of samples.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+Analyze all the samples in a folder for a variety of descriptors, timeframes, and metadata. Keeps track of the location of the samples when analyzed.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Control in
+</digest>
+            <description>Control input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Dict output for <o>sp.plotter</o>
+</digest>
+            <description>Dict output for <o>sp.plotter</o>.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Total duration output
+</digest>
+            <description>Total duration of analysis in <strong>ms</strong> output.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='clear'>
+        <arglist>
+        </arglist>
+        <digest>Clears the analysis
+</digest>
+        <description>Clears the analysis.
+</description>
+    </method>
+    <method name='load'>
+        <arglist>
+        </arglist>
+        <digest>Load a folder of samples to analyze
+</digest>
+        <description>Loads a folder of samples to analyze.
+</description>
+    </method>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print dataset contents to Max console
+</digest>
+        <description>Prints a summary of the descriptors in the dataset to the Max console.
+</description>
+    </method>
+    <method name='read'>
+        <arglist>
+        </arglist>
+        <digest>Read a folder of samples to analyze
+</digest>
+        <description>Reads a folder of samples to analyze directly from a relative or absolute path.
+</description>
+    </method>
+    <method name='reset'>
+        <arglist>
+        </arglist>
+        <digest>Resets the analysis
+</digest>
+        <description>Resets the analysis.
+</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write corpus analysis to disk
+</digest>
+        <description>Write a <strong>.json</strong> file with all the descriptors and required metadata to disk.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.controllermatch' />
+        <seealso name='sp.corpusclustermatch' />
+        <seealso name='sp.corpusconvolver~' />
+        <seealso name='sp.corpuslist' />
+        <seealso name='sp.corpusmatch' />
+        <seealso name='sp.corpusplayer~' />
+        <seealso name='sp.corpussampler~' />
+        <seealso name='sp.gridmatch' />
+        <seealso name='sp.plotter' />
+        <seealso name='sp.sampler~' />
+        <seealso name='sp.setupcreate~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

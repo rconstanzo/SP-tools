@@ -1,0 +1,403 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.descriptorcurves' category='' module='SP-Tools'>
+    <digest>Descriptor scaling and curve application
+</digest>
+    <description>Descriptor scaling and curve application.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.descriptorcurves</o> object takes incoming descriptor data (descriptors only) and allows you to apply curves or common scalings to it. This is useful when moving from different unit types like dB, MIDI, amplitude, etc... or when you want to adjust the curve/sensitivity of a specific descriptor.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor in
+</digest>
+            <description>Descriptor input as list or <o>buffer~</o>.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Scaled and processed descriptor out
+</digest>
+            <description>Scaled and processed descriptor output (as list or <o>buffer~</o>).
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='centroid' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Will take either a unit type, curve, or scale list
+</digest>
+        <description>Will take either a unit type, curve, or scale list (only one type can be used).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='centroidcurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to centroid
+</digest>
+        <description>Curve that is applied to centroid (-100. to 100.).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='centroidunits' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output units for centroid
+</digest>
+        <description>Output units for centroid (midi, mtof).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='midi'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='centroidscale' 
+        type='list' 
+        size='4'
+        get='1' set='1' 
+        >
+        <digest>Scaling for centroid
+</digest>
+        <description>Scaling for centroid (4 item list as input-low input-high output-low output-high).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='4' 
+            value='0. 1. 0. 1.'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='flatness' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Will take either a unit type, curve, or scale list
+</digest>
+        <description>Will take either a unit type, curve, or scale list (only one type can be used).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='flatnesscurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to flatness
+</digest>
+        <description>Curve that is applied to flatness (-100. to 100.).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='flatnessunits' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output units for flatness
+</digest>
+        <description>Output units for flatness (db, amplitude, velocity).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='db'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='flatnessscale' 
+        type='list' 
+        size='4'
+        get='1' set='1' 
+        >
+        <digest>Scaling for centroid
+</digest>
+        <description>Scaling for centroid (4 item list as input-low input-high output-low output-high).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='4' 
+            value='0. 1. 0. 1.'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loudness' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Will take either a unit type, curve, or scale list
+</digest>
+        <description>Will take either a unit type, curve, or scale list (only one type can be used).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loudnesscurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to loudness
+</digest>
+        <description>Curve that is applied to loudness (-100. to 100.).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loudnessunits' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output units for loudness
+</digest>
+        <description>Output units for loudness (db, amplitude, velocity).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='db'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='loudnessscale' 
+        type='list' 
+        size='4'
+        get='1' set='1' 
+        >
+        <digest>Scaling for loudness
+</digest>
+        <description>Scaling for loudness (4 item list as input-low input-high output-low output-high).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='4' 
+            value='0. 1. 0. 1.'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pitch' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Will take either a unit type, curve, or scale list
+</digest>
+        <description>Will take either a unit type, curve, or scale list (only one type can be used).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pitchcurve' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Curve that is applied to pitch
+</digest>
+        <description>Curve that is applied to pitch (-100. to 100.).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pitchunits' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Output units for pitch
+</digest>
+        <description>Output units for pitch (midi, mtof).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='midi'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='pitchscale' 
+        type='list' 
+        size='4'
+        get='1' set='1' 
+        >
+        <digest>Scaling for pitch
+</digest>
+        <description>Scaling for pitch (4 item list as input-low input-high output-low output-high).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='4' 
+            value='0. 1. 0. 1.'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorreplace' />
+        <seealso name='sp.filter' />
+        <seealso name='sp.gridscale' />
+        <seealso name='sp.quantizepitch' />
+        <seealso name='sp.schmitt' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

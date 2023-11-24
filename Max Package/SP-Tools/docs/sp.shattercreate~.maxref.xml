@@ -1,0 +1,142 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.shattercreate~' category='' module='SP-Tools'>
+    <digest>Pre-analyze a signal using Non-Negative Matrix Factorisation
+</digest>
+    <description>Pre-analyze a signal using Non-Negative Matrix Factorisation.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.shattercreate~</o> object takes audio input and decomposes it uses finely-tuned spectral contours that are optimised through machine learning. These can then be loaded into <o>sp.shatter~</o> to decompose incoming audio through the same spectral contours.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio input
+</digest>
+            <description>Multi-channel audio input
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio output
+</digest>
+            <description>Multi-channel audio put
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+    <method name='print'>
+        <arglist>
+        </arglist>
+        <digest>Print summary info to Max console
+</digest>
+        <description>Prints a summary of the analysis to the Max console.
+</description>
+    </method>
+    <method name='seed'>
+        <arglist>
+        </arglist>
+        <digest>Enable recording for the internal NMF decomposition <o>buffer~</o>
+</digest>
+        <description>Enable recording for the internal NMF decomposition <o>buffer~</o>.
+</description>
+    </method>
+    <method name='write'>
+        <arglist>
+        </arglist>
+        <digest>Write decomposition to disk
+</digest>
+        <description>Write a <strong>.json</strong> file with all the required information to dsk.
+</description>
+    </method>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='components' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of components for the internal seeding
+</digest>
+        <description>Amount of components for the internal seeding (not required when loading an analysis).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fftsettings' 
+        type='list' 
+        size='3'
+        get='1' set='1' 
+        >
+        <digest>FFT settings for analysis
+</digest>
+        <description>FFT settings consist of three numbers representing the window size, hop size and FFT size in samples:
+The hop size and fft size can both be set to -1 (and are by default), with slightly different meanings:
+For the hop size, -1 = windowsize/2
+For the FFT size, -1 = windowsize snapped to the nearest equal / greater power of 2 (e.g. windowsize 1024 =&gt; fftsize 1024, but windowssize 1000 also =&gt; fftsize 1024)
+Constraints
+FFTSize, if != -1, will snap to the next greatest power of two
+if FFT size != -1, then window size is clipped at FFT size
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='3' 
+            value='512 64 512'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.envelope~' />
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.scatter~' />
+        <seealso name='sp.scramble~' />
+        <seealso name='sp.shatter~' />
+        <seealso name='sp.sift~' />
+        <seealso name='sp.smear~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

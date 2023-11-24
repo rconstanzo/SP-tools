@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.onset~' category='' module='SP-Tools'>
+    <digest>Amplitude-based onset detection
+</digest>
+    <description>Amplitude-based onset detection.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.onset~</o> object takes audio input and outputs a <strong>bang</strong>, trigger, and a gate when an onset is detected. The sensitivity is adjustable (0-100%) and a threshold can be set as an absolute noise floor (in dB).
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Audio and control in
+</digest>
+            <description>Audio input to analyze for novelty.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>bang out
+</digest>
+            <description>bang output when an onset is detected.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Trigger out
+</digest>
+            <description>Trigger output when an onset is detected.
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Gate out
+</digest>
+            <description>Gate output when an onset is detected.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='fastrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when falling
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when falling. Typically, this will be faster than slowrampdown.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='383'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when raising
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when raising. Typically, this will be faster than slowrampup.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='floor' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor
+</digest>
+        <description>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-70'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='highpassfreq' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The frequency of the fourth-order high-pass filter. This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths.
+</digest>
+        <description>The frequency of the fourth-order Linkwitz–Riley high-pass filter (<a href="https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter">https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter</a>). This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths. A frequency of 0 bypasses the filter.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='2000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the input mode (air microphone, SP Sensor, contact/trigger)
+</digest>
+        <description>Sets the input mode allowing you to use an air microphone, a Sensory Percussion sensor, or a normal drum trigger/contact mic.
+The available options are:
+<strong>0</strong> = unfiltered audio directly into onset detection
+<strong>1</strong> = 5k bump tuned for use with a Sensory Percussion sensor
+<strong>2</strong> = 2k bandpass tuned for use with a contact mic or drum trigger
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lockout' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time (in <strong>ms</strong>) before it can get triggered again
+</digest>
+        <description>Amount of time (in <strong>ms</strong>) before an onset can get triggered again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='30'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='minslicelength' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The length in samples that the slice will stay ON
+</digest>
+        <description>The length in samples that the Slice will stay ON. Changes of states during that period will be ignored. This is the equivalent of <a>lockout</a> but set in samples.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1323'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</digest>
+        <description>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='8'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='onthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state
+</digest>
+        <description>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state. It is computed on the difference between the two envelope followers.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='19'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sensitivity' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The nervousness of the algorithm thresholds (from 0 to 100%)
+</digest>
+        <description>The nervousness of the algorithm thresholds (from 0 to 100%). This is essentially a &#39;macro&#39; parameter for the individual on/off thresholds.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.novelty~' />
+        <seealso name='sp.onsetframe~' />
+        <seealso name='sp.spectralonset~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

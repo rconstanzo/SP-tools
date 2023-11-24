@@ -1,0 +1,577 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.scatter~' category='' module='SP-Tools'>
+    <digest>Send incoming audio to mutilple outputs based on onsets
+</digest>
+    <description>Send incoming audio to mutilple outputs based on onsets.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.scatter~</o> object takes audio input and based on onset analysis sends it to a different channel in a multi-channel output.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='signal'>
+            <digest>Primary audio input
+</digest>
+            <description>Primary input for onset detection and recording. Different <at>input</at> modes can apply filtering based on the type of input being used.
+</description>
+        </inlet>
+        <inlet id='1' type='signal'>
+            <digest>Secondary audio input
+</digest>
+            <description>Audio input for recording independently of onset detection when being used in different <at>input</at> modes.
+</description>
+        </inlet>
+        <inlet id='2' type='signal'>
+            <digest>Manual trigger
+</digest>
+            <description>Manual trigger input.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='signal'>
+            <digest>Audio out
+</digest>
+            <description>Multi-channel audio output.
+</description>
+        </outlet>
+        <outlet id='1' type='signal'>
+            <digest>Channel out
+</digest>
+            <description>Current channel output.
+</description>
+        </outlet>
+        <outlet id='2' type='signal'>
+            <digest>Trigger output
+</digest>
+            <description>Analyzed onset as a trigger, delay-compensated based on the current <at>delay</at> settings.
+</description>
+        </outlet>
+        <outlet id='3' type='signal'>
+            <digest>Gate output
+</digest>
+            <description>Analyzed onset as a gate, delay-compensated based on the current <at>delay</at> settings.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='chans' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the number of output channels
+</digest>
+        <description>Sets the number of output channels in the multi-channel output (requires dsp restart to take effect).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='8'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='direction' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Direction of step direction
+</digest>
+        <description>Direction of step direction (forward, reverse, random).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value='forward'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when falling
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when falling. Typically, this will be faster than slowrampdown.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='383'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='fastrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the relative envelope follower will take to reach the next value when raising
+</digest>
+        <description>The number of samples the relative envelope follower will take to reach the next value when raising. Typically, this will be faster than slowrampup.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='3'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='floor' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor
+</digest>
+        <description>The level in dB the slow ramp needs to be above to consider a detected difference valid, allowing to ignore the onsets in the noise floor.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='-70'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='highpassfreq' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The frequency of the fourth-order high-pass filter. This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths.
+</digest>
+        <description>The frequency of the fourth-order Linkwitz–Riley high-pass filter (<a href="https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter">https://en.wikipedia.org/wiki/Linkwitz%E2%80%93Riley_filter</a>). This is done first on the signal to minimise low frequency intermodulation with very fast ramp lengths. A frequency of 0 bypasses the filter.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='2000'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='input' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Sets the input mode (air microphone, SP Sensor, contact/trigger)
+</digest>
+        <description>Sets the input mode allowing you to use an air microphone, a Sensory Percussion sensor, or a normal drum trigger/contact mic. When using input modes 3/4, the SP sensor and contact mic are only used for onset detection, and the air microphone will be recorded into the <o>buffer~</o> for audio analysis.
+The available options are:
+<strong>0</strong> = primary input (onset and recording)
+<strong>1</strong> = SP sensor in primary input (onset and recording)
+<strong>2</strong> = contact mic in primary input (onset and recording)
+<strong>3</strong> = SP sensor + air microphone (secondary input)
+<strong>4</strong> = contact mic + air microphone (secondary input)
+<strong>5</strong> = SP sensor with mic correction
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='latency' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Adds a small amount of latency to compensate for onset detection
+</digest>
+        <description>Adds a small amount of latency to compensate for onset detection time (in samples).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='8'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='lockout' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of time (in <strong>ms</strong>) before it can get triggered again
+</digest>
+        <description>Amount of time (in <strong>ms</strong>) before an onset can get triggered again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='30'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='manual' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Disable internal onset detection
+</digest>
+        <description>Disable internal onset detection (0 or 1).
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='metric' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The metric on which spectral difference is computed
+</digest>
+        <description>The metric used to derive a difference curve between spectral frames. It can be any of the following: 0 = &#39;0&#39; Energy thresholds on (sum of squares of magnitudes / nBins) (like Onsets power)
+1 = &#39;1&#39; HFC thresholds on (sum of (squared magnitudes * binNum) / nBins)
+2 = &#39;2&#39; SpectralFlux thresholds on (difference in magnitude between consecutive frames, half rectified)
+3 = &#39;3&#39; MKL thresholds on (sum of log of magnitude ratio per bin) (or equivalently, sum of difference of the log magnitude per bin) (like Onsets mkl)
+4 = &#39;4&#39; IS (WILL PROBABLY BE REMOVED) Itakura - Saito divergence (see literature)
+5 = &#39;5&#39; Cosine thresholds on (cosine distance between comparison frames)
+6 = &#39;6&#39; PhaseDev takes the past 2 frames, projects to the current, as anticipated if it was a steady state, then compute the sum of the differences, on which it thresholds (like Onsets phase)
+7 = &#39;7&#39; WPhaseDev same as PhaseDev, but weighted by the magnitude in order to remove chaos noise floor (like Onsets wphase)
+8 = &#39;8&#39; ComplexDev same as PhaseDev, but in the complex domain - the anticipated amp is considered steady, and the phase is projected, then a complex subtraction is done with the actual present frame. The sum of magnitudes is used to threshold (like Onsets complex)
+9 = &#39;9&#39; RComplexDev same as above, but rectified (like Onsets rcomplex)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='9'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='minslicelength' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The length in samples that the slice will stay ON
+</digest>
+        <description>The length in samples that the Slice will stay ON. Changes of states during that period will be ignored. This is the equivalent of <a>lockout</a> but set in samples.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='1323'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='mode' 
+        type='symbol' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Select between amplitude or spectral onset detection algorithms
+</digest>
+        <description>Select between amplitude or spectral onset detection algorithms.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='symbol' 
+            size='1' 
+            value='amplitude'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='offthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</digest>
+        <description>The threshold in dB of the relative envelope follower to reset, aka to allow the differential envelope to trigger again.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='8'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='onthreshold' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state
+</digest>
+        <description>The threshold in dB of the relative envelope follower to trigger an onset, aka to go ON when in OFF state. It is computed on the difference between the two envelope followers.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='19'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='ramp' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Amount of fade time when changing to different channels
+</digest>
+        <description>Amount of fade time when changing between output channels.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sensitivity' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The nervousness of the algorithm thresholds (from 0 to 100%)
+</digest>
+        <description>The nervousness of the algorithm thresholds (from 0 to 100%). This is essentially a &#39;macro&#39; parameter for the individual on/off thresholds.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='50'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='sequence' 
+        type='list' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Optional sequence that the scatter will step through
+</digest>
+        <description>Optional sequence that the scatter will step through. A message of &quot;sequence reset&quot; will return the sequence to its default state.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampdown' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when falling.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='slowrampup' 
+        type='int' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</digest>
+        <description>The number of samples the absolute envelope follower will take to reach the next value when raising.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='int' 
+            size='1' 
+            value='2205'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='smoothing' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>The size of the smoothing filter applied to the difference curve
+</digest>
+        <description>The size of the smoothing filter applied to the difference curve when in spectral <at>mode</at>.
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='2.5' 
+            value='0'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+        <attribute 
+        name='window' 
+        type='float' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Window of time to look for spectral difference in (for HFC, SpectralFlux, MKL, Cosine only)
+</digest>
+        <description>Window of time to look for spectral difference in when in spectral <at>mode</at> (for HFC, SpectralFlux, MKL, Cosine only). (in ms)
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='float' 
+            size='1' 
+            value='2.5'
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.convolver~' />
+        <seealso name='sp.envelope~' />
+        <seealso name='sp.lpg~' />
+        <seealso name='sp.scramble~' />
+        <seealso name='sp.shatter~' />
+        <seealso name='sp.sift~' />
+        <seealso name='sp.smear~' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>

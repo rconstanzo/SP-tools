@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Re-order samples in polybuffer~</title>
+<script src="../../javascript/jquery-3.7.0.min.js"></script>
+<script src="../../javascript/jquery-ui.min.js"></script>
+<script>
+let order = [];
+
+$(document).ready(function() {
+	window.max.bindInlet("clear", () => {
+	   $('ol').empty();
+	});
+
+	window.max.bindInlet("shortname", (bufferName, fileName) => {   
+	   if(bufferName != 'done') {
+		   $('ol').append(`<li>${fileName}</li>`);
+	   }
+	})
+
+	window.max.outlet('ready');
+	
+	$('ol').sortable({
+		start: () => { // Assign indices on start of re-order
+			$('ol li').not('.ui-sortable-placeholder').each((i, e) => {
+				$(e).attr('value', i+1);
+			});
+		},
+		stop: () => {
+			order = []; // Clear the array.
+			$('ol li').not('.ui-sortable-placeholder').each((i, e) => {
+				$(e).attr('value', i+1);
+				order.push($(e).text());
+			});
+
+			order.forEach((e, i) => {
+				window.max.outlet('polybuffer~', 'send', i+1, 'replace', order[i]);
+			});
+		}		
+	});
+	
+});
+</script>
+<style>
+body {
+	background-color: transparent;
+	font-family: Verdana, sans-serif;
+	font-size: 5vh;
+	font-size: 10px;
+	margin: 0px;
+	border: 3px solid #333333;
+}
+
+ol {
+	list-style-position: inside;
+	margin: 0px;
+	padding: 0px;
+	color: #999999;
+}
+
+ol li {
+	padding: 3px 6px;
+}
+
+ol li:nth-child(odd) {
+	background-color: #141414;
+}
+ol li:nth-child(even) {
+	background-color: #202020;
+}
+</style>
+</head>
+<body>
+<ol>
+	<li>empty</li>
+</ol>
+</body>
+</html>

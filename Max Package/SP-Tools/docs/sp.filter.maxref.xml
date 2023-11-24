@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<?xml-stylesheet href="./_c74_ref.xsl" type="text/xsl"?>
+
+<c74object name='sp.filter' category='' module='SP-Tools'>
+    <digest>Apply filtering/routing to incoming descriptor messages
+</digest>
+    <description>Apply filtering/routing to incoming descriptor messages.
+</description>
+    <discussion><h4><openfilelink filename="SP-Tools Overview.maxpat">Open the Overview Patch</openfilelink></h4>
+The <o>sp.filter</o> object allows you to selectively send incoming descriptor messages to one of two outlets depending on whether the filtering criteria is met. This allows you to fork processing based on audio characteristics.
+</discussion>
+
+	<metadatalist>
+		<metadata name='author'>Rodrigo Constanzo, Flucoma Project</metadata>
+		<metadata name='tag'>Machine Learning</metadata>
+		<metadata name='tag'>Audio Analysis</metadata>
+		<metadata name='tag'>Onset Detection</metadata>
+		<metadata name='tag'>Corpus Playback</metadata>
+	</metadatalist>
+
+    <!-- INLETS -->
+    <inletlist>
+        <inlet id='0' type='list'>
+            <digest>Descriptor in
+</digest>
+            <description>Descriptor input as list or <o>buffer~</o>.
+</description>
+        </inlet>
+        <inlet id='1' type='list'>
+            <digest>Descriptor in to be filtered
+</digest>
+            <description>Descriptor input as list or <o>buffer~</o> that will be filtered by the input of the left-most inlet.
+</description>
+        </inlet>
+    </inletlist>
+    <!-- INLETS -->
+
+    <!-- OUTLETS -->
+    <outletlist>
+        <outlet id='0' type='list'>
+            <digest>Descriptor output if conditions are met
+</digest>
+            <description>Descriptor output if conditions are met. Output will be list or <o>buffer~</o> based on what the input was.
+</description>
+        </outlet>
+        <outlet id='1' type='list'>
+            <digest>Descriptor output if conditions are not met
+</digest>
+            <description>Descriptor output if conditions are not met. Output will be list or <o>buffer~</o> based on what the input was.
+</description>
+        </outlet>
+    </outletlist>
+    <!-- OUTLETS -->
+
+    <!-- ARGUMENTS -->
+    <objarglist>
+    </objarglist>
+    <!-- ARGUMENTS -->
+
+    <!--MESSAGES-->
+    <methodlist>
+	</methodlist>
+	<!--MESSAGES-->
+
+	<!--ATTRIBUTES-->
+	<attributelist>
+        <attribute 
+        name='filter' 
+        type='' 
+        size='1'
+        get='1' set='1' 
+        >
+        <digest>Messages related to descriptor filtering
+</digest>
+        <description>Messages related to descriptor filtering.
+After sending the <m>filter</m> message you send a series of additional arguments that determine what descriptor is being filtered, how it is being filtered, as well as further filtering strands combined with conditionals.
+The available descriptors that can be used for filtering are:
+<strong>loudness</strong> = loudness in <strong>dB</strong>
+<strong>loudness_derivative</strong> = derivative of loudness in <strong>dB</strong>
+<strong>centroid</strong> = centroid in <strong>MIDI pitch</strong>
+<strong>centroid_derivative</strong> = derivative of centroid in <strong>MIDI pitch</strong>
+<strong>flatness</strong> = spectral flatness in <strong>dB</strong>
+<strong>flatness_derivative</strong> = derivative of spectral flatness in <strong>dB</strong>
+<strong>pitch</strong> = pitch in <strong>MIDI pitch</strong>
+<strong>pitch_confidence</strong> = pitch confidence in <strong>0 to 1</strong>
+You can filter by the following operators:
+<strong>==</strong> = equals
+<strong>!=</strong> = does not equal
+<strong>&lt;</strong> = less than
+<strong>&lt;=</strong> = less than or equal
+<strong>&gt;</strong> = greater than
+<strong>&gt;=</strong> = greater than or equal
+You can join multiple queries using:
+<strong>and</strong>
+<strong>or</strong>
+Therefore a complete message would look as follows:
+&#39;filter loudness &lt; -45&#39; or &#39;filter duration &gt; 2500&#39; or &#39;filter centroid &gt; 60 and time_centroid &lt; 80&#39;
+</description>
+
+        <attributelist>
+            <attribute 
+            name='default' 
+            type='list' 
+            size='1' 
+            value=''
+            get='1' set='1' 
+            />
+        </attributelist>
+        </attribute>
+	</attributelist>
+	<!--ATTRIBUTES-->
+
+	<!-- SEEALSO -->
+	<seealsolist>
+        <seealso name='sp.descriptorframe' />
+        <seealso name='sp.descriptors~' />
+        <seealso name='sp.descriptorsrt~' />
+        <seealso name='sp.descriptorcurves' />
+        <seealso name='sp.descriptorreplace' />
+        <seealso name='sp.filter' />
+        <seealso name='sp.gridscale' />
+        <seealso name='sp.quantizepitch' />
+        <seealso name='sp.schmitt' />
+	</seealsolist>
+	<!-- SEEALSO -->
+</c74object>
