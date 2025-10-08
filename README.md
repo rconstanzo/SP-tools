@@ -1,3 +1,7 @@
+# /// **SP-Tools have been superceded by Data Knot** ///
+SP-Tools have been deprecated and been superceded by Data Knot:
+[Data Knot repository](http://github.com/rconstanzo/data-knot)
+
 # SP-Tools - Machine Learning tools for low latency real-time performance
 SP-Tools are a set of machine learning tools that are optimized for low latency and real-time performance. The tools can be used with any audio input but include optimizations for [Sensory Percussion](http://sunhou.se) sensors and ordinary drum triggers.  
 
