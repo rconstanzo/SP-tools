@@ -1,5 +1,5 @@
 # /// **SP-Tools have been superceded by Data Knot** ///
-SP-Tools have been deprecated and been superceded by Data Knot:
+SP-Tools have been deprecated and been superseded by Data Knot:
 [Data Knot repository](http://github.com/rconstanzo/data-knot)
 
 # SP-Tools - Machine Learning tools for low latency real-time performance
